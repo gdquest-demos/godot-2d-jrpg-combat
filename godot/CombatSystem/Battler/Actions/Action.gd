@@ -1,12 +1,20 @@
+# Must emit the signal "completed" when the action completed.
 class_name Action
 extends Resource
 
+signal finished
+
 export var icon: ImageTexture
-export var description := "Base combat action"
+export var label := "Base combat action"
+
+
+func apply(_actor, _targets: Array) -> bool:
+	return _apply(_actor, _targets)
 
 
 # Returns `true` if the action succeeded.
-func _apply(_actor: Battler, _targets: Array) -> bool:
+func _apply(_actor, _targets: Array) -> bool:
+	emit_signal("finished")
 	return true
 
 

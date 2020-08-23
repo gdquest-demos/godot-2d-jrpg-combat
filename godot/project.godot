@@ -9,43 +9,83 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Resource",
+"class": "Action",
+"language": "GDScript",
+"path": "res://CombatSystem/Battler/Actions/Action.gd"
+}, {
+"base": "Action",
+"class": "AttackAction",
+"language": "GDScript",
+"path": "res://CombatSystem/Battler/Actions/AttackAction.gd"
+}, {
 "base": "Node2D",
 "class": "Battler",
 "language": "GDScript",
-"path": "res://CombatSystem/Battler.gd"
+"path": "res://CombatSystem/Battler/Battler.gd"
 }, {
 "base": "Reference",
 "class": "BattlerAI",
 "language": "GDScript",
-"path": "res://CombatSystem/BattlerAI.gd"
+"path": "res://CombatSystem/Battler/BattlerAI.gd"
 }, {
 "base": "Position2D",
-"class": "BattlerSkin",
+"class": "BattlerAnim",
 "language": "GDScript",
-"path": "res://CombatSystem/BattlerSkin.gd"
-}, {
-"base": "Reference",
-"class": "Command",
-"language": "GDScript",
-"path": "res://CombatSystem/Actions/Action.gd"
+"path": "res://CombatSystem/Battler/Animation/BattlerAnim.gd"
 }, {
 "base": "Resource",
-"class": "Stats",
+"class": "BattlerStats",
 "language": "GDScript",
-"path": "res://CombatSystem/Stats.gd"
+"path": "res://CombatSystem/Battler/BattlerStats.gd"
+}, {
+"base": "Control",
+"class": "CombatPortrait",
+"language": "GDScript",
+"path": "res://CombatSystem/UserInterface/turn_order/CombatPortrait.gd"
+}, {
+"base": "UIStatBar",
+"class": "UILifeBar",
+"language": "GDScript",
+"path": "res://CombatSystem/UserInterface/bars/lifebar/UILifeBar.gd"
+}, {
+"base": "UIStatBar",
+"class": "UIManaBar",
+"language": "GDScript",
+"path": "res://CombatSystem/UserInterface/bars/manabar/UIManaBar.gd"
+}, {
+"base": "Control",
+"class": "UIStatBar",
+"language": "GDScript",
+"path": "res://CombatSystem/UserInterface/bars/StatBar.gd"
 } ]
 _global_script_class_icons={
+"Action": "",
+"AttackAction": "",
 "Battler": "",
 "BattlerAI": "",
-"BattlerSkin": "",
-"Command": "",
-"Stats": ""
+"BattlerAnim": "",
+"BattlerStats": "",
+"CombatPortrait": "",
+"UILifeBar": "",
+"UIManaBar": "",
+"UIStatBar": ""
 }
 
 [application]
 
 config/name="2D JRPG Combat"
+run/main_scene="res://CombatDemo.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=1920
+window/size/height=1080
+window/size/test_width=960
+window/size/test_height=540
+window/stretch/mode="2d"
+window/stretch/aspect="expand"
 
 [rendering]
 

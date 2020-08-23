@@ -1,12 +1,12 @@
 extends Resource
-class_name Stats
+class_name BattlerStats
 
 signal health_depleted
 
 export var max_health := 100.0
 
-var attack := 10.0
-var speed := 35.0
+export var attack := 10.0
+export var speed := 70.0
 
 var health := max_health setget set_health
 

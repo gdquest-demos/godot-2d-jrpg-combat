@@ -32,7 +32,6 @@ func set_time_scale(value: float) -> void:
 		battler.time_scale = time_scale
 
 
-
 func _play_turn(battler: Battler) -> void:
 	battler.is_selected = true
 	var action: Action
@@ -43,20 +42,21 @@ func _play_turn(battler: Battler) -> void:
 		if b.is_party_member != battler.is_party_member:
 			opponents.append(b)
 
-	# TODO: Remove
+	# TODO: add UI for player and AI for monsters
 	action = battler.actions[0]
 	targets = [opponents[0]]
-	# if battler.is_party_member:
+	# if not battler.ai:
 	# 	combat_menu.open(battler)
 	# 	yield(combat_menu, "action_selected")
 	# else:
 	# 	action = yield(battler.choose_action(battler, opponents), "completed")
 	# 	targets = yield(battler.choose_target(battler, action, opponents), "completed")
 
-	battler.selected = false
 	battler.act(action, targets)
+	set_is_active(false)
+	yield(battler, "action_finished")
+	set_is_active(true)
 
 
 func _on_Battler_ready_to_act(battler: Battler) -> void:
-	if battler.is_party_member:
-		_player_turns.append(battler)
+	_play_turn(battler)

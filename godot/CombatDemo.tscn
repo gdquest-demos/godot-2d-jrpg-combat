@@ -1,0 +1,84 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://CombatSystem/Background/grasslands.png" type="Texture" id=1]
+[ext_resource path="res://CombatSystem/Battler/Actions/AttackAction.gd" type="Script" id=2]
+[ext_resource path="res://CombatSystem/porcupine.png" type="Texture" id=3]
+[ext_resource path="res://CombatSystem/robi.png" type="Texture" id=4]
+[ext_resource path="res://CombatSystem/ActiveTurnQueue.gd" type="Script" id=5]
+[ext_resource path="res://CombatSystem/Battler/robi_stats.tres" type="Resource" id=6]
+[ext_resource path="res://CombatSystem/Battler/Battler.gd" type="Script" id=7]
+[ext_resource path="res://CombatSystem/Battler/Animation/BattlerAnim.tscn" type="PackedScene" id=8]
+[ext_resource path="res://CombatSystem/Battler/battler_stats_default.tres" type="Resource" id=9]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 2 )
+label = "Attack"
+
+[node name="CombatDemo" type="Node2D"]
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="Grasslands" type="Sprite" parent="Background"]
+position = Vector2( 960.698, 541.614 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ActiveTurnQueue" type="Node2D" parent="."]
+script = ExtResource( 5 )
+
+[node name="Robi" type="Node2D" parent="ActiveTurnQueue"]
+position = Vector2( 1475.65, 726.534 )
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true
+}
+display_name = "Battler"
+stats = ExtResource( 6 )
+actions = [ SubResource( 1 ) ]
+is_party_member = true
+
+[node name="BattlerAnim" parent="ActiveTurnQueue/Robi" instance=ExtResource( 8 )]
+
+[node name="Robi" type="Sprite" parent="ActiveTurnQueue/Robi/BattlerAnim"]
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+texture = ExtResource( 4 )
+offset = Vector2( -16.8179, -138.826 )
+
+[node name="Porcupine" type="Node2D" parent="ActiveTurnQueue"]
+position = Vector2( 548.264, 645.808 )
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true
+}
+display_name = "Battler"
+stats = ExtResource( 9 )
+actions = [ SubResource( 1 ) ]
+
+[node name="BattlerAnim" parent="ActiveTurnQueue/Porcupine" instance=ExtResource( 8 )]
+
+[node name="Porcupine" type="Sprite" parent="ActiveTurnQueue/Porcupine/BattlerAnim"]
+texture = ExtResource( 3 )
+offset = Vector2( 0, -102.811 )
+
+[node name="Porcupine2" type="Node2D" parent="ActiveTurnQueue"]
+position = Vector2( 403.63, 871.168 )
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true
+}
+display_name = "Battler"
+stats = ExtResource( 9 )
+actions = [ SubResource( 1 ) ]
+
+[node name="BattlerAnim" parent="ActiveTurnQueue/Porcupine2" instance=ExtResource( 8 )]
+
+[node name="Porcupine" type="Sprite" parent="ActiveTurnQueue/Porcupine2/BattlerAnim"]
+texture = ExtResource( 3 )
+offset = Vector2( 0, -102.811 )
+[connection signal="animation_finished" from="ActiveTurnQueue/Robi/BattlerAnim" to="ActiveTurnQueue/Robi" method="_on_BattlerAnim_animation_finished"]
+[connection signal="animation_finished" from="ActiveTurnQueue/Porcupine/BattlerAnim" to="ActiveTurnQueue/Porcupine" method="_on_BattlerAnim_animation_finished"]
+[connection signal="animation_finished" from="ActiveTurnQueue/Porcupine2/BattlerAnim" to="ActiveTurnQueue/Porcupine2" method="_on_BattlerAnim_animation_finished"]
