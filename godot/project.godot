@@ -8,9 +8,38 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Node2D",
+"class": "Battler",
+"language": "GDScript",
+"path": "res://CombatSystem/Battler.gd"
+}, {
+"base": "Reference",
+"class": "BattlerAI",
+"language": "GDScript",
+"path": "res://CombatSystem/BattlerAI.gd"
+}, {
+"base": "Position2D",
+"class": "BattlerSkin",
+"language": "GDScript",
+"path": "res://CombatSystem/BattlerSkin.gd"
+}, {
+"base": "Reference",
+"class": "Command",
+"language": "GDScript",
+"path": "res://CombatSystem/Actions/Action.gd"
+}, {
+"base": "Resource",
+"class": "Stats",
+"language": "GDScript",
+"path": "res://CombatSystem/Stats.gd"
+} ]
 _global_script_class_icons={
-
+"Battler": "",
+"BattlerAI": "",
+"BattlerSkin": "",
+"Command": "",
+"Stats": ""
 }
 
 [application]
