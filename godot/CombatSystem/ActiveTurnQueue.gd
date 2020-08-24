@@ -39,27 +39,22 @@ func _play_turn(battler: Battler) -> void:
 
 	battler.is_selected = true
 	var action: Action
-	var targets: Array
-
-
+	var targets := []
 
 	var opponents := []
 	for b in battlers:
 		if b.is_party_member != battler.is_party_member:
 			opponents.append(b)
 
-	# TODO: add UI for player and AI for monsters
-#	action = battler.actions[0]
-#	targets = [opponents[0]]
 	if battler.ai == null:
-			var action_menu: UIActionMenu = UIActionMenuScene.instance()
-			add_child(action_menu)
-			action_menu.open(battler.actions)
-			action = yield(action_menu, "action_selected")
+		var action_menu: UIActionMenu = UIActionMenuScene.instance()
+		add_child(action_menu)
+		action_menu.open(battler.actions)
+		action = yield(action_menu, "action_selected")
 	# else:
 	# 	action = yield(battler.choose_action(battler, opponents), "completed")
 	# 	targets = yield(battler.choose_target(battler, action, opponents), "completed")
-
+	targets = opponents
 	battler.act(action, targets)
 	yield(battler, "action_finished")
 	set_is_active(true)

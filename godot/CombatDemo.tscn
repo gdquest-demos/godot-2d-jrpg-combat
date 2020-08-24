@@ -58,7 +58,7 @@ __meta__ = {
 "_edit_group_": true
 }
 stats = ExtResource( 6 )
-actions = [ SubResource( 1 ) ]
+actions = [ SubResource( 1 ), SubResource( 1 ), SubResource( 1 ) ]
 is_party_member = true
 ui_data = SubResource( 2 )
 
@@ -122,6 +122,7 @@ margin_left = -384.0
 margin_top = 145.0
 margin_right = 2.0
 margin_bottom = -138.0
+mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }

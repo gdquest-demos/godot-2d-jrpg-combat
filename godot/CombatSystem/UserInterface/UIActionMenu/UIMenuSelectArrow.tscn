@@ -3,9 +3,9 @@
 [ext_resource path="res://CombatSystem/UserInterface/UIActionMenu/menu_selection_arrow.png" type="Texture" id=1]
 [ext_resource path="res://CombatSystem/UserInterface/UIActionMenu/UIMenuSelectArrow.gd" type="Script" id=2]
 
-
 [node name="UIMenuSelectArrow" type="Sprite"]
 texture = ExtResource( 1 )
+offset = Vector2( -67, 0 )
 script = ExtResource( 2 )
 
 [node name="Tween" type="Tween" parent="."]

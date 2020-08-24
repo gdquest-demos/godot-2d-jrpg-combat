@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://CombatSystem/UserInterface/theme/combat_ui_theme.tres" type="Theme" id=1]
+[ext_resource path="res://CombatSystem/UserInterface/UIActionMenu/menu_action_bg_pressed.png" type="Texture" id=2]
+[ext_resource path="res://CombatSystem/UserInterface/UIActionMenu/menu_action_bg.png" type="Texture" id=3]
+[ext_resource path="res://CombatSystem/UserInterface/UIActionMenu/menu_action_bg_disabled.png" type="Texture" id=4]
+[ext_resource path="res://CombatSystem/UserInterface/UIActionMenu/menu_action_bg_focused.png" type="Texture" id=5]
+[ext_resource path="res://CombatSystem/UserInterface/UIActionMenu/UIActionButton.gd" type="Script" id=6]
+
+[node name="UIActionButton" type="TextureButton"]
+margin_right = 334.0
+margin_bottom = 96.0
+theme = ExtResource( 1 )
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 2 )
+texture_disabled = ExtResource( 4 )
+texture_focused = ExtResource( 5 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 32.0
+margin_top = 20.0
+margin_bottom = -21.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="HBoxContainer"]
+margin_bottom = 55.0
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+margin_left = 4.0
+margin_top = 8.0
+margin_right = 118.0
+margin_bottom = 47.0
+text = "Action"
+[connection signal="pressed" from="." to="." method="_on_pressed"]
