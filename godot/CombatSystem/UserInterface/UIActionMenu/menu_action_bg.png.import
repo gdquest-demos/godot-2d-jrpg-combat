@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/battler_hud_background.png-62eeba4f88c8a649ddfd421e49e86896.stex"
+path="res://.import/menu_action_bg.png-616905fdc6756fa6d88793ff8763e29d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://CombatSystem/UserInterface/battler_hud_background.png"
-dest_files=[ "res://.import/battler_hud_background.png-62eeba4f88c8a649ddfd421e49e86896.stex" ]
+source_file="res://CombatSystem/UserInterface/UIActionMenu/menu_action_bg.png"
+dest_files=[ "res://.import/menu_action_bg.png-616905fdc6756fa6d88793ff8763e29d.stex" ]
 
 [params]
 

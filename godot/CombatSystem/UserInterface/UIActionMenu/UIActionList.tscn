@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://CombatSystem/UserInterface/UIActionMenu/UIActionList.gd" type="Script" id=1]
+[ext_resource path="res://CombatSystem/UserInterface/UIActionMenu/UIMenuAction.tscn" type="PackedScene" id=2]
+
+
+
+[node name="UICommandsList" type="VBoxContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UIMenuAction" parent="." instance=ExtResource( 2 )]
+
+[node name="UIMenuAction2" parent="." instance=ExtResource( 2 )]
+margin_top = 100.0
+margin_bottom = 196.0
+
+[node name="UIMenuAction3" parent="." instance=ExtResource( 2 )]
+margin_top = 200.0
+margin_bottom = 296.0

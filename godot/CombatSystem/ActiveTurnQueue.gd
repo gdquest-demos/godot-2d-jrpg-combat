@@ -1,7 +1,9 @@
 # Gives turns to battlers, time keeps
 extends Node
 
-var combat_menu: Control
+
+const UIActionMenuScene: PackedScene = preload("res://CombatSystem/UserInterface/UIActionMenu/UIActionMenu.tscn")
+
 # Allows pausing the Active Time Battle during combat intro or a cut-scene.
 var is_active := true setget set_is_active
 # Multiplier for the global pace of battle, to slow down time while the player is taking decisions.
@@ -33,9 +35,13 @@ func set_time_scale(value: float) -> void:
 
 
 func _play_turn(battler: Battler) -> void:
+	set_is_active(false)
+
 	battler.is_selected = true
 	var action: Action
 	var targets: Array
+
+
 
 	var opponents := []
 	for b in battlers:
@@ -43,17 +49,18 @@ func _play_turn(battler: Battler) -> void:
 			opponents.append(b)
 
 	# TODO: add UI for player and AI for monsters
-	action = battler.actions[0]
-	targets = [opponents[0]]
-	# if not battler.ai:
-	# 	combat_menu.open(battler)
-	# 	yield(combat_menu, "action_selected")
+#	action = battler.actions[0]
+#	targets = [opponents[0]]
+	if battler.ai == null:
+			var action_menu: UIActionMenu = UIActionMenuScene.instance()
+			add_child(action_menu)
+			action_menu.open(battler.actions)
+			action = yield(action_menu, "action_selected")
 	# else:
 	# 	action = yield(battler.choose_action(battler, opponents), "completed")
 	# 	targets = yield(battler.choose_target(battler, action, opponents), "completed")
 
 	battler.act(action, targets)
-	set_is_active(false)
 	yield(battler, "action_finished")
 	set_is_active(true)
 

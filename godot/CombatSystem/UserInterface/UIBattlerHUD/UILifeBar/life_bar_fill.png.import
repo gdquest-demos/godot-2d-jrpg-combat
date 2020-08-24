@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/life_bar_bg.png-743ea0002ad4fa9353efb4194825ede1.stex"
+path="res://.import/life_bar_fill.png-2ab88eb470c7a80ce04fbe1fc898b205.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://CombatSystem/UserInterface/life_bar_bg.png"
-dest_files=[ "res://.import/life_bar_bg.png-743ea0002ad4fa9353efb4194825ede1.stex" ]
+source_file="res://CombatSystem/UserInterface/UIBattlerHUD/UILifeBar/life_bar_fill.png"
+dest_files=[ "res://.import/life_bar_fill.png-2ab88eb470c7a80ce04fbe1fc898b205.stex" ]
 
 [params]
 

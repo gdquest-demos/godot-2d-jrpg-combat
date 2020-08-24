@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://CombatSystem/UserInterface/UIBattlerHUD/UIEnergyBar/energy_point_fill.png" type="Texture" id=1]
+[ext_resource path="res://CombatSystem/UserInterface/UIBattlerHUD/UIEnergyBar/UIEnergyPoint.gd" type="Script" id=2]
+
+[node name="UIEnergyPoint" type="TextureRect"]
+margin_right = 36.0
+margin_bottom = 35.0
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

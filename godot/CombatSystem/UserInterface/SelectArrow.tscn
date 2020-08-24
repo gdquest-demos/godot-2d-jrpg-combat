@@ -1,7 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://CombatSystem/UserInterface/SelectArrow.gd" type="Script" id=1]
-[ext_resource path="res://CombatSystem/UserInterface/menu_selection_arrow.png" type="Texture" id=2]
+[ext_resource path="res://CombatSystem/UserInterface/UIActionMenu/menu_selection_arrow.png" type="Texture" id=2]
+
+
 
 
 

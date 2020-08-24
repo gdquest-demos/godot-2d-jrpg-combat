@@ -4,7 +4,7 @@ extends Resource
 
 signal finished
 
-export var icon: ImageTexture
+export var icon: Texture
 export var label := "Base combat action"
 
 

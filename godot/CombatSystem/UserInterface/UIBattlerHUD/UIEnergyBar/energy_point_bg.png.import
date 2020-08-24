@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/life_bar_fill.png-dacfa92d0426b1e31da25be68e6d1ba0.stex"
+path="res://.import/energy_point_bg.png-ba4bf0bf2bdf6a7eee0d671cc71e8ad6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://CombatSystem/UserInterface/life_bar_fill.png"
-dest_files=[ "res://.import/life_bar_fill.png-dacfa92d0426b1e31da25be68e6d1ba0.stex" ]
+source_file="res://CombatSystem/UserInterface/UIBattlerHUD/UIEnergyBar/energy_point_bg.png"
+dest_files=[ "res://.import/energy_point_bg.png-ba4bf0bf2bdf6a7eee0d671cc71e8ad6.stex" ]
 
 [params]
 

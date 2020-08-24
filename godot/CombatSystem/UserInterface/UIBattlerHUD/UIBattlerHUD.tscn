@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://CombatSystem/UserInterface/UIBattlerHUD/UIEnergyBar/UIEnergyBar.tscn" type="PackedScene" id=1]
+[ext_resource path="res://CombatSystem/UserInterface/UIBattlerHUD/UIBattlerHUD.gd" type="Script" id=2]
+[ext_resource path="res://CombatSystem/UserInterface/theme/combat_ui_theme.tres" type="Theme" id=3]
+[ext_resource path="res://CombatSystem/UserInterface/UIBattlerHUD/battler_hud_background.png" type="Texture" id=5]
+[ext_resource path="res://CombatSystem/UserInterface/UIBattlerHUD/UILifeBar/UILifeBar.tscn" type="PackedScene" id=7]
+
+[node name="UIBattlerHUD" type="TextureRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -193.0
+margin_top = -78.0
+margin_right = 193.0
+margin_bottom = 78.0
+theme = ExtResource( 3 )
+texture = ExtResource( 5 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UILifeBar" parent="." instance=ExtResource( 7 )]
+margin_left = -343.488
+margin_top = -14.2045
+margin_right = -17.4875
+margin_bottom = 6.79553
+
+[node name="UIEnergyBar" parent="." instance=ExtResource( 1 )]
+margin_left = 22.0798
+margin_top = -63.3521
+margin_right = -30.9202
+margin_bottom = -28.3521
+
+[node name="Label" type="Label" parent="."]
+margin_left = 64.0
+margin_top = 22.0
+margin_right = 140.0
+margin_bottom = 61.0
+text = "Robi"
+__meta__ = {
+"_edit_use_anchors_": false
+}

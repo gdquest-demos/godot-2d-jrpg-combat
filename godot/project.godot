@@ -44,6 +44,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://CombatSystem/Battler/BattlerUIData.gd"
 }, {
+"base": "Control",
+"class": "UIActionMenu",
+"language": "GDScript",
+"path": "res://CombatSystem/UserInterface/UIActionMenu/UIActionMenu.gd"
+}, {
 "base": "TextureRect",
 "class": "UIBattlerIcon",
 "language": "GDScript",
@@ -57,6 +62,7 @@ _global_script_class_icons={
 "BattlerAnim": "",
 "BattlerStats": "",
 "BattlerUIData": "",
+"UIActionMenu": "",
 "UIBattlerIcon": ""
 }
 
