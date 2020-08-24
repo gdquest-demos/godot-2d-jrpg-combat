@@ -8,12 +8,12 @@ func _init() -> void:
 
 
 func _apply(actor, targets: Array) -> bool:
-	for t in targets:
+	for target in targets:
 		var damage = actor.get_damage()
 		actor.play("attack")
-		t.take_damage(damage)
-		t.play("take_damage")
-		print("%s dealt %s damage to %s. Health: %s" % [actor.name, damage, t.name, t.stats.health])
+		target.take_damage(damage)
+		target.play("take_damage")
+		print("%s dealt %s damage to %s. Health: %s" % [actor.name, damage, target.name, target.stats.health])
 		yield(actor, "animation_finished")
 	emit_signal("finished")
 	return true

@@ -3,7 +3,7 @@ extends Position2D
 
 signal animation_finished(name)
 
-onready var anim_player: AnimationPlayer = $AnimationPlayer
+onready var anim_player: AnimationPlayer = $Pivot/AnimationPlayer
 
 
 func play(anim_name: String) -> void:

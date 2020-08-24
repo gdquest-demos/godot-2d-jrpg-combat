@@ -42,8 +42,8 @@ is_party_member = true
 
 [node name="BattlerAnim" parent="ActiveTurnQueue/Robi" instance=ExtResource( 8 )]
 
-[node name="Robi" type="Sprite" parent="ActiveTurnQueue/Robi/BattlerAnim"]
-rotation = 3.14159
+[node name="Robi" type="Sprite" parent="ActiveTurnQueue/Robi/BattlerAnim/Pivot" index="1"]
+rotation = -3.14159
 scale = Vector2( 1, -1 )
 texture = ExtResource( 4 )
 offset = Vector2( -16.8179, -138.826 )
@@ -59,8 +59,10 @@ stats = ExtResource( 9 )
 actions = [ SubResource( 1 ) ]
 
 [node name="BattlerAnim" parent="ActiveTurnQueue/Porcupine" instance=ExtResource( 8 )]
+scale = Vector2( -1, 1 )
 
-[node name="Porcupine" type="Sprite" parent="ActiveTurnQueue/Porcupine/BattlerAnim"]
+[node name="Porcupine" type="Sprite" parent="ActiveTurnQueue/Porcupine/BattlerAnim/Pivot" index="1"]
+scale = Vector2( -1, 1 )
 texture = ExtResource( 3 )
 offset = Vector2( 0, -102.811 )
 
@@ -75,10 +77,18 @@ stats = ExtResource( 9 )
 actions = [ SubResource( 1 ) ]
 
 [node name="BattlerAnim" parent="ActiveTurnQueue/Porcupine2" instance=ExtResource( 8 )]
+scale = Vector2( -1, 1 )
 
-[node name="Porcupine" type="Sprite" parent="ActiveTurnQueue/Porcupine2/BattlerAnim"]
+[node name="Porcupine" type="Sprite" parent="ActiveTurnQueue/Porcupine2/BattlerAnim/Pivot" index="1"]
+scale = Vector2( -1, 1 )
 texture = ExtResource( 3 )
 offset = Vector2( 0, -102.811 )
 [connection signal="animation_finished" from="ActiveTurnQueue/Robi/BattlerAnim" to="ActiveTurnQueue/Robi" method="_on_BattlerAnim_animation_finished"]
 [connection signal="animation_finished" from="ActiveTurnQueue/Porcupine/BattlerAnim" to="ActiveTurnQueue/Porcupine" method="_on_BattlerAnim_animation_finished"]
 [connection signal="animation_finished" from="ActiveTurnQueue/Porcupine2/BattlerAnim" to="ActiveTurnQueue/Porcupine2" method="_on_BattlerAnim_animation_finished"]
+
+[editable path="ActiveTurnQueue/Robi/BattlerAnim"]
+
+[editable path="ActiveTurnQueue/Porcupine/BattlerAnim"]
+
+[editable path="ActiveTurnQueue/Porcupine2/BattlerAnim"]
