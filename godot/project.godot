@@ -39,25 +39,15 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://CombatSystem/Battler/BattlerStats.gd"
 }, {
-"base": "Control",
-"class": "CombatPortrait",
+"base": "Resource",
+"class": "BattlerUIData",
 "language": "GDScript",
-"path": "res://CombatSystem/UserInterface/turn_order/CombatPortrait.gd"
+"path": "res://CombatSystem/Battler/BattlerUIData.gd"
 }, {
-"base": "UIStatBar",
-"class": "UILifeBar",
+"base": "TextureRect",
+"class": "UIBattlerIcon",
 "language": "GDScript",
-"path": "res://CombatSystem/UserInterface/bars/lifebar/UILifeBar.gd"
-}, {
-"base": "UIStatBar",
-"class": "UIManaBar",
-"language": "GDScript",
-"path": "res://CombatSystem/UserInterface/bars/manabar/UIManaBar.gd"
-}, {
-"base": "Control",
-"class": "UIStatBar",
-"language": "GDScript",
-"path": "res://CombatSystem/UserInterface/bars/StatBar.gd"
+"path": "res://CombatSystem/UserInterface/UITurnBar/UIBattlerIcon.gd"
 } ]
 _global_script_class_icons={
 "Action": "",
@@ -66,10 +56,8 @@ _global_script_class_icons={
 "BattlerAI": "",
 "BattlerAnim": "",
 "BattlerStats": "",
-"CombatPortrait": "",
-"UILifeBar": "",
-"UIManaBar": "",
-"UIStatBar": ""
+"BattlerUIData": "",
+"UIBattlerIcon": ""
 }
 
 [application]
@@ -82,6 +70,7 @@ config/icon="res://icon.png"
 
 window/size/width=1920
 window/size/height=1080
+window/size/fullscreen=true
 window/size/test_width=960
 window/size/test_height=540
 window/stretch/mode="2d"
