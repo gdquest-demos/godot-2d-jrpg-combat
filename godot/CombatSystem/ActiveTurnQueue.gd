@@ -3,6 +3,7 @@ extends Node
 
 
 const UIActionMenuScene: PackedScene = preload("res://CombatSystem/UserInterface/UIActionMenu/UIActionMenu.tscn")
+const SelectArrow: PackedScene = preload("res://CombatSystem/UserInterface/SelectArrow.tscn")
 
 # Allows pausing the Active Time Battle during combat intro or a cut-scene.
 var is_active := true setget set_is_active
@@ -12,7 +13,6 @@ var time_scale := 1.0 setget set_time_scale
 
 # Stack of player units that have to take turns.
 var _player_turns := []
-var _turn_in_progress := false
 
 onready var battlers := get_children()
 
@@ -47,14 +47,22 @@ func _play_turn(battler: Battler) -> void:
 			opponents.append(b)
 
 	if battler.ai == null:
-		var action_menu: UIActionMenu = UIActionMenuScene.instance()
-		add_child(action_menu)
-		action_menu.open(battler.actions)
-		action = yield(action_menu, "action_selected")
+		var is_selection_complete := false
+		while not is_selection_complete:
+			var action_menu: UIActionMenu = UIActionMenuScene.instance()
+			add_child(action_menu)
+			action_menu.open(battler.actions)
+			action = yield(action_menu, "action_selected")
+			
+			var arrow: SelectBattlerArrow = SelectArrow.instance()
+			add_child(arrow)
+			arrow.setup(opponents)
+			targets = yield(arrow, "target_selected")
+			arrow.queue_free()
+			is_selection_complete = action != null && targets != []
 	# else:
 	# 	action = yield(battler.choose_action(battler, opponents), "completed")
 	# 	targets = yield(battler.choose_target(battler, action, opponents), "completed")
-	targets = opponents
 	battler.act(action, targets)
 	yield(battler, "action_finished")
 	set_is_active(true)

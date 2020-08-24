@@ -1,10 +1,15 @@
-extends Sprite
+extends Position2D
 
 onready var tween: Tween = $Tween
+onready var anim_player: AnimationPlayer = $Sprite/AnimationPlayer
 
 
 func _init() -> void:
 	set_as_toplevel(true)
+
+
+func _ready() -> void:
+	anim_player.play("wiggle")
 
 
 func move_to(target: Vector2) -> void:

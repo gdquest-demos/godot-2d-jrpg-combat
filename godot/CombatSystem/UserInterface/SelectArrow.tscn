@@ -3,10 +3,6 @@
 [ext_resource path="res://CombatSystem/UserInterface/SelectArrow.gd" type="Script" id=1]
 [ext_resource path="res://CombatSystem/UserInterface/UIActionMenu/menu_selection_arrow.png" type="Texture" id=2]
 
-
-
-
-
 [sub_resource type="Animation" id=1]
 resource_name = "SETUP"
 length = 0.001
@@ -40,22 +36,12 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( -8, 0 ) ]
 }
 
-[node name="SelectArrow" type="Control"]
-focus_neighbour_left = NodePath(".")
-focus_neighbour_top = NodePath(".")
-focus_neighbour_right = NodePath(".")
-focus_neighbour_bottom = NodePath(".")
-focus_next = NodePath(".")
-focus_previous = NodePath(".")
-focus_mode = 1
+[node name="SelectArrow" type="Position2D"]
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -5.39153, 0 )
 texture = ExtResource( 2 )
+offset = Vector2( -59.409, 0 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
 anims/SETUP = SubResource( 1 )

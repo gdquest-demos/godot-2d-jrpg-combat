@@ -16,4 +16,6 @@ anims/appear = ExtResource( 5 )
 anims/attack = ExtResource( 2 )
 anims/death = ExtResource( 3 )
 anims/take_damage = ExtResource( 4 )
+
+[node name="FrontAnchor" type="Position2D" parent="."]
 [connection signal="animation_finished" from="Pivot/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

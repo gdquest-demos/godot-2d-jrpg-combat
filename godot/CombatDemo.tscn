@@ -70,6 +70,9 @@ scale = Vector2( 1, -1 )
 texture = ExtResource( 4 )
 offset = Vector2( -16.8179, -138.826 )
 
+[node name="FrontAnchor" parent="ActiveTurnQueue/Robi/BattlerAnim" index="1"]
+position = Vector2( -133.492, -105.534 )
+
 [node name="Porcupine" type="Node2D" parent="ActiveTurnQueue"]
 position = Vector2( 414.234, 645.808 )
 script = ExtResource( 7 )
@@ -88,6 +91,9 @@ scale = Vector2( -1, 1 )
 texture = ExtResource( 3 )
 offset = Vector2( 0, -102.811 )
 
+[node name="FrontAnchor" parent="ActiveTurnQueue/Porcupine/BattlerAnim" index="1"]
+position = Vector2( -194.216, -88.1601 )
+
 [node name="Porcupine2" type="Node2D" parent="ActiveTurnQueue"]
 position = Vector2( 269.6, 871.168 )
 script = ExtResource( 7 )
@@ -105,6 +111,9 @@ scale = Vector2( -1, 1 )
 scale = Vector2( -1, 1 )
 texture = ExtResource( 3 )
 offset = Vector2( 0, -102.811 )
+
+[node name="FrontAnchor" parent="ActiveTurnQueue/Porcupine2/BattlerAnim" index="1"]
+position = Vector2( -190.411, -78.3991 )
 
 [node name="UI" type="CanvasLayer" parent="."]
 

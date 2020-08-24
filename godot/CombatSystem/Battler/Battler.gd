@@ -59,6 +59,10 @@ func play(anim_name: String) -> void:
 	battler_anim.play(anim_name)
 
 
+func get_anchor_global_position() -> Vector2:
+	return battler_anim.get_anchor_global_position()
+
+
 func set_is_active(value):
 	is_active = value
 	set_process(is_active)
