@@ -55,6 +55,11 @@ _global_script_classes=[ {
 "path": "res://CombatSystem/UserInterface/UIActionMenu/UIActionMenu.gd"
 }, {
 "base": "TextureRect",
+"class": "UIBattlerHUD",
+"language": "GDScript",
+"path": "res://CombatSystem/UserInterface/UIBattlerHUD/UIBattlerHUD.gd"
+}, {
+"base": "TextureRect",
 "class": "UIBattlerIcon",
 "language": "GDScript",
 "path": "res://CombatSystem/UserInterface/UITurnBar/UIBattlerIcon.gd"
@@ -69,6 +74,7 @@ _global_script_class_icons={
 "BattlerUIData": "",
 "SelectBattlerArrow": "",
 "UIActionMenu": "",
+"UIBattlerHUD": "",
 "UIBattlerIcon": ""
 }
 

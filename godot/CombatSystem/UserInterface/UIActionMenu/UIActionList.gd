@@ -2,7 +2,9 @@ extends VBoxContainer
 
 signal action_selected(action)
 
-const UIActionButton: PackedScene = preload("res://CombatSystem/UserInterface/UIActionMenu/UIActionButton.tscn")
+const UIActionButton: PackedScene = preload(
+	"res://CombatSystem/UserInterface/UIActionMenu/UIActionButton.tscn"
+)
 
 var is_disabled = false setget set_is_disabled
 var buttons := []
@@ -16,10 +18,15 @@ func setup(actions: Array) -> void:
 		add_child(action_button)
 		action_button.setup(action)
 		action_button.connect("pressed", self, "_on_UIActionButton_button_pressed", [action])
-		action_button.connect("focus_entered", self, "_on_UIActionButton_focus_entered", [action_button])
+		action_button.connect(
+			"focus_entered", self, "_on_UIActionButton_focus_entered", [action_button]
+		)
 		buttons.append(action_button)
 
-	select_arrow.position = buttons[0].rect_global_position + Vector2(0.0, buttons[0].rect_size.y / 2.0)
+	select_arrow.position = (
+		buttons[0].rect_global_position
+		+ Vector2(0.0, buttons[0].rect_size.y / 2.0)
+	)
 
 
 func focus() -> void:

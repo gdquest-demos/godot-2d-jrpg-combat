@@ -2,18 +2,18 @@ tool
 class_name UIBattlerIcon
 extends TextureRect
 
-enum Types {ALLY, PLAYER, ENEMY}
+enum Types { ALLY, PLAYER, ENEMY }
 
 export var icon: Texture setget set_icon
 
-export(Types) var type: int = Types.ENEMY setget set_type
+export (Types) var type: int = Types.ENEMY setget set_type
 
 var position_range := Vector2.ZERO
 
 var _types := {
-	Types.ALLY : load("res://CombatSystem/UserInterface/UITurnBar/portrait_bg_ally.png"),
-	Types.PLAYER : load("res://CombatSystem/UserInterface/UITurnBar/portrait_bg_player.png"),
-	Types.ENEMY : load("res://CombatSystem/UserInterface/UITurnBar/portrait_bg_enemy.png"),
+	Types.ALLY: load("res://CombatSystem/UserInterface/UITurnBar/portrait_bg_ally.png"),
+	Types.PLAYER: load("res://CombatSystem/UserInterface/UITurnBar/portrait_bg_player.png"),
+	Types.ENEMY: load("res://CombatSystem/UserInterface/UITurnBar/portrait_bg_enemy.png"),
 }
 
 onready var _icon_node := $Icon

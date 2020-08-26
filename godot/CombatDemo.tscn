@@ -13,7 +13,7 @@
 [ext_resource path="res://CombatDemo.gd" type="Script" id=11]
 [ext_resource path="res://CombatSystem/UserInterface/UITurnBar/UITurnBar.tscn" type="PackedScene" id=12]
 [ext_resource path="res://CombatSystem/Battler/BattlerStats.gd" type="Script" id=13]
-[ext_resource path="res://CombatSystem/UserInterface/UIBattlerHUD/UIBattlerHUD.tscn" type="PackedScene" id=14]
+[ext_resource path="res://CombatSystem/UserInterface/UIBattlerHUD/UIBattlerHUDList.tscn" type="PackedScene" id=14]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 2 )
@@ -32,8 +32,9 @@ texture = ExtResource( 3 )
 [sub_resource type="Resource" id=4]
 script = ExtResource( 13 )
 max_health = 100.0
+max_energy = 6
 attack = 10.0
-speed = 24.0
+speed = 56.0
 
 [node name="CombatDemo" type="Node2D"]
 script = ExtResource( 11 )
@@ -123,48 +124,7 @@ margin_top = 1.61401
 margin_right = 0.697998
 margin_bottom = 1.61389
 
-[node name="UIBattlerHUDList" type="VBoxContainer" parent="UI"]
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -384.0
-margin_top = 145.0
-margin_right = 2.0
-margin_bottom = -138.0
-mouse_filter = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="UIBattlerHUD" parent="UI/UIBattlerHUDList" instance=ExtResource( 14 )]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 0.0
-margin_top = 0.0
-margin_right = 386.0
-margin_bottom = 156.0
-
-[node name="UIBattlerHUD2" parent="UI/UIBattlerHUDList" instance=ExtResource( 14 )]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 0.0
-margin_top = 160.0
-margin_right = 386.0
-margin_bottom = 316.0
-
-[node name="UIBattlerHUD3" parent="UI/UIBattlerHUDList" instance=ExtResource( 14 )]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 0.0
-margin_top = 320.0
-margin_right = 386.0
-margin_bottom = 476.0
+[node name="UIBattlerHUDList" parent="UI" instance=ExtResource( 14 )]
 [connection signal="animation_finished" from="ActiveTurnQueue/Robi/BattlerAnim" to="ActiveTurnQueue/Robi" method="_on_BattlerAnim_animation_finished"]
 [connection signal="animation_finished" from="ActiveTurnQueue/Porcupine/BattlerAnim" to="ActiveTurnQueue/Porcupine" method="_on_BattlerAnim_animation_finished"]
 [connection signal="animation_finished" from="ActiveTurnQueue/Porcupine2/BattlerAnim" to="ActiveTurnQueue/Porcupine2" method="_on_BattlerAnim_animation_finished"]

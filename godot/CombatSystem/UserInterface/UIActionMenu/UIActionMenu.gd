@@ -20,6 +20,7 @@ func close() -> void:
 	hide()
 	queue_free()
 
+
 func _on_UIActionsList_action_selected(action: Action) -> void:
 	emit_signal("action_selected", action)
 	close()
