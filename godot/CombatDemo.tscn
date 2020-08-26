@@ -125,6 +125,8 @@ margin_right = 0.697998
 margin_bottom = 1.61389
 
 [node name="UIBattlerHUDList" parent="UI" instance=ExtResource( 14 )]
+margin_top = 232.0
+margin_bottom = -164.0
 [connection signal="animation_finished" from="ActiveTurnQueue/Robi/BattlerAnim" to="ActiveTurnQueue/Robi" method="_on_BattlerAnim_animation_finished"]
 [connection signal="animation_finished" from="ActiveTurnQueue/Porcupine/BattlerAnim" to="ActiveTurnQueue/Porcupine" method="_on_BattlerAnim_animation_finished"]
 [connection signal="animation_finished" from="ActiveTurnQueue/Porcupine2/BattlerAnim" to="ActiveTurnQueue/Porcupine2" method="_on_BattlerAnim_animation_finished"]
