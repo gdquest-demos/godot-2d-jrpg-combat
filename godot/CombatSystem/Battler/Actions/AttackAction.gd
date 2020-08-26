@@ -13,7 +13,12 @@ func _apply(actor, targets: Array) -> bool:
 		actor.play("attack")
 		target.take_damage(damage)
 		target.play("take_damage")
-		print("%s dealt %s damage to %s. Health: %s" % [actor.name, damage, target.name, target.stats.health])
+		print(
+			(
+				"%s dealt %s damage to %s. Health: %s"
+				% [actor.name, damage, target.name, target.stats.health]
+			)
+		)
 		yield(actor, "animation_finished")
 	emit_signal("finished")
 	return true

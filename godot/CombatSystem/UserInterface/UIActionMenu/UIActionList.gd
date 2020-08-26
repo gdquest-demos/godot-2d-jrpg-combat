@@ -2,9 +2,7 @@ extends VBoxContainer
 
 signal action_selected(action)
 
-const UIActionButton: PackedScene = preload(
-	"res://CombatSystem/UserInterface/UIActionMenu/UIActionButton.tscn"
-)
+const UIActionButton: PackedScene = preload("res://CombatSystem/UserInterface/UIActionMenu/UIActionButton.tscn")
 
 var is_disabled = false setget set_is_disabled
 var buttons := []

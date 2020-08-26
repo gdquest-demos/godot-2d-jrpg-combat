@@ -70,6 +70,8 @@ func set_is_active(value):
 
 func set_is_selected(value):
 	is_selected = value
+
+
 #	skin.is_blinking = value
 
 

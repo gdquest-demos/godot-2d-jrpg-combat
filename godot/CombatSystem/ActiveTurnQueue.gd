@@ -1,7 +1,6 @@
 # Gives turns to battlers, time keeps
 extends Node
 
-
 const UIActionMenuScene: PackedScene = preload("res://CombatSystem/UserInterface/UIActionMenu/UIActionMenu.tscn")
 const SelectArrow: PackedScene = preload("res://CombatSystem/UserInterface/SelectArrow.tscn")
 
@@ -53,7 +52,7 @@ func _play_turn(battler: Battler) -> void:
 			add_child(action_menu)
 			action_menu.open(battler.actions)
 			action = yield(action_menu, "action_selected")
-			
+
 			var arrow: SelectBattlerArrow = SelectArrow.instance()
 			add_child(arrow)
 			arrow.setup(opponents)
