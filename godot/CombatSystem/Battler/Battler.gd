@@ -10,7 +10,7 @@ signal action_finished
 signal readiness_changed(new_value)
 
 export var stats: Resource
-export var ai: Resource
+export var ai: Resource = null
 # Array of available actions for this unit.
 export var actions: Array
 # If true, this battler is part of the player's party and it targets enemy units
@@ -61,6 +61,10 @@ func play(anim_name: String) -> void:
 
 func get_anchor_global_position() -> Vector2:
 	return battler_anim.get_anchor_global_position()
+
+
+func is_player_controlled() -> bool:
+	return ai == null
 
 
 func set_is_active(value):

@@ -45,7 +45,7 @@ func _play_turn(battler: Battler) -> void:
 		if b.is_party_member != battler.is_party_member:
 			opponents.append(b)
 
-	if battler.ai == null:
+	if battler.is_player_controlled():
 		var is_selection_complete := false
 		while not is_selection_complete:
 			var action_menu: UIActionMenu = UIActionMenuScene.instance()
@@ -59,9 +59,11 @@ func _play_turn(battler: Battler) -> void:
 			targets = yield(arrow, "target_selected")
 			arrow.queue_free()
 			is_selection_complete = action != null && targets != []
-	# else:
-	# 	action = yield(battler.choose_action(battler, opponents), "completed")
-	# 	targets = yield(battler.choose_target(battler, action, opponents), "completed")
+	else:
+		var result: Dictionary = battler.ai.choose(battler, battlers)
+		action = result.action
+		targets = result.targets
+
 	battler.act(action, targets)
 	yield(battler, "action_finished")
 	set_is_active(true)
