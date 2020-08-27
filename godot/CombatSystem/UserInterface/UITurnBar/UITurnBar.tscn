@@ -18,11 +18,13 @@ __meta__ = {
 [node name="Background" type="TextureRect" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -680.0
-margin_top = 98.7781
-margin_right = 680.0
-margin_bottom = 120.778
+margin_left = -434.0
+margin_top = 99.0
+margin_right = 434.0
+margin_bottom = 121.0
 texture = ExtResource( 1 )
+expand = true
+stretch_mode = 7
 __meta__ = {
 "_edit_use_anchors_": false
 }
