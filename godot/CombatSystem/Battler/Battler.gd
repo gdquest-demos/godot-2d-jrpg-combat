@@ -40,8 +40,7 @@ func _process(delta: float) -> void:
 
 
 func act(action, targets: Array) -> void:
-	action.apply(self, targets)
-	yield(action, "finished")
+	yield(action.apply_async(self, targets), "completed")
 	_set_readiness(0.0)
 	emit_signal("action_finished")
 	set_process(true)

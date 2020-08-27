@@ -49,17 +49,13 @@ func _play_turn(battler: Battler) -> void:
 
 	if battler.is_player_controlled():
 		var is_selection_complete := false
+		# Wait for the player to select a valid action and target(s).
 		while not is_selection_complete:
-			var action_menu: UIActionMenu = UIActionMenuScene.instance()
-			add_child(action_menu)
-			action_menu.open(battler.actions)
-			action = yield(action_menu, "action_selected")
-
-			var arrow: SelectBattlerArrow = SelectArrow.instance()
-			add_child(arrow)
-			arrow.setup(opponents)
-			targets = yield(arrow, "target_selected")
-			arrow.queue_free()
+			action = yield(_player_select_action_async(battler.actions), "completed")
+			if action.is_targetting_self:
+				targets = [battler]
+			else:
+				targets = yield(_player_select_targets_async(action, opponents), "completed")
 			is_selection_complete = action != null && targets != []
 	else:
 		var result: Dictionary = battler.ai.choose(battler, battlers)
@@ -69,6 +65,23 @@ func _play_turn(battler: Battler) -> void:
 	battler.act(action, targets)
 	yield(battler, "action_finished")
 	set_is_active(true)
+
+
+func _player_select_action_async(actions: Array) -> Action:
+	var action_menu: UIActionMenu = UIActionMenuScene.instance()
+	add_child(action_menu)
+	action_menu.open(actions)
+	var action: Action = yield(action_menu, "action_selected")
+	return action
+
+
+func _player_select_targets_async(action: Action, opponents: Array) -> Array:
+	var arrow: SelectBattlerArrow = SelectArrow.instance()
+	add_child(arrow)
+	arrow.setup(opponents)
+	var targets = yield(arrow, "target_selected")
+	arrow.queue_free()
+	return targets
 
 
 func _on_Battler_ready_to_act(battler: Battler) -> void:

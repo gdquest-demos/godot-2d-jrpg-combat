@@ -24,10 +24,10 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://CombatSystem/Battler/Battler.gd"
 }, {
-"base": "Resource",
+"base": "Reference",
 "class": "BattlerAI",
 "language": "GDScript",
-"path": "res://CombatSystem/Battler/BattlerAI.gd"
+"path": "res://CombatSystem/Battler/AI/BattlerAI.gd"
 }, {
 "base": "Position2D",
 "class": "BattlerAnim",
@@ -43,6 +43,11 @@ _global_script_classes=[ {
 "class": "BattlerUIData",
 "language": "GDScript",
 "path": "res://CombatSystem/Battler/BattlerUIData.gd"
+}, {
+"base": "Action",
+"class": "EnergyChargeAction",
+"language": "GDScript",
+"path": "res://CombatSystem/Battler/Actions/EnergyChargeAction.gd"
 }, {
 "base": "Node2D",
 "class": "SelectBattlerArrow",
@@ -72,6 +77,7 @@ _global_script_class_icons={
 "BattlerAnim": "",
 "BattlerStats": "",
 "BattlerUIData": "",
+"EnergyChargeAction": "",
 "SelectBattlerArrow": "",
 "UIActionMenu": "",
 "UIBattlerHUD": "",
