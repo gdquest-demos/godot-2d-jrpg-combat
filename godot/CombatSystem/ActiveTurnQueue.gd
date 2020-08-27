@@ -35,6 +35,8 @@ func set_time_scale(value: float) -> void:
 
 func _play_turn(battler: Battler) -> void:
 	set_is_active(false)
+	
+	battler.stats.energy += 1
 
 	battler.is_selected = true
 	var action: Action

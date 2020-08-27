@@ -8,8 +8,8 @@ onready var energy_bar := $UIEnergyBar
 func setup(stats: BattlerStats) -> void:
 	life_bar.max_value = stats.max_health
 	life_bar.value = stats.health
-	energy_bar.max_value = stats.max_energy
-	energy_bar.value = stats.energy
+	energy_bar.setup(stats.max_energy, stats.energy)
+
 	stats.connect("health_changed", self, "_on_BattlerStats_health_changed")
 	stats.connect("energy_changed", self, "_on_BattlerStats_energy_changed")
 

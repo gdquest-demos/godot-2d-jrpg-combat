@@ -29,10 +29,14 @@ margin_right = -17.4875
 margin_bottom = 6.79553
 
 [node name="UIEnergyBar" parent="." instance=ExtResource( 1 )]
-margin_left = 22.0798
-margin_top = -63.3521
-margin_right = -30.9202
-margin_bottom = -28.3521
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -164.0
+margin_top = -61.6427
+margin_right = 164.0
+margin_bottom = -39.6427
 
 [node name="Label" type="Label" parent="."]
 margin_left = 64.0
