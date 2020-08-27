@@ -34,7 +34,6 @@ func set_time_scale(value: float) -> void:
 
 
 func _play_turn(battler: Battler) -> void:
-	set_is_active(false)
 	
 	battler.stats.energy += 1
 
@@ -48,6 +47,7 @@ func _play_turn(battler: Battler) -> void:
 			opponents.append(b)
 
 	if battler.is_player_controlled():
+		set_time_scale(0.05)
 		var is_selection_complete := false
 		# Wait for the player to select a valid action and target(s).
 		while not is_selection_complete:
@@ -57,6 +57,7 @@ func _play_turn(battler: Battler) -> void:
 			else:
 				targets = yield(_player_select_targets_async(action, opponents), "completed")
 			is_selection_complete = action != null && targets != []
+		set_time_scale(1.0)
 	else:
 		var result: Dictionary = battler.ai.choose(battler, battlers)
 		action = result.action
@@ -64,7 +65,6 @@ func _play_turn(battler: Battler) -> void:
 
 	battler.act(action, targets)
 	yield(battler, "action_finished")
-	set_is_active(true)
 
 
 func _player_select_action_async(actions: Array) -> Action:
