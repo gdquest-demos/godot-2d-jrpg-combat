@@ -44,8 +44,8 @@ func _process(delta: float) -> void:
 func act(action, targets: Array) -> void:
 	yield(action.apply_async(self, targets), "completed")
 	_set_readiness(0.0)
-	emit_signal("action_finished")
 	set_process(true)
+	emit_signal("action_finished")
 
 
 func get_damage() -> float:
@@ -95,6 +95,7 @@ func _on_BattlerAnim_animation_finished(anim_name) -> void:
 
 
 func _on_Stats_health_depleted() -> void:
+	emit_signal("health_depleted")
 	if not is_party_member:
 		set_is_selectable(false)
 		set_is_active(false)
