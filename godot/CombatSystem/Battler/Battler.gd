@@ -75,9 +75,6 @@ func set_is_selected(value):
 	is_selected = value
 
 
-#	skin.is_blinking = value
-
-
 func set_is_selectable(value):
 	is_selectable = value
 	if not is_selectable:

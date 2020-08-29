@@ -8,7 +8,7 @@ func _init() -> void:
 	is_targetting_self = true
 
 
-func _apply_async(actor, targets: Array) -> bool:
+func _apply_async(actor, _targets: Array) -> bool:
 	actor.stats.energy += 1
 	yield(actor.get_tree(), "idle_frame")
 	return true
