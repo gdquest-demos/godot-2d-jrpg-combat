@@ -2,6 +2,8 @@ class_name BattlerAnim
 extends Position2D
 
 signal animation_finished(name)
+# Emitted by animations when a combat action should apply its next effect, like dealing damage or healing an ally.
+signal triggered
 
 onready var anim_player: AnimationPlayer = $Pivot/AnimationPlayer
 onready var anchor: Position2D = $FrontAnchor

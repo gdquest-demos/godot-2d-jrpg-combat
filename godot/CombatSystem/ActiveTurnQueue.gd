@@ -1,6 +1,6 @@
 extends Node
 
-signal player_chose_targets
+signal player_turn_finished
 
 const UIActionMenuScene: PackedScene = preload("res://CombatSystem/UserInterface/UIActionMenu/UIActionMenu.tscn")
 const SelectArrow: PackedScene = preload("res://CombatSystem/UserInterface/SelectArrow.tscn")
@@ -21,7 +21,7 @@ onready var battlers := get_children()
 
 
 func _ready() -> void:
-	connect("player_chose_targets", self, "_on_player_chose_targets")
+	connect("player_turn_finished", self, "_on_player_turn_finished")
 	for battler in battlers:
 		battler.connect("ready_to_act", self, "_on_Battler_ready_to_act", [battler])
 		if battler.is_player_controlled():
@@ -66,7 +66,6 @@ func _play_turn(battler: Battler) -> void:
 				targets = yield(_player_select_targets_async(action, potential_targets), "completed")
 			is_selection_complete = action != null && targets != []
 		set_time_scale(1.0)
-		emit_signal("player_chose_targets")
 	else:
 		var result: Dictionary = battler.ai.choose(battler, battlers)
 		action = result.action
@@ -75,6 +74,8 @@ func _play_turn(battler: Battler) -> void:
 	battler.is_selected = false
 	battler.act(action, targets)
 	yield(battler, "action_finished")
+	if battler.is_player_controlled():
+		emit_signal("player_turn_finished")
 
 
 func _player_select_action_async(actions: Array) -> Action:
@@ -94,7 +95,7 @@ func _player_select_targets_async(_action: Action, opponents: Array) -> Array:
 	return targets
 
 
-func _on_player_chose_targets() -> void:
+func _on_player_turn_finished() -> void:
 	if _queue_player != []:
 		_play_turn(_queue_player.pop_front())
 

@@ -58,10 +58,6 @@ func take_damage(amount: float) -> void:
 		battler_anim.play("take_damage")
 
 
-func play(anim_name: String) -> void:
-	battler_anim.play(anim_name)
-
-
 func get_anchor_global_position() -> Vector2:
 	return battler_anim.get_anchor_global_position()
 

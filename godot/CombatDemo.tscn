@@ -16,23 +16,23 @@
 [ext_resource path="res://CombatSystem/UserInterface/UIBattlerHUD/UIBattlerHUDList.tscn" type="PackedScene" id=14]
 [ext_resource path="res://CombatSystem/Battler/AI/BattlerAI.gd" type="Script" id=15]
 
-[sub_resource type="Resource" id=6]
+[sub_resource type="Resource" id=1]
 script = ExtResource( 13 )
 max_health = 100.0
 max_energy = 6
 attack = 12.0
 speed = 38.0
 
-[sub_resource type="Resource" id=4]
+[sub_resource type="Resource" id=2]
 script = ExtResource( 15 )
 
-[sub_resource type="Resource" id=1]
+[sub_resource type="Resource" id=3]
 script = ExtResource( 2 )
 label = "Attack"
 is_targetting_self = false
 is_targetting_all = false
 
-[sub_resource type="Resource" id=5]
+[sub_resource type="Resource" id=4]
 script = ExtResource( 10 )
 display_name = "Porcupine"
 texture = ExtResource( 3 )
@@ -67,10 +67,10 @@ script = ExtResource( 7 )
 __meta__ = {
 "_edit_group_": true
 }
-stats = SubResource( 6 )
-ai = SubResource( 4 )
-actions = [ SubResource( 1 ) ]
-ui_data = SubResource( 5 )
+stats = SubResource( 1 )
+ai = SubResource( 2 )
+actions = [ SubResource( 3 ) ]
+ui_data = SubResource( 4 )
 
 [node name="BattlerAnim" parent="ActiveTurnQueue/Porcupine2" instance=ExtResource( 8 )]
 scale = Vector2( -1, 1 )
