@@ -17,6 +17,8 @@ var _queue_player := []
 var _party_members := []
 var _opponents := []
 
+var _is_player_playing := false
+
 onready var battlers := get_children()
 
 
@@ -55,6 +57,7 @@ func _play_turn(battler: Battler) -> void:
 			potential_targets.append(opponent)
 
 	if battler.is_player_controlled():
+		_is_player_playing = true
 		set_time_scale(0.05)
 		var is_selection_complete := false
 		# Wait for the player to select a valid action and target(s).
@@ -98,16 +101,12 @@ func _player_select_targets_async(_action: Action, opponents: Array) -> Array:
 func _on_player_turn_finished() -> void:
 	if _queue_player != []:
 		_play_turn(_queue_player.pop_front())
+	else:
+		_is_player_playing = false
 
 
 func _on_Battler_ready_to_act(battler: Battler) -> void:
-	if battler.is_player_controlled():
+	if battler.is_player_controlled() and _is_player_playing:
 		_queue_player.append(battler)
-		var can_play_turn := true
-		for party_member in _party_members:
-			if party_member.is_selected:
-				can_play_turn = false
-		if can_play_turn:
-			_play_turn(_queue_player.pop_front())
 	else:
 		_play_turn(battler)
