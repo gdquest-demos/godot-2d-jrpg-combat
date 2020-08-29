@@ -9,6 +9,7 @@ onready var anchor: Position2D = $FrontAnchor
 
 func play(anim_name: String) -> void:
 	anim_player.play(anim_name)
+	anim_player.seek(0.0)
 
 
 func get_anchor_global_position() -> Vector2:
