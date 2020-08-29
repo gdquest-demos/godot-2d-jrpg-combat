@@ -48,6 +48,11 @@ func _play_turn(battler: Battler) -> void:
 	battler.is_selected = true
 	var action: Action
 	var targets := []
+	
+	var potential_targets := []
+	for opponent in _opponents:
+		if opponent.is_selectable:
+			potential_targets.append(opponent)
 
 	if battler.is_player_controlled():
 		set_time_scale(0.05)
@@ -58,7 +63,7 @@ func _play_turn(battler: Battler) -> void:
 			if action.is_targetting_self:
 				targets = [battler]
 			else:
-				targets = yield(_player_select_targets_async(action, _opponents), "completed")
+				targets = yield(_player_select_targets_async(action, potential_targets), "completed")
 			is_selection_complete = action != null && targets != []
 		set_time_scale(1.0)
 		emit_signal("player_chose_targets")

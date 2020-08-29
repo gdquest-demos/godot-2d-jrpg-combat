@@ -12,6 +12,5 @@ func _apply_async(actor, targets: Array) -> bool:
 		var damage = actor.get_damage()
 		actor.play("attack")
 		target.take_damage(damage)
-		target.play("take_damage")
 		yield(actor, "animation_finished")
 	return true

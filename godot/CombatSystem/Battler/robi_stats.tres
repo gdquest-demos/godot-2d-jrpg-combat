@@ -6,5 +6,5 @@
 script = ExtResource( 1 )
 max_health = 140.0
 max_energy = 6
-attack = 22.0
+attack = 250.0
 speed = 60.0

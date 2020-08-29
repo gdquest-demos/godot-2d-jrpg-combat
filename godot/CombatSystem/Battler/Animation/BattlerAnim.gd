@@ -12,6 +12,10 @@ func play(anim_name: String) -> void:
 	anim_player.seek(0.0)
 
 
+func queue_animation(anim_name: String) -> void:
+	anim_player.queue(anim_name)
+
+
 func get_anchor_global_position() -> Vector2:
 	return anchor.global_position
 

@@ -8,6 +8,7 @@ signal ready_to_act
 signal animation_finished(anim_name)
 signal action_finished
 signal readiness_changed(new_value)
+signal health_depleted
 
 export var stats: Resource
 export var ai: Resource = null
@@ -21,7 +22,7 @@ export var ui_data: Resource
 var time_scale := 1.0
 var is_active: bool = true setget set_is_active
 var is_selected: bool = false setget set_is_selected
-var is_selectable: bool = false setget set_is_selectable
+var is_selectable: bool = true setget set_is_selectable
 
 var _readiness := 0.0 setget _set_readiness
 
@@ -30,6 +31,7 @@ onready var battler_anim = $BattlerAnim
 
 func _ready() -> void:
 	assert(stats is BattlerStats)
+	stats.connect("health_depleted", self, "_on_Stats_health_depleted")
 
 
 func _process(delta: float) -> void:
@@ -52,6 +54,8 @@ func get_damage() -> float:
 
 func take_damage(amount: float) -> void:
 	stats.health -= amount
+	if stats.health > 0:
+		battler_anim.play("take_damage")
 
 
 func play(anim_name: String) -> void:
@@ -64,6 +68,10 @@ func get_anchor_global_position() -> Vector2:
 
 func is_player_controlled() -> bool:
 	return ai == null
+
+
+func is_fallen() -> bool:
+	return stats.health == 0
 
 
 func set_is_active(value):
@@ -88,3 +96,10 @@ func _set_readiness(value: float) -> void:
 
 func _on_BattlerAnim_animation_finished(anim_name) -> void:
 	emit_signal("animation_finished", anim_name)
+
+
+func _on_Stats_health_depleted() -> void:
+	if not is_party_member:
+		set_is_selectable(false)
+		set_is_active(false)
+		battler_anim.queue_animation("die")
