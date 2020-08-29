@@ -1,0 +1,180 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://CombatSystem/Battler/Actions/AttackAction.gd" type="Script" id=1]
+[ext_resource path="res://CombatSystem/robi.png" type="Texture" id=2]
+[ext_resource path="res://CombatSystem/Battler/Battler.gd" type="Script" id=3]
+[ext_resource path="res://CombatSystem/Battler/BattlerStats.gd" type="Script" id=4]
+[ext_resource path="res://CombatSystem/Battler/Animation/BattlerAnim.gd" type="Script" id=5]
+[ext_resource path="res://CombatSystem/Battler/Actions/EnergyChargeAction.gd" type="Script" id=6]
+[ext_resource path="res://CombatSystem/Battler/BattlerUIData.gd" type="Script" id=7]
+
+[sub_resource type="Resource" id=7]
+script = ExtResource( 4 )
+max_health = 140.0
+max_energy = 6
+attack = 22.0
+speed = 58.0
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 1 )
+label = "Attack"
+is_targetting_self = false
+is_targetting_all = false
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 6 )
+label = "Charge"
+is_targetting_self = true
+is_targetting_all = false
+
+[sub_resource type="Resource" id=8]
+script = ExtResource( 7 )
+display_name = "Godette"
+texture = ExtResource( 2 )
+
+[sub_resource type="Animation" id=9]
+resource_name = "appear"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 0.435275, 2.46229 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 0.378929 ),
+"update": 3,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "attack"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.2, 0.55, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1.7411, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -53.4199, 0 ), Vector2( -47.7663, 0 ), Vector2( -47.7663, 0 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "death"
+length = 0.85
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.35, 0.4, 0.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 0.988235, 0.235294, 0.0352941, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.35, 0.4, 0.55 ),
+"transitions": PoolRealArray( 1, 1, 1.31951, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 0.92, 1.24 ), Vector2( 3.101, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.55 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "take_damage"
+length = 0.85
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.35, 0.45, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 0.988235, 0.235294, 0.0352941, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="Robi2" type="Node2D"]
+position = Vector2( 1514.33, 916 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+stats = SubResource( 7 )
+actions = [ SubResource( 1 ), SubResource( 2 ) ]
+is_party_member = true
+ui_data = SubResource( 8 )
+
+[node name="BattlerAnim" type="Position2D" parent="."]
+script = ExtResource( 5 )
+
+[node name="Pivot" type="Position2D" parent="BattlerAnim"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BattlerAnim/Pivot"]
+anims/appear = SubResource( 9 )
+anims/attack = SubResource( 10 )
+anims/death = SubResource( 11 )
+anims/take_damage = SubResource( 12 )
+
+[node name="Robi" type="Sprite" parent="BattlerAnim/Pivot"]
+rotation = -3.14159
+scale = Vector2( 1, -1 )
+texture = ExtResource( 2 )
+offset = Vector2( -16.8179, -138.826 )
+
+[node name="FrontAnchor" type="Position2D" parent="BattlerAnim"]
+position = Vector2( -133.492, -105.534 )
+[connection signal="animation_finished" from="BattlerAnim" to="." method="_on_BattlerAnim_animation_finished"]
+[connection signal="animation_finished" from="BattlerAnim/Pivot/AnimationPlayer" to="BattlerAnim" method="_on_AnimationPlayer_animation_finished"]
