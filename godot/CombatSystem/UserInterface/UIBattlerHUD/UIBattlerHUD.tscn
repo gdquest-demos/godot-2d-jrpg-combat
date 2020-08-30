@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://CombatSystem/UserInterface/UIBattlerHUD/UIEnergyBar/UIEnergyBar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://CombatSystem/UserInterface/UIBattlerHUD/UIBattlerHUD.gd" type="Script" id=2]
@@ -6,15 +6,94 @@
 [ext_resource path="res://CombatSystem/UserInterface/UIBattlerHUD/battler_hud_background.png" type="Texture" id=5]
 [ext_resource path="res://CombatSystem/UserInterface/UIBattlerHUD/UILifeBar/UILifeBar.tscn" type="PackedScene" id=7]
 
+[sub_resource type="Animation" id=1]
+resource_name = "_setup"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:margin_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:margin_right")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 386.0 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "deselect"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:margin_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 0.353554 ),
+"update": 0,
+"values": [ -34.9623, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:margin_right")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 0.353554 ),
+"update": 0,
+"values": [ 351.038, 386.0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "select"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:margin_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.353554, 1 ),
+"update": 0,
+"values": [ 0.0, -34.9623 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:margin_right")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.353554, 1 ),
+"update": 0,
+"values": [ 386.0, 351.038 ]
+}
+
 [node name="UIBattlerHUD" type="TextureRect"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -193.0
-margin_top = -78.0
-margin_right = 193.0
-margin_bottom = 78.0
+margin_left = -34.9623
+margin_right = 351.038
+margin_bottom = 156.0
 theme = ExtResource( 3 )
 texture = ExtResource( 5 )
 script = ExtResource( 2 )
@@ -47,3 +126,9 @@ text = "Robi"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "_setup"
+anims/_setup = SubResource( 1 )
+anims/deselect = SubResource( 4 )
+anims/select = SubResource( 3 )

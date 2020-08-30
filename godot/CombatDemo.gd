@@ -11,9 +11,6 @@ func _ready() -> void:
 	for battler in battlers:
 		if battler.is_party_member:
 			in_party.append(battler)
-	var stats := []
-	for battler in in_party:
-		stats.append(battler.stats)
 
 	ui_turn_bar.setup(active_turn_queue.battlers)
-	ui_battler_hud_list.setup(stats)
+	ui_battler_hud_list.setup(in_party)

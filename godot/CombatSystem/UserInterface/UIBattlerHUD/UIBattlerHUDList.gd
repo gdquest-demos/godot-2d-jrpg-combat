@@ -4,9 +4,9 @@ const UIBattlerHUD: PackedScene = preload("res://CombatSystem/UserInterface/UIBa
 
 
 # Arguments:
-# - battler_stats: Array[BattlerStats]
-func setup(battler_stats: Array) -> void:
-	for stats in battler_stats:
+# - battlers: Array[Battlers]
+func setup(battlers: Array) -> void:
+	for battler in battlers:
 		var battler_hud: UIBattlerHUD = UIBattlerHUD.instance()
 		add_child(battler_hud)
-		battler_hud.setup(stats)
+		battler_hud.setup(battler)

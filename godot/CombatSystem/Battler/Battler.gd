@@ -9,6 +9,7 @@ signal animation_finished(anim_name)
 signal action_finished
 signal readiness_changed(new_value)
 signal health_depleted
+signal selection_toggled(value)
 
 export var stats: Resource
 export var ai: Resource = null
@@ -77,6 +78,7 @@ func set_is_active(value):
 
 func set_is_selected(value):
 	is_selected = value
+	emit_signal("selection_toggled", is_selected)
 
 
 func set_is_selectable(value):
