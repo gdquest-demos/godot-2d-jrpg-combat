@@ -57,6 +57,7 @@ func _play_turn(battler: Battler) -> void:
 			potential_targets.append(opponent)
 
 	if battler.is_player_controlled():
+		battler.is_selected = true
 		_is_player_playing = true
 		set_time_scale(0.05)
 		var is_selection_complete := false
@@ -69,12 +70,12 @@ func _play_turn(battler: Battler) -> void:
 				targets = yield(_player_select_targets_async(action, potential_targets), "completed")
 			is_selection_complete = action != null && targets != []
 		set_time_scale(1.0)
+		battler.is_selected = false
 	else:
 		var result: Dictionary = battler.ai.choose(battler, battlers)
 		action = result.action
 		targets = result.targets
 
-	battler.is_selected = false
 	battler.act(action, targets)
 	yield(battler, "action_finished")
 	if battler.is_player_controlled():

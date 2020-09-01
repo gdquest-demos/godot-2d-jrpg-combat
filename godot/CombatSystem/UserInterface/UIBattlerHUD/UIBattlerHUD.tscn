@@ -34,7 +34,7 @@ tracks/1/keys = {
 "values": [ 386.0 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=2]
 resource_name = "deselect"
 length = 0.5
 tracks/0/type = "value"
@@ -130,5 +130,5 @@ __meta__ = {
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "_setup"
 anims/_setup = SubResource( 1 )
-anims/deselect = SubResource( 4 )
+anims/deselect = SubResource( 2 )
 anims/select = SubResource( 3 )

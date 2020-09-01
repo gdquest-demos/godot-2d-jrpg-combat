@@ -42,6 +42,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func setup(battlers: Array) -> void:
 	show()
 	targets = battlers
+
 	target_current = targets[0]
 	scale.x = 1.0 if target_current.is_party_member else -1.0
 	global_position = target_current.get_anchor_global_position()

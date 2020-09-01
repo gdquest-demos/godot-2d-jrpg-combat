@@ -27,7 +27,7 @@ var is_selectable: bool = true setget set_is_selectable
 
 var _readiness := 0.0 setget _set_readiness
 
-onready var battler_anim = $BattlerAnim
+onready var battler_anim: BattlerAnim = $BattlerAnim
 
 
 func _ready() -> void:
@@ -44,6 +44,7 @@ func _process(delta: float) -> void:
 
 func act(action, targets: Array) -> void:
 	yield(action.apply_async(self, targets), "completed")
+	battler_anim.move_back()
 	_set_readiness(0.0)
 	set_process(true)
 	emit_signal("action_finished")
@@ -78,6 +79,8 @@ func set_is_active(value):
 
 func set_is_selected(value):
 	is_selected = value
+	if is_selected:
+		battler_anim.move_forward()
 	emit_signal("selection_toggled", is_selected)
 
 
