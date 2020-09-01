@@ -2,8 +2,8 @@ extends Node
 
 signal player_turn_finished
 
-const UIActionMenuScene: PackedScene = preload("res://CombatSystem/UserInterface/UIActionMenu/UIActionMenu.tscn")
-const SelectArrow: PackedScene = preload("res://CombatSystem/UserInterface/UISelectBattlerArrow.tscn")
+export var UIActionMenuScene: PackedScene
+export var SelectArrow: PackedScene
 
 # Allows pausing the Active Time Battle during combat intro or a cut-scene.
 var is_active := true setget set_is_active
@@ -100,10 +100,10 @@ func _player_select_targets_async(_action: Action, opponents: Array) -> Array:
 
 
 func _on_player_turn_finished() -> void:
-	if _queue_player != []:
-		_play_turn(_queue_player.pop_front())
-	else:
+	if _queue_player.empty():
 		_is_player_playing = false
+	else:
+		_play_turn(_queue_player.pop_front())
 
 
 func _on_Battler_ready_to_act(battler: Battler) -> void:

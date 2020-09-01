@@ -1,6 +1,6 @@
 extends VBoxContainer
 
-const UIBattlerHUD: PackedScene = preload("res://CombatSystem/UserInterface/UIBattlerHUD/UIBattlerHUD.tscn")
+const UIBattlerHUD: PackedScene = preload("UIBattlerHUD.tscn")
 
 
 # Arguments:

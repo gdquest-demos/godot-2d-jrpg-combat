@@ -73,7 +73,7 @@ func _move_to(target_position: Vector2):
 # Returns null if there is no other target in the direction.
 func _find_closest_target(direction: Vector2) -> Battler:
 	var selected_target: Battler
-	var distance_to_selected: float = 100000.0
+	var distance_to_selected: float = INF
 
 	var candidates := []
 	for battler in _targets:

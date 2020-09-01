@@ -6,17 +6,17 @@ extends TextureRect
 
 enum Types { ALLY, PLAYER, ENEMY }
 
+const TYPES := {
+	Types.ALLY: preload("portrait_bg_ally.png"),
+	Types.PLAYER: preload("portrait_bg_player.png"),
+	Types.ENEMY: preload("portrait_bg_enemy.png"),
+}
+
 export var icon: Texture setget set_icon
 
 export (Types) var type: int = Types.ENEMY setget set_type
 
 var position_range := Vector2.ZERO
-
-var _types := {
-	Types.ALLY: load("res://CombatSystem/UserInterface/UITurnBar/portrait_bg_ally.png"),
-	Types.PLAYER: load("res://CombatSystem/UserInterface/UITurnBar/portrait_bg_player.png"),
-	Types.ENEMY: load("res://CombatSystem/UserInterface/UITurnBar/portrait_bg_enemy.png"),
-}
 
 onready var _icon_node := $Icon
 
@@ -34,4 +34,4 @@ func set_icon(value: Texture) -> void:
 
 func set_type(value: int) -> void:
 	type = value
-	texture = _types[type]
+	texture = TYPES[type]
