@@ -33,6 +33,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [ 386.0 ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("Label:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.74902, 0.823529, 0.901961, 1 ) ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "deselect"
@@ -45,7 +57,7 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 0.353554 ),
+"transitions": PoolRealArray( -2, 0.353554 ),
 "update": 0,
 "values": [ -34.9623, 0.0 ]
 }
@@ -57,9 +69,21 @@ tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 0.353554 ),
+"transitions": PoolRealArray( -2, 0.353554 ),
 "update": 0,
 "values": [ 351.038, 386.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Label:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.535887, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.74902, 0.823529, 0.901961, 1 ) ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -73,7 +97,7 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 0.353554, 1 ),
+"transitions": PoolRealArray( 0.267944, 1 ),
 "update": 0,
 "values": [ 0.0, -34.9623 ]
 }
@@ -85,14 +109,25 @@ tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 0.353554, 1 ),
+"transitions": PoolRealArray( 0.267944, 1 ),
 "update": 0,
 "values": [ 386.0, 351.038 ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("Label:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.1, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.74902, 0.823529, 0.901961, 1 ), Color( 0.74902, 0.823529, 0.901961, 1 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [node name="UIBattlerHUD" type="TextureRect"]
-margin_left = -34.9623
-margin_right = 351.038
+margin_right = 386.0
 margin_bottom = 156.0
 theme = ExtResource( 3 )
 texture = ExtResource( 5 )
@@ -102,26 +137,27 @@ __meta__ = {
 }
 
 [node name="UILifeBar" parent="." instance=ExtResource( 7 )]
-margin_left = -343.488
-margin_top = -14.2045
-margin_right = -17.4875
-margin_bottom = 6.79553
+margin_left = -387.488
+margin_top = -8.2045
+margin_right = -61.4875
+margin_bottom = 12.7955
 
 [node name="UIEnergyBar" parent="." instance=ExtResource( 1 )]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -164.0
-margin_top = -61.6427
-margin_right = 164.0
-margin_bottom = -39.6427
+margin_left = -168.0
+margin_top = -55.6427
+margin_right = 160.0
+margin_bottom = -33.6427
 
 [node name="Label" type="Label" parent="."]
-margin_left = 64.0
-margin_top = 22.0
-margin_right = 140.0
-margin_bottom = 61.0
+self_modulate = Color( 0.65098, 0.772549, 0.890196, 1 )
+margin_left = 55.4866
+margin_top = 28.0
+margin_right = 131.487
+margin_bottom = 67.0
 text = "Robi"
 __meta__ = {
 "_edit_use_anchors_": false

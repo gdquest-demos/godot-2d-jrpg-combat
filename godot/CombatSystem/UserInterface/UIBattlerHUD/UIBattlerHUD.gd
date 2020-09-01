@@ -3,6 +3,7 @@ extends TextureRect
 
 onready var life_bar: TextureProgress = $UILifeBar
 onready var energy_bar := $UIEnergyBar
+onready var label := $Label
 onready var anim_player: AnimationPlayer = $AnimationPlayer
 
 
