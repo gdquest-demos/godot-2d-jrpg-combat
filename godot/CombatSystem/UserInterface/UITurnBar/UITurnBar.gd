@@ -1,3 +1,5 @@
+# Timeline representing the turn order of all battlers in the arena.
+# Battlers move along the timeline as their readiness rating updates.
 extends Control
 
 const BattlerIcon := preload("res://CombatSystem/UserInterface/UITurnBar/UIBattlerIcon.tscn")
@@ -18,6 +20,7 @@ func setup(battlers: Array) -> void:
 		battler.connect("readiness_changed", self, "_on_Battler_readiness_changed", [icon])
 
 
+# Creates a new instance of [UIBattlerIcon], initializes it, and adds it as a child of `background`.
 func create_icon(type: int, texture: Texture) -> UIBattlerIcon:
 	var icon: UIBattlerIcon = BattlerIcon.instance()
 	background.add_child(icon)

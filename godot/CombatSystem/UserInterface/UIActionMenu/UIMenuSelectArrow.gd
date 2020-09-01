@@ -1,3 +1,5 @@
+# Arrow to select actions in a [UIActionList].
+# While it uses the same sprite as [SelectBattlerArrow], it only works with lists of actions.
 extends Position2D
 
 onready var tween: Tween = $Tween

@@ -1,3 +1,4 @@
+# List of UIActionButton the player can press to select an action.
 extends VBoxContainer
 
 signal action_selected(action)

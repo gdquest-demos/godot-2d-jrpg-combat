@@ -1,3 +1,4 @@
+# Bar representing energy points. Each point is an instance of UIEnergyPoint.
 extends HBoxContainer
 
 const UIEnergyPoint: PackedScene = preload("res://CombatSystem/UserInterface/UIBattlerHUD/UIEnergyBar/UIEnergyPoint.tscn")
@@ -16,7 +17,7 @@ func setup(max_energy: int, energy: int) -> void:
 
 func set_value(amount: int) -> void:
 	var old_value := value
-	value = amount
+	value = min(amount, max_value)
 	var difference := value - old_value
 	if difference > 0:
 		for i in range(old_value, value):

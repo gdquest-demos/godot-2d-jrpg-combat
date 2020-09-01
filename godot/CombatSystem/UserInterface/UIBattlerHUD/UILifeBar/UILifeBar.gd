@@ -1,9 +1,11 @@
+# Animated life bar.
 extends TextureProgress
 
 # Rate of the animation relative to `max_value`. A value of 1.0 means the animation fills 
 # the entire bar once in one second.
 export var fill_rate := 1.0
 
+# When this value changes, the bar smoothly animates towards that value using a tween.
 var target_value := 0.0 setget set_target_value
 
 onready var tween: Tween = $Tween

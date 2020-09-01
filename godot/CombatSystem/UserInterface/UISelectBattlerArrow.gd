@@ -1,15 +1,20 @@
-class_name SelectBattlerArrow
+# In-game arrow to select target battlers. Appears when the player selected an action and has to pick a target for it.
+class_name UISelectBattlerArrow
 extends Node2D
 
+# Emitted when the player pressed `ui_accept` or `ui_cancel`.
 signal target_selected(battler)
 
-onready var anim_player = $Sprite/AnimationPlayer
-onready var tween = $Tween
+onready var _anim_player = $Sprite/AnimationPlayer
+onready var _tween = $Tween
 
-export var MOVE_DURATION: float = 0.1
+# Duration of the tween that moves the arrow to another target in seconds.
+export var move_duration: float = 0.1
 
-var targets: Array
-var target_current: Battler setget set_target_current
+# Targets that the player can select. Array[Battler]
+var _targets: Array
+# Battler at which the arrow is currently pointing. If the player presses `ui_accept`, this battler will be selected.
+var _target_current: Battler setget _set_target_current
 
 
 func _init() -> void:
@@ -18,7 +23,7 @@ func _init() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):
-		emit_signal("target_selected", [target_current])
+		emit_signal("target_selected", [_target_current])
 	elif event.is_action_pressed("ui_cancel"):
 		emit_signal("target_selected", [])
 
@@ -34,45 +39,45 @@ func _unhandled_input(event: InputEvent) -> void:
 		direction = Vector2.DOWN
 
 	if direction != Vector2.ZERO:
-		new_target = find_closest_target(direction)
+		new_target = _find_closest_target(direction)
 		if new_target:
-			set_target_current(new_target)
+			_set_target_current(new_target)
 
 
 func setup(battlers: Array) -> void:
 	show()
-	targets = battlers
+	_targets = battlers
 
-	target_current = targets[0]
-	scale.x = 1.0 if target_current.is_party_member else -1.0
-	global_position = target_current.get_anchor_global_position()
-	anim_player.play("wiggle")
+	_target_current = _targets[0]
+	scale.x = 1.0 if _target_current.is_party_member else -1.0
+	global_position = _target_current.get_anchor_global_position()
+	_anim_player.play("wiggle")
 
 
-func move_to(target_position: Vector2):
-	if tween.is_active():
-		tween.stop_all()
-	tween.interpolate_property(
+func _move_to(target_position: Vector2):
+	if _tween.is_active():
+		_tween.stop_all()
+	_tween.interpolate_property(
 		self,
 		'position',
 		position,
 		target_position,
-		MOVE_DURATION,
+		move_duration,
 		Tween.TRANS_CUBIC,
 		Tween.EASE_OUT
 	)
-	tween.start()
+	_tween.start()
 
 
 # Returns the closest target in the given direction.
 # Returns null if there is no other target in the direction.
-func find_closest_target(direction: Vector2) -> Battler:
+func _find_closest_target(direction: Vector2) -> Battler:
 	var selected_target: Battler
 	var distance_to_selected: float = 100000.0
 
 	var candidates := []
-	for battler in targets:
-		if battler == target_current:
+	for battler in _targets:
+		if battler == _target_current:
 			continue
 		var to_battler: Vector2 = battler.global_position - position
 		if abs(direction.angle_to(to_battler)) < PI / 3.0:
@@ -87,6 +92,6 @@ func find_closest_target(direction: Vector2) -> Battler:
 	return selected_target
 
 
-func set_target_current(value: Battler) -> void:
-	target_current = value
-	move_to(target_current.get_anchor_global_position())
+func _set_target_current(value: Battler) -> void:
+	_target_current = value
+	_move_to(_target_current.get_anchor_global_position())

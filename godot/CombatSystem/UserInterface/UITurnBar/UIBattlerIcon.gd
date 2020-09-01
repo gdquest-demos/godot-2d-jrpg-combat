@@ -1,3 +1,5 @@
+# Icon representing a battler on the [UITurnBar].
+# Moves along the turn bar as the associated battler's readiness updates.
 tool
 class_name UIBattlerIcon
 extends TextureRect

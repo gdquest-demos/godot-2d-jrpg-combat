@@ -1,3 +1,4 @@
+# Represents one energy point. This node has two animations and functions to make it appear and disappear smoothly.
 extends TextureRect
 
 onready var anim_player := $AnimationPlayer

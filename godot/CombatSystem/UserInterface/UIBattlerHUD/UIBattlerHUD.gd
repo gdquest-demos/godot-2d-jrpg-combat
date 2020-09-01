@@ -1,3 +1,4 @@
+# Displays a party member's name, health, and energy.
 class_name UIBattlerHUD
 extends TextureRect
 
@@ -7,6 +8,7 @@ onready var label := $Label
 onready var anim_player: AnimationPlayer = $AnimationPlayer
 
 
+# Initializes the health and energy bars using the battler's stats.
 func setup(battler: Battler) -> void:
 	battler.connect("selection_toggled", self, "_on_Battler_selection_toggled")
 

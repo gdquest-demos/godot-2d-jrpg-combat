@@ -1,3 +1,5 @@
+# Menu displaying lists of actions the player can select.
+# Can contain multiple nested UIActionsList.
 class_name UIActionMenu
 extends Control
 

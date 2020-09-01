@@ -1,3 +1,4 @@
+# Individual button representing one combat action.
 extends TextureButton
 
 onready var icon_node: TextureRect = $HBoxContainer/Icon
