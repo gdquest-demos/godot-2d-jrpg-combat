@@ -1,3 +1,4 @@
+# Basic attack. Inflicts direct damage to the targets.
 tool
 extends Action
 class_name AttackAction
@@ -10,6 +11,7 @@ func _init() -> void:
 	label = "Attack"
 
 
+# Plays the acting battler's attack animation once for each target. Damages each target when the actor's animation emits the `triggered` signal.
 func _apply_async(actor, targets: Array) -> bool:
 	var anim: BattlerAnim = actor.battler_anim
 	anim.connect("triggered", self, "_on_BattlerAnim_triggered")

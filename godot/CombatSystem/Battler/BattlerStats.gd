@@ -1,3 +1,4 @@
+# Stores and manages the battler's base stats like health, energy, and base damage.
 extends Resource
 class_name BattlerStats
 

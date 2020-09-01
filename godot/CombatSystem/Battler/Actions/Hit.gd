@@ -1,3 +1,5 @@
+# Represents a damage-dealing hit to be applied to a target [Battler].
+# Encapsulates calculations for how hits are applied based on their properties.
 class_name Hit
 extends Object
 

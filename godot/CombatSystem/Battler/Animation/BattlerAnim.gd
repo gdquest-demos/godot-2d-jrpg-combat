@@ -1,3 +1,4 @@
+# Hold and plays the base animation for battlers.
 class_name BattlerAnim
 extends Position2D
 

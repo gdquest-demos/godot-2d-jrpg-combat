@@ -1,3 +1,4 @@
+# Adds one energy point to the actor using the action.
 tool
 extends Action
 class_name EnergyChargeAction

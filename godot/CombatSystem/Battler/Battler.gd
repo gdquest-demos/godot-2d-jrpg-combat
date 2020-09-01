@@ -21,8 +21,12 @@ export var ui_data: Resource
 
 # Provided by the ActiveTurnQueue.
 var time_scale := 1.0
+# If `true`, the battler's readiness updates every frame.
 var is_active: bool = true setget set_is_active
+# If `true`, the battler is selected, which makes it move forward.
+# This property is intended for player-controlled characters.
 var is_selected: bool = false setget set_is_selected
+# If `false`, the battler cannot be targeted by any action.
 var is_selectable: bool = true setget set_is_selectable
 
 var _readiness := 0.0 setget _set_readiness
@@ -42,6 +46,11 @@ func _process(delta: float) -> void:
 		set_process(false)
 
 
+# Makes the battler apply an [Action] to the `targets` and resets the battler's readiness.
+#
+# Arguments:
+# - action: Action, the combat action to apply.
+# - targets: Array[Battler], the battlers on which to apply the action.
 func act(action, targets: Array) -> void:
 	yield(action.apply_async(self, targets), "completed")
 	battler_anim.move_back()
@@ -78,6 +87,7 @@ func set_is_active(value):
 
 
 func set_is_selected(value):
+	assert(is_selectable)
 	is_selected = value
 	if is_selected:
 		battler_anim.move_forward()
