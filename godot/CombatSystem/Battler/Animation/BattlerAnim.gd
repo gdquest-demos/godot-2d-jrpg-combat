@@ -31,12 +31,28 @@ func get_anchor_global_position() -> Vector2:
 
 
 func move_forward() -> void:
-	tween.interpolate_property(self, "position", position, position + Vector2.LEFT * scale.x * 40.0, 0.3, Tween.TRANS_QUART, Tween.EASE_IN_OUT)
+	tween.interpolate_property(
+		self,
+		"position",
+		position,
+		position + Vector2.LEFT * scale.x * 40.0,
+		0.3,
+		Tween.TRANS_QUART,
+		Tween.EASE_IN_OUT
+	)
 	tween.start()
 
 
 func move_back() -> void:
-	tween.interpolate_property(self, "position", position, _position_start, 0.3, Tween.TRANS_QUART, Tween.EASE_IN_OUT)
+	tween.interpolate_property(
+		self,
+		"position",
+		position,
+		_position_start,
+		0.3,
+		Tween.TRANS_QUART,
+		Tween.EASE_IN_OUT
+	)
 	tween.start()
 
 

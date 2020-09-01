@@ -14,7 +14,8 @@ func _init() -> void:
 # Plays the acting battler's attack animation once for each target. Damages each target when the actor's animation emits the `triggered` signal.
 func _apply_async(actor, targets: Array) -> bool:
 	var anim: BattlerAnim = actor.battler_anim
-	anim.connect("triggered", self, "_on_BattlerAnim_triggered")
+	if not anim.is_connected("triggered", self, "_on_BattlerAnim_triggered"):
+		anim.connect("triggered", self, "_on_BattlerAnim_triggered")
 	for target in targets:
 		hits.append(Hit.new(target, actor.get_damage()))
 		anim.play("attack")

@@ -87,7 +87,8 @@ func set_is_active(value):
 
 
 func set_is_selected(value):
-	assert(is_selectable)
+	if value:
+		assert(is_selectable)
 	is_selected = value
 	if is_selected:
 		battler_anim.move_forward()

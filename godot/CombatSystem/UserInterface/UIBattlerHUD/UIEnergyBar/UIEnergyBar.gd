@@ -1,7 +1,7 @@
 # Bar representing energy points. Each point is an instance of UIEnergyPoint.
 extends HBoxContainer
 
-const UIEnergyPoint: PackedScene = preload("res://CombatSystem/UserInterface/UIBattlerHUD/UIEnergyBar/UIEnergyPoint.tscn")
+const UIEnergyPoint: PackedScene = preload("UIEnergyPoint.tscn")
 
 var max_value := 0
 var value := 0 setget set_value

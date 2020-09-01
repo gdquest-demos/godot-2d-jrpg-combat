@@ -2,7 +2,7 @@
 # Battlers move along the timeline as their readiness rating updates.
 extends Control
 
-const BattlerIcon := preload("res://CombatSystem/UserInterface/UITurnBar/UIBattlerIcon.tscn")
+const BattlerIcon := preload("UIBattlerIcon.tscn")
 
 var icons := []
 
