@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/robi.png-9859f843f0d851d852033faf583e59f3.stex"
+path="res://.import/bugcat.png-8f14b2969daa034b14f3a0cfc2442652.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://CombatSystem/robi.png"
-dest_files=[ "res://.import/robi.png-9859f843f0d851d852033faf583e59f3.stex" ]
+source_file="res://CombatSystem/Battler/Animation/bugcat.png"
+dest_files=[ "res://.import/bugcat.png-8f14b2969daa034b14f3a0cfc2442652.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/porcupine.png-28169263bd458c17ffee7234dd905570.stex"
+path="res://.import/wolf.png-d05c6cd3ab5d452f60dfaa08745b9522.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://CombatSystem/porcupine.png"
-dest_files=[ "res://.import/porcupine.png-28169263bd458c17ffee7234dd905570.stex" ]
+source_file="res://CombatSystem/Battler/Animation/wolf.png"
+dest_files=[ "res://.import/wolf.png-d05c6cd3ab5d452f60dfaa08745b9522.stex" ]
 
 [params]
 

@@ -1,12 +1,15 @@
 [gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://CombatSystem/Battler/Actions/AttackAction.gd" type="Script" id=1]
-[ext_resource path="res://CombatSystem/robi.png" type="Texture" id=2]
-[ext_resource path="res://CombatSystem/Battler/robi_stats.tres" type="Resource" id=3]
+[ext_resource path="res://CombatSystem/Battler/bear_stats.tres" type="Resource" id=3]
 [ext_resource path="res://CombatSystem/Battler/Battler.gd" type="Script" id=4]
+[ext_resource path="res://CombatSystem/Battler/Animation/bear.png" type="Texture" id=5]
 [ext_resource path="res://CombatSystem/Battler/Actions/EnergyChargeAction.gd" type="Script" id=6]
 [ext_resource path="res://CombatSystem/Battler/BattlerUIData.gd" type="Script" id=7]
 [ext_resource path="res://CombatSystem/Battler/Animation/BattlerAnim.tscn" type="PackedScene" id=8]
+
+
+
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 1 )
@@ -22,10 +25,11 @@ is_targetting_all = false
 
 [sub_resource type="Resource" id=3]
 script = ExtResource( 7 )
-display_name = "Robi"
-texture = ExtResource( 2 )
+display_name = "Bear"
+texture = ExtResource( 5 )
 
 [node name="Robi" type="Node2D"]
+position = Vector2( 6.10352e-05, 0 )
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_group_": true
@@ -37,10 +41,12 @@ ui_data = SubResource( 3 )
 
 [node name="BattlerAnim" parent="." instance=ExtResource( 8 )]
 
+[node name="Pivot" parent="BattlerAnim" index="0"]
+scale = Vector2( -1, 1 )
+
 [node name="robi" type="Sprite" parent="BattlerAnim/Pivot" index="1"]
-position = Vector2( -21.3268, -153.777 )
-texture = ExtResource( 2 )
-flip_h = true
+texture = ExtResource( 5 )
+offset = Vector2( -1.90735e-06, -185 )
 
 [node name="FrontAnchor" parent="BattlerAnim" index="1"]
 position = Vector2( -184.084, -123.471 )

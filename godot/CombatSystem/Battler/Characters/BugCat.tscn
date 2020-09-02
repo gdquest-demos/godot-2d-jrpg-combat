@@ -1,12 +1,14 @@
 [gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://CombatSystem/Battler/Actions/AttackAction.gd" type="Script" id=1]
-[ext_resource path="res://CombatSystem/porcupine.png" type="Texture" id=2]
 [ext_resource path="res://CombatSystem/Battler/Battler.gd" type="Script" id=3]
 [ext_resource path="res://CombatSystem/Battler/battler_stats_default.tres" type="Resource" id=4]
+[ext_resource path="res://CombatSystem/Battler/Animation/bugcat.png" type="Texture" id=5]
 [ext_resource path="res://CombatSystem/Battler/AI/BattlerAI.gd" type="Script" id=6]
 [ext_resource path="res://CombatSystem/Battler/BattlerUIData.gd" type="Script" id=7]
 [ext_resource path="res://CombatSystem/Battler/Animation/BattlerAnim.tscn" type="PackedScene" id=8]
+
+
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 6 )
@@ -19,8 +21,8 @@ is_targetting_all = false
 
 [sub_resource type="Resource" id=3]
 script = ExtResource( 7 )
-display_name = "Porcupine"
-texture = ExtResource( 2 )
+display_name = "BugCat"
+texture = ExtResource( 5 )
 
 [node name="Porcupine" type="Node2D"]
 script = ExtResource( 3 )
@@ -33,11 +35,11 @@ actions = [ SubResource( 2 ) ]
 ui_data = SubResource( 3 )
 
 [node name="BattlerAnim" parent="." instance=ExtResource( 8 )]
-scale = Vector2( -1, 1 )
 
 [node name="porcupine" type="Sprite" parent="BattlerAnim/Pivot" index="1"]
-texture = ExtResource( 2 )
-offset = Vector2( -9.5728e-06, -109.5 )
+scale = Vector2( -1, 1 )
+texture = ExtResource( 5 )
+offset = Vector2( -1.42499e-05, -163 )
 flip_h = true
 
 [node name="FrontAnchor" parent="BattlerAnim" index="1"]

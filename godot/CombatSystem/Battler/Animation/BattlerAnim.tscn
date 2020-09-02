@@ -48,6 +48,7 @@ tracks/2/keys = {
 
 [node name="BattlerAnim" type="Position2D"]
 script = ExtResource( 1 )
+texture = null
 
 [node name="Pivot" type="Position2D" parent="."]
 
