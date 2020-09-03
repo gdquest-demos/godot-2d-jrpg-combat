@@ -21,7 +21,4 @@ func _choose(actor, battlers: Array) -> Dictionary:
 		else:
 			allies.append(battler)
 
-	return {
-		action = actor.actions[0],
-		targets = [opponents[0]]
-	}
+	return {action = actor.actions[0], targets = [opponents[0]]}

@@ -2,7 +2,7 @@
 class_name UIDamageLabel
 extends Node2D
 
-enum Types {HEAL, DAMAGE, ARMOR, ENERGY}
+enum Types { HEAL, DAMAGE, ARMOR, ENERGY }
 
 const COLOR_TRANSPARENT := Color(1.0, 1.0, 1.0, 0.0)
 
@@ -46,10 +46,20 @@ func _set_color(value: Color) -> void:
 
 
 func _animate() -> void:
-	var angle := rand_range(-PI/3.0, PI*3.0)
+	var angle := rand_range(-PI / 3.0, PI * 3.0)
 	var offset := Vector2.UP.rotated(angle) * 60.0
-	tween.interpolate_property(label, "rect_position", label.rect_position, label.rect_position + offset, 0.4, Tween.TRANS_QUAD, Tween.EASE_OUT)
-	tween.interpolate_property(self, "modulate", modulate, COLOR_TRANSPARENT, 0.1, Tween.TRANS_LINEAR, Tween.EASE_IN, 0.3)
+	tween.interpolate_property(
+		label,
+		"rect_position",
+		label.rect_position,
+		label.rect_position + offset,
+		0.4,
+		Tween.TRANS_QUAD,
+		Tween.EASE_OUT
+	)
+	tween.interpolate_property(
+		self, "modulate", modulate, COLOR_TRANSPARENT, 0.1, Tween.TRANS_LINEAR, Tween.EASE_IN, 0.3
+	)
 	tween.start()
 	yield(tween, "tween_all_completed")
 	queue_free()

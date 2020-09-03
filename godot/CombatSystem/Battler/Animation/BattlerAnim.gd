@@ -51,13 +51,7 @@ func move_forward() -> void:
 
 func move_back() -> void:
 	tween.interpolate_property(
-		self,
-		"position",
-		position,
-		_position_start,
-		0.3,
-		Tween.TRANS_QUART,
-		Tween.EASE_IN_OUT
+		self, "position", position, _position_start, 0.3, Tween.TRANS_QUART, Tween.EASE_IN_OUT
 	)
 	tween.start()
 

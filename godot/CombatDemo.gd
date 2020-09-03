@@ -36,7 +36,7 @@ func end_combat(result: int) -> void:
 	active_turn_queue.is_active = false
 	ui_turn_bar.fade_out()
 	ui_battler_hud_list.fade_out()
-	
+
 	var message := "Victory" if result == CombatResult.VICTORY else "Defeat"
 	emit_signal("combat_ended", message)
 

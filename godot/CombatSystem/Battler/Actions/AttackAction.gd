@@ -3,7 +3,6 @@ tool
 extends Action
 class_name AttackAction
 
-
 var hits := []
 
 
