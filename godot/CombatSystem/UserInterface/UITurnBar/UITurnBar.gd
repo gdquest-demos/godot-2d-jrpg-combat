@@ -7,6 +7,7 @@ const BattlerIcon := preload("UIBattlerIcon.tscn")
 var icons := []
 
 onready var background: TextureRect = $Background
+onready var anim_player: AnimationPlayer = $AnimationPlayer
 
 
 func setup(battlers: Array) -> void:
@@ -30,6 +31,14 @@ func create_icon(type: int, texture: Texture) -> UIBattlerIcon:
 		-icon.rect_size.x / 2.0, -icon.rect_size.x / 2.0 + background.rect_size.x
 	)
 	return icon
+
+
+func fade_in() -> void:
+	anim_player.play("fade_in")
+
+
+func fade_out() -> void:
+	anim_player.play("fade_out")
 
 
 func _on_Battler_readiness_changed(readiness: float, icon: UIBattlerIcon) -> void:

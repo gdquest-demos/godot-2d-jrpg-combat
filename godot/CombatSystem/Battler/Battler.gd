@@ -55,7 +55,8 @@ func act(action, targets: Array) -> void:
 	yield(action.apply_async(self, targets), "completed")
 	battler_anim.move_back()
 	_set_readiness(0.0)
-	set_process(true)
+	if is_active:
+		set_process(true)
 	emit_signal("action_finished")
 
 

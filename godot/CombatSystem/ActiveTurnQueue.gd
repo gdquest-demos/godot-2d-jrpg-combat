@@ -5,7 +5,7 @@ signal player_turn_finished
 export var UIActionMenuScene: PackedScene
 export var SelectArrow: PackedScene
 
-# Allows pausing the Active Time Battle during combat intro or a cut-scene.
+# Allows pausing the Active Time Battle during combat intro, a cut-scene, or combat end.
 var is_active := true setget set_is_active
 # Multiplier for the global pace of battle, to slow down time while the player is taking decisions.
 # This is meant for accessibility and to control difficulty.
@@ -45,6 +45,9 @@ func set_time_scale(value: float) -> void:
 
 
 func _play_turn(battler: Battler) -> void:
+	if not battler.is_active:
+		return
+
 	battler.stats.energy += 1
 
 	battler.is_selected = true

@@ -4,6 +4,7 @@ extends Position2D
 
 signal animation_finished(name)
 # Emitted by animations when a combat action should apply its next effect, like dealing damage or healing an ally.
+# warning-ignore:unused_signal
 signal triggered
 
 var _position_start := Vector2.ZERO

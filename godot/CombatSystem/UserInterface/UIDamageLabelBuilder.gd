@@ -14,5 +14,5 @@ func _on_BattlerStats_health_changed(old_value: int, new_value: int, battler: Ba
 	var type: int = UIDamageLabel.Types.HEAL if new_value > old_value else UIDamageLabel.Types.DAMAGE
 	
 	var label: UIDamageLabel = damage_label_scene.instance()
-	label.setup(type, battler.get_top_anchor_global_position(), abs(new_value - old_value))
+	label.setup(type, battler.get_top_anchor_global_position(), int(abs(new_value - old_value)))
 	add_child(label)
