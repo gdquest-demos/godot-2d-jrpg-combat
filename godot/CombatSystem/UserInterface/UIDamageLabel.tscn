@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://CombatSystem/UserInterface/theme/fonts/text_extralarge.tres" type="DynamicFont" id=1]
+[ext_resource path="res://CombatSystem/UserInterface/UIDamageLabel.gd" type="Script" id=2]
+
+[node name="UIDamageLabel" type="Position2D"]
+script = ExtResource( 2 )
+color_damage = Color( 0.890196, 0.227451, 0.443137, 1 )
+color_heal = Color( 0.219608, 0.807843, 0.517647, 1 )
+color_armor = Color( 0.964706, 0.843137, 0.282353, 1 )
+color_energy = Color( 0.6, 0.717647, 0.831373, 1 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -64.0
+margin_top = -27.0
+margin_right = 65.0
+margin_bottom = 53.0
+rect_pivot_offset = Vector2( 52.5, 28 )
+custom_fonts/font = ExtResource( 1 )
+text = "999"
+align = 1
+valign = 1
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="."]

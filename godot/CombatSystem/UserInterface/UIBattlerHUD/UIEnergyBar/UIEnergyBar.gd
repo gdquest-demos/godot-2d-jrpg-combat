@@ -17,7 +17,7 @@ func setup(max_energy: int, energy: int) -> void:
 
 func set_value(amount: int) -> void:
 	var old_value := value
-	value = min(amount, max_value)
+	value = int(min(amount, max_value))
 	var difference := value - old_value
 	if difference > 0:
 		for i in range(old_value, value):

@@ -1,44 +1,23 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://CombatSystem/Background/grasslands.png" type="Texture" id=1]
-[ext_resource path="res://CombatSystem/Battler/Actions/AttackAction.gd" type="Script" id=2]
+[ext_resource path="res://CombatSystem/UserInterface/UIDamageLabelBuilder.tscn" type="PackedScene" id=3]
 [ext_resource path="res://CombatSystem/UserInterface/UISelectBattlerArrow.tscn" type="PackedScene" id=4]
 [ext_resource path="res://CombatSystem/ActiveTurnQueue.gd" type="Script" id=5]
 [ext_resource path="res://CombatSystem/Battler/Characters/BugCat.tscn" type="PackedScene" id=6]
-[ext_resource path="res://CombatSystem/Battler/Battler.gd" type="Script" id=7]
-[ext_resource path="res://CombatSystem/Battler/Animation/BattlerAnim.tscn" type="PackedScene" id=8]
 [ext_resource path="res://CombatSystem/Battler/Characters/Bear.tscn" type="PackedScene" id=9]
-[ext_resource path="res://CombatSystem/Battler/BattlerUIData.gd" type="Script" id=10]
 [ext_resource path="res://CombatDemo.gd" type="Script" id=11]
 [ext_resource path="res://CombatSystem/UserInterface/UITurnBar/UITurnBar.tscn" type="PackedScene" id=12]
 [ext_resource path="res://CombatSystem/Battler/BattlerStats.gd" type="Script" id=13]
 [ext_resource path="res://CombatSystem/UserInterface/UIBattlerHUD/UIBattlerHUDList.tscn" type="PackedScene" id=14]
-[ext_resource path="res://CombatSystem/Battler/AI/BattlerAI.gd" type="Script" id=15]
 [ext_resource path="res://CombatSystem/UserInterface/UIActionMenu/UIActionMenu.tscn" type="PackedScene" id=16]
-[ext_resource path="res://CombatSystem/Battler/Animation/bugcat.png" type="Texture" id=17]
-
-
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 13 )
 max_health = 100.0
 max_energy = 6
-attack = 12.0
-speed = 38.0
-
-[sub_resource type="Resource" id=2]
-script = ExtResource( 15 )
-
-[sub_resource type="Resource" id=3]
-script = ExtResource( 2 )
-label = "Attack"
-is_targetting_self = false
-is_targetting_all = false
-
-[sub_resource type="Resource" id=4]
-script = ExtResource( 10 )
-display_name = "BugCat"
-texture = ExtResource( 17 )
+attack = 22.0
+speed = 30.0
 
 [node name="CombatDemo" type="Node2D"]
 script = ExtResource( 11 )
@@ -64,26 +43,9 @@ position = Vector2( 1467.32, 725.777 )
 [node name="BugCat" parent="ActiveTurnQueue" instance=ExtResource( 6 )]
 position = Vector2( 441.6, 695.008 )
 
-[node name="BugCat2" type="Node2D" parent="ActiveTurnQueue"]
-position = Vector2( 269.6, 871.168 )
-script = ExtResource( 7 )
-__meta__ = {
-"_edit_group_": true
-}
+[node name="BugCat2" parent="ActiveTurnQueue" instance=ExtResource( 6 )]
+position = Vector2( 260.636, 860.098 )
 stats = SubResource( 1 )
-ai = SubResource( 2 )
-actions = [ SubResource( 3 ) ]
-ui_data = SubResource( 4 )
-
-[node name="BattlerAnim" parent="ActiveTurnQueue/BugCat2" instance=ExtResource( 8 )]
-scale = Vector2( -1, 1 )
-
-[node name="Pivot" parent="ActiveTurnQueue/BugCat2/BattlerAnim" index="0"]
-scale = Vector2( -1, 1 )
-
-[node name="mascot-cat" type="Sprite" parent="ActiveTurnQueue/BugCat2/BattlerAnim/Pivot" index="1"]
-texture = ExtResource( 17 )
-offset = Vector2( 0, -160.809 )
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -96,6 +58,5 @@ margin_bottom = 1.61389
 [node name="UIBattlerHUDList" parent="UI" instance=ExtResource( 14 )]
 margin_top = 232.0
 margin_bottom = -164.0
-[connection signal="animation_finished" from="ActiveTurnQueue/BugCat2/BattlerAnim" to="ActiveTurnQueue/BugCat2" method="_on_BattlerAnim_animation_finished"]
 
-[editable path="ActiveTurnQueue/BugCat2/BattlerAnim"]
+[node name="UIDamageLabelBuilder" parent="UI" instance=ExtResource( 3 )]

@@ -69,8 +69,12 @@ func take_damage(amount: float) -> void:
 		battler_anim.play("take_damage")
 
 
-func get_anchor_global_position() -> Vector2:
-	return battler_anim.get_anchor_global_position()
+func get_front_anchor_global_position() -> Vector2:
+	return battler_anim.get_front_anchor_global_position()
+
+
+func get_top_anchor_global_position() -> Vector2:
+	return battler_anim.get_top_anchor_global_position()
 
 
 func is_player_controlled() -> bool:

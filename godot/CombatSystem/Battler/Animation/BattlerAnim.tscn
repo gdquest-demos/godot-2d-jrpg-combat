@@ -48,7 +48,6 @@ tracks/2/keys = {
 
 [node name="BattlerAnim" type="Position2D"]
 script = ExtResource( 1 )
-texture = null
 
 [node name="Pivot" type="Position2D" parent="."]
 
@@ -61,6 +60,9 @@ anims/die = ExtResource( 3 )
 anims/take_damage = ExtResource( 4 )
 
 [node name="FrontAnchor" type="Position2D" parent="."]
+
+[node name="TopAnchor" type="Position2D" parent="."]
+position = Vector2( 0, -287.788 )
 
 [node name="Tween" type="Tween" parent="."]
 [connection signal="animation_finished" from="Pivot/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

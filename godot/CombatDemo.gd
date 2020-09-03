@@ -3,6 +3,7 @@ extends Node2D
 onready var active_turn_queue := $ActiveTurnQueue
 onready var ui_turn_bar := $UI/UITurnBar
 onready var ui_battler_hud_list := $UI/UIBattlerHUDList
+onready var ui_damage_label_builder := $UI/UIDamageLabelBuilder
 
 
 func _ready() -> void:
@@ -14,3 +15,4 @@ func _ready() -> void:
 
 	ui_turn_bar.setup(active_turn_queue.battlers)
 	ui_battler_hud_list.setup(in_party)
+	ui_damage_label_builder.setup(battlers)

@@ -70,6 +70,16 @@ _global_script_classes=[ {
 "path": "res://CombatSystem/UserInterface/UITurnBar/UIBattlerIcon.gd"
 }, {
 "base": "Node2D",
+"class": "UIDamageLabel",
+"language": "GDScript",
+"path": "res://CombatSystem/UserInterface/UIDamageLabel.gd"
+}, {
+"base": "Node2D",
+"class": "UIDamageLabelBuilder",
+"language": "GDScript",
+"path": "res://CombatSystem/UserInterface/UIDamageLabelBuilder.gd"
+}, {
+"base": "Node2D",
 "class": "UISelectBattlerArrow",
 "language": "GDScript",
 "path": "res://CombatSystem/UserInterface/UISelectBattlerArrow.gd"
@@ -87,6 +97,8 @@ _global_script_class_icons={
 "UIActionMenu": "",
 "UIBattlerHUD": "",
 "UIBattlerIcon": "",
+"UIDamageLabel": "",
+"UIDamageLabelBuilder": "",
 "UISelectBattlerArrow": ""
 }
 

@@ -10,7 +10,8 @@ var _position_start := Vector2.ZERO
 
 onready var anim_player: AnimationPlayer = $Pivot/AnimationPlayer
 onready var tween: Tween = $Tween
-onready var anchor: Position2D = $FrontAnchor
+onready var anchor_front: Position2D = $FrontAnchor
+onready var anchor_top: Position2D = $TopAnchor
 
 
 func _ready() -> void:
@@ -26,8 +27,12 @@ func queue_animation(anim_name: String) -> void:
 	anim_player.queue(anim_name)
 
 
-func get_anchor_global_position() -> Vector2:
-	return anchor.global_position
+func get_front_anchor_global_position() -> Vector2:
+	return anchor_front.global_position
+
+
+func get_top_anchor_global_position() -> Vector2:
+	return anchor_top.global_position
 
 
 func move_forward() -> void:

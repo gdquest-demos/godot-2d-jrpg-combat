@@ -8,8 +8,6 @@
 [ext_resource path="res://CombatSystem/Battler/BattlerUIData.gd" type="Script" id=7]
 [ext_resource path="res://CombatSystem/Battler/Animation/BattlerAnim.tscn" type="PackedScene" id=8]
 
-
-
 [sub_resource type="Resource" id=1]
 script = ExtResource( 6 )
 
@@ -36,11 +34,13 @@ ui_data = SubResource( 3 )
 
 [node name="BattlerAnim" parent="." instance=ExtResource( 8 )]
 
-[node name="porcupine" type="Sprite" parent="BattlerAnim/Pivot" index="1"]
+[node name="Pivot" parent="BattlerAnim" index="0"]
+scale = Vector2( -1, 1 )
+
+[node name="Sprite" type="Sprite" parent="BattlerAnim/Pivot" index="1"]
 scale = Vector2( -1, 1 )
 texture = ExtResource( 5 )
 offset = Vector2( -1.42499e-05, -163 )
-flip_h = true
 
 [node name="FrontAnchor" parent="BattlerAnim" index="1"]
 position = Vector2( -215.887, -85.7196 )
