@@ -18,10 +18,9 @@ func setup(max_energy: int, energy: int) -> void:
 func set_value(amount: int) -> void:
 	var old_value := value
 	value = int(min(amount, max_value))
-	var difference := value - old_value
-	if difference > 0:
+	if value > old_value:
 		for i in range(old_value, value):
 			get_child(i).appear()
-	elif difference < 0:
-		for i in range(old_value, value):
-			get_child(i).disappear()
+	else:
+		for i in range(old_value, value, -1):
+			get_child(i - 1).disappear()
