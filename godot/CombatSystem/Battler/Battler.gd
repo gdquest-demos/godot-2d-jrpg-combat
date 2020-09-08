@@ -56,9 +56,10 @@ func setup(battlers: Array) -> void:
 # - action: Action, the combat action to apply.
 # - targets: Array[Battler], the battlers on which to apply the action.
 func act(action, targets: Array) -> void:
+	stats.energy -= action.energy_cost
 	yield(action.apply_async(self, targets), "completed")
 	battler_anim.move_back()
-	_set_readiness(0.0)
+	_set_readiness(action.readiness_saved)
 	if is_active:
 		set_process(true)
 	emit_signal("action_finished")

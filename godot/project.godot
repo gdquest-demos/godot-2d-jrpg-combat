@@ -17,7 +17,7 @@ _global_script_classes=[ {
 "base": "Action",
 "class": "AttackAction",
 "language": "GDScript",
-"path": "res://CombatSystem/Battler/Actions/AttackAction.gd"
+"path": "res://CombatSystem/Battler/Actions/Attacks/AttackAction.gd"
 }, {
 "base": "Node2D",
 "class": "Battler",
@@ -47,7 +47,7 @@ _global_script_classes=[ {
 "base": "Action",
 "class": "EnergyChargeAction",
 "language": "GDScript",
-"path": "res://CombatSystem/Battler/Actions/EnergyChargeAction.gd"
+"path": "res://CombatSystem/Battler/Actions/SelfActions/EnergyChargeAction.gd"
 }, {
 "base": "Reference",
 "class": "Hit",

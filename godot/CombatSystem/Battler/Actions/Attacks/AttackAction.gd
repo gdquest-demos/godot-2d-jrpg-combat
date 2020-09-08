@@ -1,10 +1,11 @@
-# Basic attack. Inflicts direct damage to the targets.
+# Template for basic damaging attacks. Inflicts direct damage to one or more targets.
 tool
 extends Action
 class_name AttackAction
 
-var hits := []
+export var damage_multiplier := 1.0
 
+var _hits := []
 
 func _init() -> void:
 	label = "Attack"
@@ -16,12 +17,12 @@ func _apply_async(actor, targets: Array) -> bool:
 	if not anim.is_connected("triggered", self, "_on_BattlerAnim_triggered"):
 		anim.connect("triggered", self, "_on_BattlerAnim_triggered")
 	for target in targets:
-		hits.append(Hit.new(target, actor.get_damage()))
+		_hits.append(Hit.new(target, actor.get_damage()))
 		anim.play("attack")
 		yield(actor, "animation_finished")
 	return true
 
 
 func _on_BattlerAnim_triggered() -> void:
-	var hit: Hit = hits.pop_front()
+	var hit: Hit = _hits.pop_front()
 	hit.apply()

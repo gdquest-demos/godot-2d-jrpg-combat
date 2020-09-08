@@ -32,7 +32,7 @@ func setup(actor: Battler, battlers: Array) -> void:
 # Arguments:
 # - `battlers: Array[Battler]`, all battlers on the field, including the actor
 func choose() -> Dictionary:
-	assert(not _opponents.empty(), "You must call setup() on the AI for it to work.")
+	assert(not _opponents.empty(), "You must call setup() on the AI and give it opponents for it to work.")
 	return _choose()
 
 
@@ -61,7 +61,7 @@ func _choose_action(_info: Dictionary) -> Action:
 
 # @tags: virtual
 func _choose_targets(_action: Action, _info: Dictionary) -> Array:
-	return [_opponents[0]]
+	return [_info.weakest_target]
 
 
 # Finds key information about the state of the battle so the agent can take a decision.

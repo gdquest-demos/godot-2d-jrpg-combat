@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://CombatSystem/Background/grasslands.png" type="Texture" id=1]
 [ext_resource path="res://CombatSystem/UserInterface/UILayer.gd" type="Script" id=2]
@@ -6,7 +6,10 @@
 [ext_resource path="res://CombatSystem/UserInterface/UISelectBattlerArrow.tscn" type="PackedScene" id=4]
 [ext_resource path="res://CombatSystem/ActiveTurnQueue.gd" type="Script" id=5]
 [ext_resource path="res://CombatSystem/Battler/Characters/BugCat.tscn" type="PackedScene" id=6]
+[ext_resource path="res://CombatSystem/Battler/Actions/Attacks/SuperPunch.tres" type="Resource" id=7]
+[ext_resource path="res://CombatSystem/Battler/Actions/Attacks/BombPunch.tres" type="Resource" id=8]
 [ext_resource path="res://CombatSystem/Battler/Characters/Bear.tscn" type="PackedScene" id=9]
+[ext_resource path="res://CombatSystem/Battler/Actions/Attacks/Punch.tres" type="Resource" id=10]
 [ext_resource path="res://CombatDemo.gd" type="Script" id=11]
 [ext_resource path="res://CombatSystem/UserInterface/UITurnBar/UITurnBar.tscn" type="PackedScene" id=12]
 [ext_resource path="res://CombatSystem/Battler/BattlerStats.gd" type="Script" id=13]
@@ -18,7 +21,7 @@ script = ExtResource( 13 )
 max_health = 100.0
 max_energy = 6
 attack = 22.0
-speed = 30.0
+speed = 25.0
 weaknesses = [  ]
 
 [node name="CombatDemo" type="Node2D"]
@@ -41,6 +44,7 @@ SelectArrow = ExtResource( 4 )
 
 [node name="Bear" parent="ActiveTurnQueue" instance=ExtResource( 9 )]
 position = Vector2( 1467.32, 725.777 )
+actions = [ ExtResource( 10 ), ExtResource( 7 ), ExtResource( 8 ) ]
 
 [node name="BugCat" parent="ActiveTurnQueue" instance=ExtResource( 6 )]
 position = Vector2( 441.6, 695.008 )

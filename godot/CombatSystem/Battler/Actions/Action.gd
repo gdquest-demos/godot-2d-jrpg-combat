@@ -10,12 +10,16 @@ extends Resource
 # Emitted when the action finished playing.
 signal finished
 
+enum ElementalTypes { NONE, CODE, DESIGN, ART, BUG }
+
 export var icon: Texture
 export var label := "Base combat action"
 
-export var is_targetting_self := false
-export var is_targetting_all := false
-export var element := ""
+export var energy_cost := 0
+export(ElementalTypes) var element := ElementalTypes.NONE
+export var is_targeting_self := false
+export var is_targeting_all := false
+export var readiness_saved := 0.0
 
 
 # Applies the action on `_targets` using `_actor`'s stats.

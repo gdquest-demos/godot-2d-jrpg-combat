@@ -6,7 +6,7 @@ class_name EnergyChargeAction
 
 func _init() -> void:
 	label = "Charge"
-	is_targetting_self = true
+	is_targeting_self = true
 
 
 func _apply_async(actor, _targets: Array) -> bool:

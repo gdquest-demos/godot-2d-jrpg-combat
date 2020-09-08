@@ -68,7 +68,7 @@ func _play_turn(battler: Battler) -> void:
 		# Wait for the player to select a valid action and target(s).
 		while not is_selection_complete:
 			action = yield(_player_select_action_async(battler.actions), "completed")
-			if action.is_targetting_self:
+			if action.is_targeting_self:
 				targets = [battler]
 			else:
 				targets = yield(
