@@ -19,6 +19,7 @@ max_health = 100.0
 max_energy = 6
 attack = 22.0
 speed = 30.0
+weaknesses = [  ]
 
 [node name="CombatDemo" type="Node2D"]
 script = ExtResource( 11 )

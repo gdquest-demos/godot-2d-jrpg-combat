@@ -15,6 +15,7 @@ export var label := "Base combat action"
 
 export var is_targetting_self := false
 export var is_targetting_all := false
+export var element := ""
 
 
 # Applies the action on `_targets` using `_actor`'s stats.

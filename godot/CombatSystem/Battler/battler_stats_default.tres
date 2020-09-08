@@ -8,3 +8,4 @@ max_health = 100.0
 max_energy = 6
 attack = 200.0
 speed = 41.0
+weaknesses = [  ]

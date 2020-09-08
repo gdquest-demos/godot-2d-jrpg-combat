@@ -25,6 +25,7 @@ onready var battlers := get_children()
 func _ready() -> void:
 	connect("player_turn_finished", self, "_on_player_turn_finished")
 	for battler in battlers:
+		battler.setup(battlers)
 		battler.connect("ready_to_act", self, "_on_Battler_ready_to_act", [battler])
 		if battler.is_player_controlled():
 			_party_members.append(battler)
@@ -77,7 +78,7 @@ func _play_turn(battler: Battler) -> void:
 		set_time_scale(1.0)
 		battler.is_selected = false
 	else:
-		var result: Dictionary = battler.ai.choose(battler, battlers)
+		var result: Dictionary = battler.ai.choose()
 		action = result.action
 		targets = result.targets
 

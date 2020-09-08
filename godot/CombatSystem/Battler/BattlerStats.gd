@@ -12,6 +12,8 @@ export var max_energy := 6
 export var attack := 10.0
 export var speed := 70.0
 
+export var weaknesses := []
+
 var health := max_health setget set_health
 var energy := 0 setget set_energy
 

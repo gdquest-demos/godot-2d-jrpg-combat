@@ -3,14 +3,18 @@
 class_name Hit
 extends Reference
 
-var damage := 0
-var target: Battler = null
+var _damage := 0
+var _target: Battler
 
 
-func _init(_target: Battler, _damage: int) -> void:
-	target = _target
-	damage = _damage
+func _init(target: Battler, damage: int) -> void:
+	_target = target
+	_damage = damage
 
 
 func apply() -> void:
-	target.take_damage(damage)
+	_target.take_damage(_damage)
+
+
+func calculate_damage() -> int:
+	return _damage
