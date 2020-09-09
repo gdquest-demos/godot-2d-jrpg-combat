@@ -12,8 +12,8 @@ func _ready() -> void:
 	hide()
 
 
-func open(actions: Array) -> void:
-	list.setup(actions)
+func open(battler: Battler) -> void:
+	list.setup(battler)
 	show()
 	list.focus()
 

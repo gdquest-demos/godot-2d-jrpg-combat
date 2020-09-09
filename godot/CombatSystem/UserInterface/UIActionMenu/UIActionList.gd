@@ -11,11 +11,12 @@ var buttons := []
 onready var select_arrow := $UIMenuSelectArrow
 
 
-func setup(actions: Array) -> void:
-	for action in actions:
+func setup(battler: Battler) -> void:
+	for action in battler.actions:
+		var can_use_action: bool = battler.stats.energy >= action.energy_cost
 		var action_button = UIActionButton.instance()
 		add_child(action_button)
-		action_button.setup(action)
+		action_button.setup(action, can_use_action)
 		action_button.connect("pressed", self, "_on_UIActionButton_button_pressed", [action])
 		action_button.connect(
 			"focus_entered", self, "_on_UIActionButton_focus_entered", [action_button]

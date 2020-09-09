@@ -67,7 +67,7 @@ func _play_turn(battler: Battler) -> void:
 		var is_selection_complete := false
 		# Wait for the player to select a valid action and target(s).
 		while not is_selection_complete:
-			action = yield(_player_select_action_async(battler.actions), "completed")
+			action = yield(_player_select_action_async(battler), "completed")
 			if action.is_targeting_self:
 				targets = [battler]
 			else:
@@ -88,10 +88,10 @@ func _play_turn(battler: Battler) -> void:
 		emit_signal("player_turn_finished")
 
 
-func _player_select_action_async(actions: Array) -> Action:
+func _player_select_action_async(battler: Battler) -> Action:
 	var action_menu: UIActionMenu = UIActionMenuScene.instance()
 	add_child(action_menu)
-	action_menu.open(actions)
+	action_menu.open(battler)
 	var action: Action = yield(action_menu, "action_selected")
 	return action
 
