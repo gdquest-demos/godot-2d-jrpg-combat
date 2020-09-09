@@ -1,5 +1,5 @@
 # Represents and applies the effect of a given status to a battler.
-# The status takes effect once added to the scene tree.
+# The status takes effect as soon as the node is added to the scene tree.
 # @tags: virtual
 class_name StatusEffect
 extends Node
@@ -37,6 +37,7 @@ func _process(delta: float) -> void:
 			_apply()
 
 	if _time_left < 0.0:
+		set_process(false)
 		_expire()
 
 
@@ -52,14 +53,12 @@ func _apply() -> void:
 	pass
 
 
-# Cleans up and removes the status effect to the battler.
+# Cleans up and removes the status effect from the battler.
 # @tags: virtual
 func _expire() -> void:
-	set_process(false)
 	queue_free()
 
 
 func set_duration_seconds(value: float) -> void:
 	duration_seconds = value
 	_time_left = duration_seconds
-	set_process(true)

@@ -5,7 +5,7 @@ onready var icon_node: TextureRect = $HBoxContainer/Icon
 onready var label_node: Label = $HBoxContainer/Label
 
 
-func setup(action: Action, can_be_used: bool) -> void:
+func setup(action: ActionData, can_be_used: bool) -> void:
 	if not is_inside_tree():
 		yield(self, "ready")
 	if action.icon:

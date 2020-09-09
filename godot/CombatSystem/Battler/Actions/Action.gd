@@ -1,42 +1,41 @@
 # Abstract base class for all combat actions.
-# Add an action to [Battler.actions] to allow them to use it.
+# Constructed from an [ActionData] resource
 # Actions take an actor and an array of targets. The actor applies the action to the targets, which involves sequencing and playing animations.
 # Because of that, actions rely on coroutines and must emit the signal "finished" when the action is over.
 # See derived classes like [AttackAction] for concrete examples.
 # Implements the Command pattern. For more information, see http://gameprogrammingpatterns.com/command.html
 class_name Action
-extends Resource
+extends Reference
 
 # Emitted when the action finished playing.
 signal finished
 
-enum ElementalTypes { NONE, CODE, DESIGN, ART, BUG }
+var _data: ActionData
+var _actor
+var _targets := []
 
-export var icon: Texture
-export var label := "Base combat action"
 
-export var energy_cost := 0
-export(ElementalTypes) var element := ElementalTypes.NONE
-export var is_targeting_self := false
-export var is_targeting_all := false
-export var readiness_saved := 0.0
+func _init(data: ActionData, actor, targets: Array) -> void:
+	_data = data
+	_actor = actor
+	_targets = targets
 
 
 # Applies the action on `_targets` using `_actor`'s stats.
-func apply_async(_actor, _targets: Array) -> bool:
-	return _apply_async(_actor, _targets)
+func apply_async() -> bool:
+	return _apply_async()
 
 
 # Executes the action initiated by the `actor` battler on the `targets`.
 # The function must be a coroutine or the game will freeze.
 # Returns `true` if the action succeeded.
-func _apply_async(_actor, _targets: Array) -> bool:
+func _apply_async() -> bool:
 	emit_signal("finished")
 	return true
 
 
 # Returns `true` if the action can be used.
-func _can_use(_actor) -> bool:
+func _can_use() -> bool:
 	return true
 
 

@@ -52,7 +52,7 @@ func _play_turn(battler: Battler) -> void:
 	battler.stats.energy += 1
 
 	battler.is_selected = true
-	var action: Action
+	var action: ActionData
 	var targets := []
 
 	var potential_targets := []
@@ -88,15 +88,15 @@ func _play_turn(battler: Battler) -> void:
 		emit_signal("player_turn_finished")
 
 
-func _player_select_action_async(battler: Battler) -> Action:
+func _player_select_action_async(battler: Battler) -> ActionData:
 	var action_menu: UIActionMenu = UIActionMenuScene.instance()
 	add_child(action_menu)
 	action_menu.open(battler)
-	var action: Action = yield(action_menu, "action_selected")
-	return action
+	var data: ActionData = yield(action_menu, "action_selected")
+	return data
 
 
-func _player_select_targets_async(_action: Action, opponents: Array) -> Array:
+func _player_select_targets_async(_action: ActionData, opponents: Array) -> Array:
 	var arrow: UISelectBattlerArrow = SelectArrow.instance()
 	add_child(arrow)
 	arrow.setup(opponents)

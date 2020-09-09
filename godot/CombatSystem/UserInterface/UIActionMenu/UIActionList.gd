@@ -40,7 +40,7 @@ func set_is_disabled(value: bool) -> void:
 
 
 # The action may be opening another menu
-func _on_UIActionButton_button_pressed(action: Action) -> void:
+func _on_UIActionButton_button_pressed(action: ActionData) -> void:
 	set_is_disabled(true)
 	emit_signal("action_selected", action)
 

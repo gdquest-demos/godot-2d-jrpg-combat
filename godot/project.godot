@@ -9,15 +9,25 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Resource",
+"base": "Reference",
 "class": "Action",
 "language": "GDScript",
 "path": "res://CombatSystem/Battler/Actions/Action.gd"
+}, {
+"base": "Resource",
+"class": "ActionData",
+"language": "GDScript",
+"path": "res://CombatSystem/Battler/Actions/ActionData.gd"
 }, {
 "base": "Action",
 "class": "AttackAction",
 "language": "GDScript",
 "path": "res://CombatSystem/Battler/Actions/Attacks/AttackAction.gd"
+}, {
+"base": "ActionData",
+"class": "AttackActionData",
+"language": "GDScript",
+"path": "res://CombatSystem/Battler/Actions/Attacks/AttackActionData.gd"
 }, {
 "base": "Node2D",
 "class": "Battler",
@@ -43,11 +53,6 @@ _global_script_classes=[ {
 "class": "BattlerUIData",
 "language": "GDScript",
 "path": "res://CombatSystem/Battler/BattlerUIData.gd"
-}, {
-"base": "Action",
-"class": "EnergyChargeAction",
-"language": "GDScript",
-"path": "res://CombatSystem/Battler/Actions/SelfActions/EnergyChargeAction.gd"
 }, {
 "base": "Reference",
 "class": "Hit",
@@ -91,13 +96,14 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Action": "",
+"ActionData": "",
 "AttackAction": "",
+"AttackActionData": "",
 "Battler": "",
 "BattlerAI": "",
 "BattlerAnim": "",
 "BattlerStats": "",
 "BattlerUIData": "",
-"EnergyChargeAction": "",
 "Hit": "",
 "StatusEffect": "",
 "UIActionMenu": "",

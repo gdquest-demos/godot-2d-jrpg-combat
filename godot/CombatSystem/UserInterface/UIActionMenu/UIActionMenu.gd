@@ -23,6 +23,6 @@ func close() -> void:
 	queue_free()
 
 
-func _on_UIActionsList_action_selected(action: Action) -> void:
+func _on_UIActionsList_action_selected(action: ActionData) -> void:
 	emit_signal("action_selected", action)
 	close()

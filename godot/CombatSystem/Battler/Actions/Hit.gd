@@ -4,10 +4,13 @@ class_name Hit
 extends Reference
 
 var _damage := 0
-var _target: Battler
+var _target
 
 
-func _init(target: Battler, damage: int) -> void:
+# Arguments:
+# - target: Battler
+# - damage: int
+func _init(target, damage: int) -> void:
 	_target = target
 	_damage = damage
 

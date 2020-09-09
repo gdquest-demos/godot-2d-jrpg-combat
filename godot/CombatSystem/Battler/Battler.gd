@@ -13,7 +13,7 @@ signal selection_toggled(value)
 
 export var stats: Resource
 export var ai: Resource = null
-# Array of available actions for this unit.
+# Array of ActionData, from which we construct actions for this unit.
 export var actions: Array
 # If true, this battler is part of the player's party and it targets enemy units
 export var is_party_member := false
@@ -56,11 +56,12 @@ func setup(battlers: Array) -> void:
 # Arguments:
 # - action: Action, the combat action to apply.
 # - targets: Array[Battler], the battlers on which to apply the action.
-func act(action, targets: Array) -> void:
-	stats.energy -= action.energy_cost
-	yield(action.apply_async(self, targets), "completed")
+func act(action_data, targets: Array) -> void:
+	stats.energy -= action_data.energy_cost
+	var action = AttackAction.new(action_data, self, targets)
+	yield(action.apply_async(), "completed")
 	battler_anim.move_back()
-	_set_readiness(action.readiness_saved)
+	_set_readiness(action_data.readiness_saved)
 	if is_active:
 		set_process(true)
 	emit_signal("action_finished")

@@ -1,6 +1,6 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://CombatSystem/Battler/Actions/Attacks/AttackAction.gd" type="Script" id=1]
+[ext_resource path="res://CombatSystem/Battler/Actions/Attacks/Punch.tres" type="Resource" id=1]
 [ext_resource path="res://CombatSystem/Battler/Battler.gd" type="Script" id=3]
 [ext_resource path="res://CombatSystem/Battler/battler_stats_default.tres" type="Resource" id=4]
 [ext_resource path="res://CombatSystem/Battler/Animation/bugcat.png" type="Texture" id=5]
@@ -8,30 +8,23 @@
 [ext_resource path="res://CombatSystem/Battler/BattlerUIData.gd" type="Script" id=7]
 [ext_resource path="res://CombatSystem/Battler/Animation/BattlerAnim.tscn" type="PackedScene" id=8]
 
-
 [sub_resource type="Resource" id=1]
 script = ExtResource( 6 )
 
 [sub_resource type="Resource" id=2]
-script = ExtResource( 1 )
-label = "Attack"
-is_targetting_self = false
-is_targetting_all = false
-
-[sub_resource type="Resource" id=3]
 script = ExtResource( 7 )
 display_name = "BugCat"
 texture = ExtResource( 5 )
 
-[node name="Porcupine" type="Node2D"]
+[node name="BugCat" type="Node2D"]
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
 }
 stats = ExtResource( 4 )
 ai = SubResource( 1 )
-actions = [ SubResource( 2 ) ]
-ui_data = SubResource( 3 )
+actions = [ ExtResource( 1 ) ]
+ui_data = SubResource( 2 )
 
 [node name="BattlerAnim" parent="." instance=ExtResource( 8 )]
 

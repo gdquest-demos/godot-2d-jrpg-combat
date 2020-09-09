@@ -1,25 +1,23 @@
-# Template for basic damaging attacks. Inflicts direct damage to one or more targets.
-tool
-extends Action
+# Concrete class for basic damaging attacks. Inflicts direct damage to one or more targets.
 class_name AttackAction
-
-export var damage_multiplier := 1.0
+extends Action
 
 var _hits := []
 
-func _init() -> void:
-	label = "Attack"
+
+func _init(data: ActionData, actor, targets: Array).(data, actor, targets) -> void:
+	pass
 
 
 # Plays the acting battler's attack animation once for each target. Damages each target when the actor's animation emits the `triggered` signal.
-func _apply_async(actor, targets: Array) -> bool:
-	var anim: BattlerAnim = actor.battler_anim
+func _apply_async() -> bool:
+	var anim = _actor.battler_anim
 	if not anim.is_connected("triggered", self, "_on_BattlerAnim_triggered"):
 		anim.connect("triggered", self, "_on_BattlerAnim_triggered")
-	for target in targets:
-		_hits.append(Hit.new(target, actor.get_damage()))
+	for target in _targets:
+		_hits.append(Hit.new(target, _actor.get_damage()))
 		anim.play("attack")
-		yield(actor, "animation_finished")
+		yield(_actor, "animation_finished")
 	return true
 
 

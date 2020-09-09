@@ -1,13 +1,14 @@
 [gd_resource type="Resource" load_steps=2 format=2]
 
-[ext_resource path="res://CombatSystem/Battler/Actions/Attacks/AttackAction.gd" type="Script" id=1]
+[ext_resource path="res://CombatSystem/Battler/Actions/Attacks/AttackActionData.gd" type="Script" id=1]
 
 [resource]
 script = ExtResource( 1 )
-label = "Super Punch"
+label = "Punch"
 energy_cost = 1
 element = 1
 is_targeting_self = false
 is_targeting_all = false
-readiness_saved = 30.0
-damage_multiplier = 1.6
+readiness_saved = 0.0
+damage_multiplier = 1.4
+hits_data = [  ]

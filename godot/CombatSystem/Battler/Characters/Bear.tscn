@@ -1,42 +1,27 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://CombatSystem/Battler/Actions/Attacks/AttackAction.gd" type="Script" id=1]
+[ext_resource path="res://CombatSystem/Battler/Actions/Attacks/Punch.tres" type="Resource" id=1]
 [ext_resource path="res://CombatSystem/Battler/bear_stats.tres" type="Resource" id=3]
 [ext_resource path="res://CombatSystem/Battler/Battler.gd" type="Script" id=4]
 [ext_resource path="res://CombatSystem/Battler/Animation/bear.png" type="Texture" id=5]
-[ext_resource path="res://CombatSystem/Battler/Actions/SelfActions/EnergyChargeAction.gd" type="Script" id=6]
 [ext_resource path="res://CombatSystem/Battler/BattlerUIData.gd" type="Script" id=7]
 [ext_resource path="res://CombatSystem/Battler/Animation/BattlerAnim.tscn" type="PackedScene" id=8]
 
-
-
 [sub_resource type="Resource" id=1]
-script = ExtResource( 1 )
-label = "Attack"
-is_targetting_self = false
-is_targetting_all = false
-
-[sub_resource type="Resource" id=2]
-script = ExtResource( 6 )
-label = "Charge"
-is_targetting_self = true
-is_targetting_all = false
-
-[sub_resource type="Resource" id=3]
 script = ExtResource( 7 )
 display_name = "Bear"
 texture = ExtResource( 5 )
 
-[node name="Robi" type="Node2D"]
+[node name="Bear" type="Node2D"]
 position = Vector2( 6.10352e-05, 0 )
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_group_": true
 }
 stats = ExtResource( 3 )
-actions = [ SubResource( 1 ), SubResource( 2 ) ]
+actions = [ ExtResource( 1 ) ]
 is_party_member = true
-ui_data = SubResource( 3 )
+ui_data = SubResource( 1 )
 
 [node name="BattlerAnim" parent="." instance=ExtResource( 8 )]
 

@@ -39,7 +39,7 @@ func choose() -> Dictionary:
 # @tags: virtual
 func _choose() -> Dictionary:
 	var battle_info := _gather_information()
-	var action: Action
+	var action: ActionData
 	var targets := []
 
 	if not _next_actions.empty():
@@ -55,12 +55,12 @@ func _choose() -> Dictionary:
 
 
 # @tags: virtual
-func _choose_action(_info: Dictionary) -> Action:
+func _choose_action(_info: Dictionary) -> ActionData:
 	return _actor.actions[0]
 
 
 # @tags: virtual
-func _choose_targets(_action: Action, _info: Dictionary) -> Array:
+func _choose_targets(_action: ActionData, _info: Dictionary) -> Array:
 	return [_info.weakest_target]
 
 
@@ -84,7 +84,7 @@ func _get_battler_with_lowest_health(battlers: Array) -> Battler:
 	return weakest
 
 
-func _is_weak_to(battler: Battler, action: Action) -> bool:
+func _is_weak_to(battler: Battler, action: ActionData) -> bool:
 	return true if action.element in battler.stats.weaknesses else false
 
 
