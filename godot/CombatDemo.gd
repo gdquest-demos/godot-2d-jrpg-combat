@@ -24,7 +24,7 @@ func _ready() -> void:
 
 
 # Returns an array of `Battler` who are in the same team as `actor`, including `actor`.
-func get_ally_battlers_of(actor: Battler) -> Array:
+func get_ally_battlers_of(actor) -> Array:
 	var team := []
 	for battler in active_turn_queue.battlers:
 		if battler.is_party_member == actor.is_party_member:
