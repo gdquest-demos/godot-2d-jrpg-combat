@@ -20,7 +20,7 @@ export var is_party_member := false
 export var ui_data: Resource
 
 # Provided by the ActiveTurnQueue.
-var time_scale := 1.0
+var time_scale := 1.0 setget set_time_scale
 # If `true`, the battler's readiness updates every frame.
 var is_active: bool = true setget set_is_active
 # If `true`, the battler is selected, which makes it move forward.
@@ -30,6 +30,7 @@ var is_selected: bool = false setget set_is_selected
 var is_selectable: bool = true setget set_is_selectable
 
 var _readiness := 0.0 setget _set_readiness
+var _status_effects := []
 
 onready var battler_anim: BattlerAnim = $BattlerAnim
 
@@ -94,6 +95,12 @@ func is_fallen() -> bool:
 func set_is_active(value):
 	is_active = value
 	set_process(is_active)
+
+
+func set_time_scale(value):
+	time_scale = value
+	for status_effect in _status_effects:
+		status_effect.time_scale = time_scale
 
 
 func set_is_selected(value):

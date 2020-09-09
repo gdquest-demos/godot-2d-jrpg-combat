@@ -54,6 +54,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://CombatSystem/Battler/Actions/Hit.gd"
 }, {
+"base": "Node",
+"class": "StatusEffect",
+"language": "GDScript",
+"path": "res://CombatSystem/Battler/StatusEffect.gd"
+}, {
 "base": "Control",
 "class": "UIActionMenu",
 "language": "GDScript",
@@ -94,6 +99,7 @@ _global_script_class_icons={
 "BattlerUIData": "",
 "EnergyChargeAction": "",
 "Hit": "",
+"StatusEffect": "",
 "UIActionMenu": "",
 "UIBattlerHUD": "",
 "UIBattlerIcon": "",
