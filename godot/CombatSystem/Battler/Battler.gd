@@ -51,6 +51,7 @@ func setup(battlers: Array) -> void:
 	if ai:
 		ai.setup(self, battlers)
 
+
 # Makes the battler apply an [Action] to the `targets` and resets the battler's readiness.
 #
 # Arguments:

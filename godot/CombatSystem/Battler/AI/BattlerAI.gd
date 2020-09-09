@@ -32,7 +32,10 @@ func setup(actor: Battler, battlers: Array) -> void:
 # Arguments:
 # - `battlers: Array[Battler]`, all battlers on the field, including the actor
 func choose() -> Dictionary:
-	assert(not _opponents.empty(), "You must call setup() on the AI and give it opponents for it to work.")
+	assert(
+		not _opponents.empty(),
+		"You must call setup() on the AI and give it opponents for it to work."
+	)
 	return _choose()
 
 
