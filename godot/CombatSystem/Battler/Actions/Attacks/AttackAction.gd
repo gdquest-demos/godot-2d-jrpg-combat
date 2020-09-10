@@ -24,3 +24,11 @@ func _apply_async() -> bool:
 func _on_BattlerAnim_triggered() -> void:
 	var hit: Hit = _hits.pop_front()
 	hit.apply()
+
+
+func get_damage_multiplier() -> float:
+	return _data.damage_multiplier
+
+
+func get_element() -> int:
+	return _data.element

@@ -6,13 +6,16 @@ signal health_depleted
 signal health_changed(old_value, new_value)
 signal energy_changed(old_value, new_value)
 
-const UPGRADABLE_STATS = ["max_health", "max_energy", "attack", "speed"]
+const UPGRADABLE_STATS = ["max_health", "max_energy", "attack", "defense", "speed", "hit_rating"]
 
 export var max_health := 100.0
 export var max_energy := 6
 
 export var base_attack := 10.0 setget set_base_attack
+export var base_defense := 10.0 setget set_base_defense
 export var base_speed := 70.0 setget set_base_speed
+export var base_hit_chance := 100.0 setget set_base_hit_chance
+export var base_evasion := 0.0 setget set_base_evasion
 
 export var weaknesses := []
 
@@ -20,7 +23,10 @@ var health := max_health setget set_health
 var energy := 0 setget set_energy
 
 var attack := base_attack
+var defense := base_defense
 var speed := base_speed
+var hit_chance := base_hit_chance
+var evasion := base_evasion
 
 # Modifiers has a list of modifiers for each property in `UPGRADABLE_STATS`. Each modifier is a dict that
 # requires a key named `value`. The value of a modifier can be any float.
@@ -42,6 +48,11 @@ func add_modifier(stat_name: String, value: float) -> int:
 	return id
 
 
+func remove_modifier(stat_name: String, id: int) -> void:
+	assert(id in _modifiers[stat_name], "Id %s not found in %s" % [id, _modifiers[stat_name]])
+	_modifiers[stat_name].erase(id)
+
+
 func set_health(value: float) -> void:
 	var health_previous := health
 	health = clamp(value, 0.0, max_health)
@@ -61,9 +72,24 @@ func set_base_attack(value: float) -> void:
 	attack = _calculate("attack")
 
 
+func set_base_defense(value: float) -> void:
+	base_defense = value
+	defense = _calculate("defense")
+
+
 func set_base_speed(value: float) -> void:
 	base_speed = value
 	speed = _calculate("speed")
+
+
+func set_base_hit_chance(value: float) -> void:
+	base_hit_chance = value
+	hit_chance = _calculate("hit_chance")
+
+
+func set_base_evasion(value: float) -> void:
+	base_evasion = value
+	evasion = _calculate("evasion")
 
 
 # Calculates the final value of a single stat, its based value with all modifiers applied.
