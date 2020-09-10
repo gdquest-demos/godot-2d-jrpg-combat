@@ -15,7 +15,7 @@ func _apply_async() -> bool:
 	if not anim.is_connected("triggered", self, "_on_BattlerAnim_triggered"):
 		anim.connect("triggered", self, "_on_BattlerAnim_triggered")
 	for target in _targets:
-		_hits.append(Hit.new(target, _actor.get_damage()))
+		_hits.append(Hit.new(target, _actor.get_damage() * _data.damage_multiplier))
 		anim.play("attack")
 		yield(_actor, "animation_finished")
 	return true
