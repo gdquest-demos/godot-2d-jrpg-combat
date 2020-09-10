@@ -1,4 +1,5 @@
 # Hold and plays the base animation for battlers.
+tool
 class_name BattlerAnim
 extends Position2D
 
@@ -6,6 +7,11 @@ signal animation_finished(name)
 # Emitted by animations when a combat action should apply its next effect, like dealing damage or healing an ally.
 # warning-ignore:unused_signal
 signal triggered
+
+enum Direction { LEFT, RIGHT }
+
+# Controls the direction in which the battler looks and moves.
+export (Direction) var direction := Direction.RIGHT setget set_direction
 
 var _position_start := Vector2.ZERO
 
@@ -54,6 +60,11 @@ func move_back() -> void:
 		self, "position", position, _position_start, 0.3, Tween.TRANS_QUART, Tween.EASE_IN_OUT
 	)
 	tween.start()
+
+
+func set_direction(value: int) -> void:
+	direction = value
+	scale.x = -1.0 if direction == Direction.RIGHT else 1.0
 
 
 func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:

@@ -27,6 +27,7 @@ actions = [ ExtResource( 1 ) ]
 ui_data = SubResource( 2 )
 
 [node name="BattlerAnim" parent="." instance=ExtResource( 8 )]
+scale = Vector2( -1, 1 )
 
 [node name="Pivot" parent="BattlerAnim" index="0"]
 scale = Vector2( -1, 1 )
@@ -35,9 +36,13 @@ scale = Vector2( -1, 1 )
 scale = Vector2( -1, 1 )
 texture = ExtResource( 5 )
 offset = Vector2( -1.42499e-05, -163 )
+flip_h = true
 
 [node name="FrontAnchor" parent="BattlerAnim" index="1"]
-position = Vector2( -215.887, -85.7196 )
+position = Vector2( -159.735, -85.7196 )
+
+[node name="TopAnchor" parent="BattlerAnim" index="2"]
+position = Vector2( 0, -357.713 )
 [connection signal="animation_finished" from="BattlerAnim" to="." method="_on_BattlerAnim_animation_finished"]
 
 [editable path="BattlerAnim"]

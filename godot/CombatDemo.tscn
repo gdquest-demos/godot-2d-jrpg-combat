@@ -34,7 +34,7 @@ SelectArrow = ExtResource( 4 )
 position = Vector2( 1561.65, 720.435 )
 
 [node name="BugCat" parent="ActiveTurnQueue" instance=ExtResource( 6 )]
-position = Vector2( 247.914, 720.435 )
+position = Vector2( 319.266, 720.435 )
 
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource( 2 )
