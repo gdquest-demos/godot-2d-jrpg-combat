@@ -55,6 +55,11 @@ _global_script_classes=[ {
 "path": "res://CombatSystem/Battler/BattlerUIData.gd"
 }, {
 "base": "Reference",
+"class": "Formulas",
+"language": "GDScript",
+"path": "res://CombatSystem/Libraries/Formulas.gd"
+}, {
+"base": "Reference",
 "class": "Hit",
 "language": "GDScript",
 "path": "res://CombatSystem/Battler/Actions/Hit.gd"
@@ -114,6 +119,7 @@ _global_script_class_icons={
 "BattlerAnim": "",
 "BattlerStats": "",
 "BattlerUIData": "",
+"Formulas": "",
 "Hit": "",
 "StatusEffect": "",
 "StatusEffectHaste": "",
