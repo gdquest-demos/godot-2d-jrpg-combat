@@ -37,6 +37,7 @@ onready var battler_anim: BattlerAnim = $BattlerAnim
 
 func _ready() -> void:
 	assert(stats is BattlerStats)
+	stats = stats.duplicate()
 	stats.connect("health_depleted", self, "_on_Stats_health_depleted")
 
 
