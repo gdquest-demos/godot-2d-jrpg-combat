@@ -4,13 +4,13 @@
 class_name ActionData
 extends Resource
 
-enum ElementalTypes { NONE, CODE, DESIGN, ART, BUG }
+enum Elements { NONE, CODE, DESIGN, ART, BUG }
 
 export var icon: Texture
 export var label := "Base combat action"
 
 export var energy_cost := 0
-export (ElementalTypes) var element := ElementalTypes.NONE
+export (Elements) var element := Elements.NONE
 export var is_targeting_self := false
 export var is_targeting_all := false
 export var readiness_saved := 0.0

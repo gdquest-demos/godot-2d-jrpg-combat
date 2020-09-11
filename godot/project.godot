@@ -64,7 +64,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://CombatSystem/Battler/Actions/Hit.gd"
 }, {
-"base": "Reference",
+"base": "Node",
 "class": "StatusEffect",
 "language": "GDScript",
 "path": "res://CombatSystem/Battler/Characters/StatusEffects/StatusEffect.gd"
@@ -78,6 +78,11 @@ _global_script_classes=[ {
 "class": "StatusEffectSlow",
 "language": "GDScript",
 "path": "res://CombatSystem/Battler/Characters/StatusEffects/StatusEffectSlow.gd"
+}, {
+"base": "Reference",
+"class": "Types",
+"language": "GDScript",
+"path": "res://CombatSystem/Battler/Actions/Types.gd"
 }, {
 "base": "Control",
 "class": "UIActionMenu",
@@ -124,6 +129,7 @@ _global_script_class_icons={
 "StatusEffect": "",
 "StatusEffectHaste": "",
 "StatusEffectSlow": "",
+"Types": "",
 "UIActionMenu": "",
 "UIBattlerHUD": "",
 "UIBattlerIcon": "",
