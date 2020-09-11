@@ -32,3 +32,7 @@ func get_damage_multiplier() -> float:
 
 func get_element() -> int:
 	return _data.element
+
+
+func get_hit_chance() -> int:
+	return _data.hit_chance
