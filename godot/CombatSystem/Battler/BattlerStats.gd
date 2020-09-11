@@ -6,7 +6,7 @@ signal health_depleted
 signal health_changed(old_value, new_value)
 signal energy_changed(old_value, new_value)
 
-const UPGRADABLE_STATS = ["max_health", "max_energy", "attack", "defense", "speed", "hit_rating"]
+const UPGRADABLE_STATS = ["max_health", "max_energy", "attack", "defense", "speed", "hit_chance", "evasion"]
 
 export var max_health := 100.0
 export var max_energy := 6
