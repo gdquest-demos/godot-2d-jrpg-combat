@@ -4,7 +4,7 @@
 class_name StatusEffect
 extends Node
 
-var _target: Battler
+var _target
 
 # Provided by the ActiveTurnQueue.
 var time_scale := 1.0
@@ -16,9 +16,9 @@ var _time_left: float = -INF
 var _ticking_clock := 0.0
 
 
-func _init(target: Battler, duration: float) -> void:
+func _init(target, data: StatusEffectData) -> void:
 	_target = target
-	set_duration_seconds(duration)
+	set_duration_seconds(data.duration_seconds)
 	if is_ticking:
 		_ticking_clock = ticking_interval
 
@@ -47,7 +47,8 @@ func _start() -> void:
 	pass
 
 
-# Applies the status effect to the battler.
+# Applies the status effect to the battler. Used with ticking effects,
+# for example, a poison status dealing damage every two seconds.
 # @tags: virtual
 func _apply() -> void:
 	pass

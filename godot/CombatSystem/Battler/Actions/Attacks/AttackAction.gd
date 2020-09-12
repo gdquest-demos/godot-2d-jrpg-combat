@@ -15,7 +15,9 @@ func _apply_async() -> bool:
 	if not anim.is_connected("triggered", self, "_on_BattlerAnim_triggered"):
 		anim.connect("triggered", self, "_on_BattlerAnim_triggered")
 	for target in _targets:
-		_hits.append(Hit.new(target, _actor.get_damage() * _data.damage_multiplier))
+		var status: StatusEffect = StatusEffectBuilder.create_status_effect(target, _data.status_effect)
+		var damage := Formulas.calculate_base_damage(self, _actor, target)
+		_hits.append(Hit.new(target, damage, status))
 		anim.play("attack")
 		yield(_actor, "animation_finished")
 	return true
