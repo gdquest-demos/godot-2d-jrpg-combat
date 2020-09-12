@@ -1,4 +1,5 @@
 # Stores and manages the battler's base stats like health, energy, and base damage.
+tool
 extends Resource
 class_name BattlerStats
 
@@ -18,6 +19,7 @@ export var base_hit_chance := 100.0 setget set_base_hit_chance
 export var base_evasion := 0.0 setget set_base_evasion
 
 export var weaknesses := []
+export var affinity: int = Types.Elements.NONE
 
 var health := max_health setget set_health
 var energy := 0 setget set_energy

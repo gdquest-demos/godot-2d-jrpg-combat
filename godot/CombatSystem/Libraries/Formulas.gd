@@ -5,7 +5,7 @@ extends Reference
 # Damage formula:
 # (attacker_attack - defender_defense) * action_damage_multiplier * weakness_multiplier
 # Damage is in the range [0, 999]
-static func calculate_base_damage(action: AttackAction, attacker: Battler, defender: Battler) -> int:
+static func calculate_base_damage(action, attacker, defender) -> int:
 	var damage: float = (
 		(attacker.stats.attack - defender.stats.defense)
 		* action.get_damage_multiplier()
@@ -17,7 +17,7 @@ static func calculate_base_damage(action: AttackAction, attacker: Battler, defen
 # Hit chance formula:
 # (attacker_hit - defender_evasion) * action_hit + element_triad_bonus
 # Return value is in the range [0, 100]
-static func calculate_hit_chance(action: AttackAction, attacker: Battler, defender: Battler) -> float:
+static func calculate_hit_chance(action, attacker, defender) -> float:
 	var chance: float = attacker.stats.hit_chance - defender.stats.evasion
 	chance *= action.get_hit_chance() / 100.0
 	var element: int = action.get_element()
@@ -33,11 +33,12 @@ static func calculate_hit_chance(action: AttackAction, attacker: Battler, defend
 # - 1.5 if the defender is weak against the action
 # - 0.75 if the defender is strong against the action
 # - 1.0 otherwise
-static func _calculate_weakness_multiplier(action: AttackAction, defender: Battler) -> float:
+static func _calculate_weakness_multiplier(action, defender) -> float:
 	var multiplier := 1.0
 	var element: int = action.get_element()
 	if element != Types.Elements.NONE:
-		if Types.WEAKNESS_MAPPING[defender.stats.element] == element:
+		var stats = defender.stats
+		if Types.WEAKNESS_MAPPING[defender.stats.affinity] == element:
 			multiplier = 0.75
 		elif Types.WEAKNESS_MAPPING[element] in defender.stats.weaknesses:
 			multiplier = 1.5
