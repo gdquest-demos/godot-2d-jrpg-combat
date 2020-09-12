@@ -52,7 +52,7 @@ func are_all_fallen(battlers: Array) -> bool:
 	return fallen_count == battlers.size()
 
 
-func _on_Battler_health_depleted(actor: Battler) -> void:
+func _on_Battler_health_depleted(actor) -> void:
 	var team := get_ally_battlers_of(actor)
 	if are_all_fallen(team):
 		end_combat(CombatResult.DEFEAT if actor.is_party_member else CombatResult.VICTORY)
