@@ -39,6 +39,10 @@ func _init() -> void:
 		_modifiers[stat] = {}
 
 
+func reinitialize() -> void:
+	set_health(max_health)
+
+
 # Adds a modifier that affects the stat with the given `stat_name` and returns its unique key.
 func add_modifier(stat_name: String, value: float) -> int:
 	assert(stat_name in UPGRADABLE_STATS, "Trying to add a modifier to a nonexistent stat.")
