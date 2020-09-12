@@ -80,6 +80,10 @@ func take_damage(amount: float) -> void:
 		battler_anim.play("take_damage")
 
 
+func apply_status_effect(effect: StatusEffect) -> void:
+	add_child(effect)
+
+
 func get_front_anchor_global_position() -> Vector2:
 	return battler_anim.get_front_anchor_global_position()
 

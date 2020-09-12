@@ -11,4 +11,5 @@ is_targeting_self = false
 is_targeting_all = false
 readiness_saved = 0.0
 damage_multiplier = 0.8
-hits_data = [  ]
+hit_chance = 100.0
+hits = [  ]
