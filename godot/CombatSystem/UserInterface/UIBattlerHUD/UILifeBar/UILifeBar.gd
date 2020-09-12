@@ -13,8 +13,8 @@ onready var tween: Tween = $Tween
 
 func set_target_value(amount: float) -> void:
 	target_value = amount
-	var duration := abs(target_value - value) / max_value * fill_rate
-	tween.interpolate_property(self, "value", value, target_value, duration, Tween.TRANS_QUAD)
 	if tween.is_active():
 		tween.stop_all()
+	var duration := abs(target_value - value) / max_value * fill_rate
+	tween.interpolate_property(self, "value", value, target_value, duration, Tween.TRANS_QUAD)
 	tween.start()
