@@ -7,7 +7,9 @@ signal health_depleted
 signal health_changed(old_value, new_value)
 signal energy_changed(old_value, new_value)
 
-const UPGRADABLE_STATS = ["max_health", "max_energy", "attack", "defense", "speed", "hit_chance", "evasion"]
+const UPGRADABLE_STATS = [
+	"max_health", "max_energy", "attack", "defense", "speed", "hit_chance", "evasion"
+]
 
 export var max_health := 100.0
 export var max_energy := 6
@@ -57,7 +59,7 @@ func add_modifier(stat_name: String, value: float) -> int:
 func remove_modifier(stat_name: String, id: int) -> void:
 	assert(id in _modifiers[stat_name], "Id %s not found in %s" % [id, _modifiers[stat_name]])
 	_modifiers[stat_name].erase(id)
-	_recalculate_and_update(stat_name)	
+	_recalculate_and_update(stat_name)
 
 
 func set_health(value: float) -> void:

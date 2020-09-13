@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://CombatSystem/Battler/Actions/Attacks/Claw.tres" type="Resource" id=1]
+[ext_resource path="res://CombatSystem/Battler/Actions/Attacks/BugClaw.tres" type="Resource" id=2]
 [ext_resource path="res://CombatSystem/Battler/Battler.gd" type="Script" id=3]
 [ext_resource path="res://CombatSystem/Battler/battler_stats_default.tres" type="Resource" id=4]
 [ext_resource path="res://CombatSystem/Battler/Animation/bugcat.png" type="Texture" id=5]
@@ -23,7 +24,7 @@ __meta__ = {
 }
 stats = ExtResource( 4 )
 ai = SubResource( 1 )
-actions = [ ExtResource( 1 ) ]
+actions = [ ExtResource( 1 ), ExtResource( 2 ) ]
 ui_data = SubResource( 2 )
 
 [node name="BattlerAnim" parent="." instance=ExtResource( 8 )]

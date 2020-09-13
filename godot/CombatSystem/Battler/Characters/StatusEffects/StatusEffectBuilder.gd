@@ -5,8 +5,8 @@ extends Reference
 const StatusEffects := {
 	haste = StatusEffectHaste,
 	slow = StatusEffectSlow,
+	bug = StatusEffectBug,
 }
-
 
 static func create_status_effect(target, data):
 	if not data:

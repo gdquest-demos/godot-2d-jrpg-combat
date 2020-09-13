@@ -35,10 +35,10 @@ func _apply_async() -> bool:
 
 
 # Returns `true` if the action can be used.
-func _can_use() -> bool:
-	return true
+func can_be_used() -> bool:
+	return true if _data.energy_cost <= _actor.stats.energy else false
 
 
 # Returns `true` if the action should target opponents by default.
-func _target_opponents() -> bool:
+func targets_opponents() -> bool:
 	return true

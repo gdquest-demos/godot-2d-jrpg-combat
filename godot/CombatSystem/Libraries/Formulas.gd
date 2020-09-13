@@ -1,7 +1,6 @@
 class_name Formulas
 extends Reference
 
-
 # Damage formula:
 # (attacker_attack - defender_defense) * action_damage_multiplier * weakness_multiplier
 # Damage is in the range [0, 999]
@@ -12,7 +11,6 @@ static func calculate_base_damage(action, attacker, defender) -> int:
 	)
 	damage *= _calculate_weakness_multiplier(action, defender)
 	return int(clamp(damage, 0.0, 999.0))
-
 
 # Hit chance formula:
 # (attacker_hit - defender_evasion) * action_hit + element_triad_bonus
@@ -27,7 +25,6 @@ static func calculate_hit_chance(action, attacker, defender) -> float:
 		elif Types.WEAKNESS_MAPPING[element] in defender.stats.weaknesses:
 			chance -= 10.0
 	return clamp(chance, 0.0, 100.0)
-
 
 # Returns:
 # - 1.5 if the defender is weak against the action

@@ -11,7 +11,9 @@ func _init(target, data: StatusEffectData).(target, data) -> void:
 
 
 func _start() -> void:
-	_stat_modifier_id = _target.stats.add_modifier("speed", -1.0 * speed_reduction * _target.stats.speed)
+	_stat_modifier_id = _target.stats.add_modifier(
+		"speed", -1.0 * speed_reduction * _target.stats.speed
+	)
 
 
 func _expire() -> void:

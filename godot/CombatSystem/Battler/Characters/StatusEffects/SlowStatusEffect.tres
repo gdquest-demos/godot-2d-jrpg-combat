@@ -8,3 +8,6 @@ effect = "slow"
 duration_seconds = 20.0
 effect_power = 20
 effect_rate = 0.6
+is_ticking = false
+ticking_interval = 4.0
+ticking_damage = 3

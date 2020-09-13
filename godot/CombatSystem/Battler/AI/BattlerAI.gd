@@ -69,12 +69,19 @@ func _choose_targets(_action: ActionData, _info: Dictionary) -> Array:
 
 # Finds key information about the state of the battle so the agent can take a decision.
 func _gather_information() -> Dictionary:
+	var actions := _get_available_actions()
+	var attack_actions := _get_attack_actions_from(actions)
+	var defensive_actions := _get_defensive_actions_from(actions)
 	var info := {
 		weakest_target = _get_battler_with_lowest_health(_opponents),
 		weakest_ally = _get_battler_with_lowest_health(_party),
 		health_status = _get_health_status(_actor),
 		fallen_party_count = _count_fallen_party(),
 		fallen_opponents_count = _count_fallen_opponents(),
+		available_actions = actions,
+		attack_actions = attack_actions,
+		defensive_actions = defensive_actions,
+		strongest_action = _find_most_damaging_action_from(attack_actions),
 	}
 	return info
 
@@ -138,3 +145,40 @@ func _calculate_weaknesses() -> void:
 		for opponent in _opponents:
 			if _is_weak_to(opponent, action):
 				_weaknesses_dict[action].append(opponent)
+
+
+# Returns an Array of the actions the agent can use this turn.
+func _get_available_actions() -> Array:
+	var actions := []
+	for action in _actor.actions:
+		if action.can_be_used():
+			action.append()
+	return actions
+
+
+func _get_attack_actions_from(available_actions: Array):
+	var attack_actions := []
+	for action in available_actions:
+		if not action is AttackAction:
+			attack_actions.append(action)
+	return attack_actions
+
+
+func _get_defensive_actions_from(available_actions: Array):
+	var defensive_actions := []
+	for action in available_actions:
+		if not action is AttackAction:
+			defensive_actions.append(action)
+	return defensive_actions
+
+
+# Returns an Array of the actions the agent can use this turn.
+func _find_most_damaging_action_from(attack_actions: Array):
+	var strongest_action
+	var highest_damage := 0
+	for action in attack_actions:
+		var total_damage = action.calculate_total_damage()
+		if total_damage > highest_damage:
+			strongest_action = action
+			highest_damage = total_damage
+	return strongest_action
