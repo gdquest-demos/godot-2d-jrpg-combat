@@ -8,4 +8,5 @@ const WEAKNESS_MAPPING = {
 	Elements.CODE: Elements.ART,
 	Elements.ART: Elements.DESIGN,
 	Elements.DESIGN: Elements.CODE,
+	Elements.BUG: -1,
 }

@@ -6,7 +6,7 @@
 script = ExtResource( 1 )
 label = "Claw"
 energy_cost = 0
-element = 1
+element = 4
 is_targeting_self = false
 is_targeting_all = false
 readiness_saved = 0.0
