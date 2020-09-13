@@ -31,18 +31,7 @@ func _on_BattlerAnim_triggered() -> void:
 
 
 func calculate_hit_damage(target) -> int:
-	return Formulas.calculate_base_damage(self, _actor, target)
-
-
-# Returns the total damage for the action, factoring in damage dealt by a status effect.
-func calculate_total_damage() -> int:
-	var total_damage := 0
-	for target in _targets:
-		var damage := calculate_hit_damage(target)
-		if _data.status_effect:
-			damage += _data.status_effect.calculate_total_damage()
-		total_damage += damage
-	return total_damage
+	return Formulas.calculate_base_damage(_data, _actor, target)
 
 
 func get_damage_multiplier() -> float:

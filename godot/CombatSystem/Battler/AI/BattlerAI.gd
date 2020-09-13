@@ -151,12 +151,12 @@ func _calculate_weaknesses() -> void:
 func _get_available_actions() -> Array:
 	var actions := []
 	for action in _actor.actions:
-		if action.can_be_used():
-			action.append()
+		if action.can_be_used_by(_actor):
+			actions.append(action)
 	return actions
 
 
-func _get_attack_actions_from(available_actions: Array):
+func _get_attack_actions_from(available_actions: Array) -> Array:
 	var attack_actions := []
 	for action in available_actions:
 		if not action is AttackAction:
@@ -164,7 +164,7 @@ func _get_attack_actions_from(available_actions: Array):
 	return attack_actions
 
 
-func _get_defensive_actions_from(available_actions: Array):
+func _get_defensive_actions_from(available_actions: Array) -> Array:
 	var defensive_actions := []
 	for action in available_actions:
 		if not action is AttackAction:
@@ -177,7 +177,7 @@ func _find_most_damaging_action_from(attack_actions: Array):
 	var strongest_action
 	var highest_damage := 0
 	for action in attack_actions:
-		var total_damage = action.calculate_total_damage()
+		var total_damage = action.calculate_potential_damage_for(_actor)
 		if total_damage > highest_damage:
 			strongest_action = action
 			highest_damage = total_damage
