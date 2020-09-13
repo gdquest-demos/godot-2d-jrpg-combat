@@ -23,6 +23,7 @@ base_speed = 42.0
 base_hit_chance = 100.0
 base_evasion = 0.0
 weaknesses = [  ]
+affinity = 0
 
 [node name="CombatDemo" type="Node2D"]
 script = ExtResource( 11 )

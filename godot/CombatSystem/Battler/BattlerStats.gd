@@ -50,13 +50,14 @@ func add_modifier(stat_name: String, value: float) -> int:
 	assert(stat_name in UPGRADABLE_STATS, "Trying to add a modifier to a nonexistent stat.")
 	var id := _generate_unique_id(stat_name)
 	_modifiers[stat_name][id] = {value = value}
-	_calculate(stat_name)
+	_recalculate_and_update(stat_name)
 	return id
 
 
 func remove_modifier(stat_name: String, id: int) -> void:
 	assert(id in _modifiers[stat_name], "Id %s not found in %s" % [id, _modifiers[stat_name]])
 	_modifiers[stat_name].erase(id)
+	_recalculate_and_update(stat_name)	
 
 
 func set_health(value: float) -> void:
@@ -75,38 +76,42 @@ func set_energy(value: int) -> void:
 
 func set_base_attack(value: float) -> void:
 	base_attack = value
-	attack = _calculate("attack")
+	_recalculate_and_update("attack")
 
 
 func set_base_defense(value: float) -> void:
 	base_defense = value
-	defense = _calculate("defense")
+	_recalculate_and_update("defense")
 
 
 func set_base_speed(value: float) -> void:
 	base_speed = value
-	speed = _calculate("speed")
+	_recalculate_and_update("speed")
 
 
 func set_base_hit_chance(value: float) -> void:
 	base_hit_chance = value
-	hit_chance = _calculate("hit_chance")
+	_recalculate_and_update("hit_chance")
 
 
 func set_base_evasion(value: float) -> void:
 	base_evasion = value
-	evasion = _calculate("evasion")
+	_recalculate_and_update("evasion")
 
 
 # Calculates the final value of a single stat, its based value with all modifiers applied.
-func _calculate(stat: String) -> float:
+func _recalculate_and_update(stat: String) -> void:
 	var value: float = get("base_" + stat)
-	for modifier in _modifiers[stat]:
-		value += modifier
+	var modifiers: Array = _modifiers[stat].values()
+	for modifier in modifiers:
+		value += modifier["value"]
 	value = max(value, 0.0)
-	return value
+	set(stat, value)
 
 
 func _generate_unique_id(stat_name: String) -> int:
-	var last_id: int = _modifiers[stat_name].keys().back()
-	return 0 if last_id == null else last_id + 1
+	var keys: Array = _modifiers[stat_name].keys()
+	if keys.empty():
+		return 0
+	else:
+		return keys.back() + 1

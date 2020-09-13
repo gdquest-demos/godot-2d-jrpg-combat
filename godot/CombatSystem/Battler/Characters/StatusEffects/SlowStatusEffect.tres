@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource( 1 )
-effect = "haste"
+effect = "slow"
 duration_seconds = 20.0
 effect_power = 20
-effect_rate = 0.5
+effect_rate = 0.6

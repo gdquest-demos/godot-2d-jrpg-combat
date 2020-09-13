@@ -37,7 +37,6 @@ static func _calculate_weakness_multiplier(action, defender) -> float:
 	var multiplier := 1.0
 	var element: int = action.get_element()
 	if element != Types.Elements.NONE:
-		var stats = defender.stats
 		if Types.WEAKNESS_MAPPING[defender.stats.affinity] == element:
 			multiplier = 0.75
 		elif Types.WEAKNESS_MAPPING[element] in defender.stats.weaknesses:

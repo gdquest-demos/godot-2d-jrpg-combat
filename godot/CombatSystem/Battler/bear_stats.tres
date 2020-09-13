@@ -12,3 +12,4 @@ base_speed = 32.0
 base_hit_chance = 100.0
 base_evasion = 0.0
 weaknesses = [  ]
+affinity = 0
