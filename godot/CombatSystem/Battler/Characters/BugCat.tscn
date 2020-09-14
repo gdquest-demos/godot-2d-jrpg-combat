@@ -9,7 +9,7 @@
 [ext_resource path="res://CombatSystem/Battler/BattlerUIData.gd" type="Script" id=7]
 [ext_resource path="res://CombatSystem/Battler/Animation/BattlerAnim.tscn" type="PackedScene" id=8]
 
-[sub_resource type="Resource" id=2]
+[sub_resource type="Resource" id=1]
 script = ExtResource( 7 )
 display_name = "BugCat"
 texture = ExtResource( 5 )
@@ -22,10 +22,11 @@ __meta__ = {
 stats = ExtResource( 4 )
 ai_scene = ExtResource( 6 )
 actions = [ ExtResource( 1 ), ExtResource( 2 ) ]
-ui_data = SubResource( 2 )
+ui_data = SubResource( 1 )
 
 [node name="BattlerAnim" parent="." instance=ExtResource( 8 )]
 scale = Vector2( -1, 1 )
+direction = 1
 
 [node name="Pivot" parent="BattlerAnim" index="0"]
 scale = Vector2( -1, 1 )

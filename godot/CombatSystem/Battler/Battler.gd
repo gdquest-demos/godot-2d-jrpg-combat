@@ -83,7 +83,10 @@ func take_damage(amount: float) -> void:
 		battler_anim.play("take_damage")
 
 
-func apply_status_effect(effect: StatusEffect) -> void:
+# effect: StatusEffect
+func apply_status_effect(effect) -> void:
+	_status_effects.append(effect)
+	effect.time_scale = time_scale
 	add_child(effect)
 
 

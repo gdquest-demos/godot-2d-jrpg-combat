@@ -5,7 +5,8 @@ extends StatusEffect
 var damage := 3
 
 
-func _init(target, data: StatusEffectData).(target, data) -> void:
+# data: StatusEffectData
+func _init(target, data).(target, data) -> void:
 	damage = data.ticking_damage
 
 

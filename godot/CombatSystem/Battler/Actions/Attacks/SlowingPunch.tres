@@ -3,7 +3,6 @@
 [ext_resource path="res://CombatSystem/Battler/Actions/Attacks/AttackActionData.gd" type="Script" id=1]
 [ext_resource path="res://CombatSystem/Battler/Actions/StatusEffects/SlowStatusEffect.tres" type="Resource" id=2]
 
-
 [resource]
 script = ExtResource( 1 )
 label = "Slowing Punch"

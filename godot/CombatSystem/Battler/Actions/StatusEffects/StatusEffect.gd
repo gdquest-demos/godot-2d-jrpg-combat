@@ -16,11 +16,15 @@ var _time_left: float = -INF
 var _ticking_clock := 0.0
 
 
-func _init(target, data: StatusEffectData) -> void:
+# target: Battler
+# data: StatusEffectData
+func _init(target, data) -> void:
 	_target = target
 	set_duration_seconds(data.duration_seconds)
-	if is_ticking:
-		_ticking_clock = ticking_interval
+
+	is_ticking = data.is_ticking
+	ticking_interval = data.ticking_interval
+	_ticking_clock = ticking_interval
 
 
 func _ready() -> void:
