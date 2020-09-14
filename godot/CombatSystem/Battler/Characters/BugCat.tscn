@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://CombatSystem/Battler/Actions/Attacks/Claw.tres" type="Resource" id=1]
 [ext_resource path="res://CombatSystem/Battler/Actions/Attacks/BugClaw.tres" type="Resource" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://CombatSystem/Battler/AI/AggressiveBattlerAI.tscn" type="PackedScene" id=6]
 [ext_resource path="res://CombatSystem/Battler/BattlerUIData.gd" type="Script" id=7]
 [ext_resource path="res://CombatSystem/Battler/Animation/BattlerAnim.tscn" type="PackedScene" id=8]
+[ext_resource path="res://CombatSystem/Battler/Actions/StatusEffects/StatusEffectContainer.gd" type="Script" id=9]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 7 )
@@ -42,6 +43,9 @@ position = Vector2( -159.735, -85.7196 )
 
 [node name="TopAnchor" parent="BattlerAnim" index="2"]
 position = Vector2( 0, -357.713 )
+
+[node name="StatusEffectContainer" type="Node" parent="."]
+script = ExtResource( 9 )
 [connection signal="animation_finished" from="BattlerAnim" to="." method="_on_BattlerAnim_animation_finished"]
 
 [editable path="BattlerAnim"]

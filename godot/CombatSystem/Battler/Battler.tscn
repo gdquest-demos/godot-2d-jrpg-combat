@@ -1,16 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://CombatSystem/Battler/Battler.gd" type="Script" id=1]
 [ext_resource path="res://CombatSystem/Battler/Animation/BattlerAnim.tscn" type="PackedScene" id=2]
 [ext_resource path="res://CombatSystem/Battler/Actions/Attacks/AttackAction.gd" type="Script" id=3]
 [ext_resource path="res://CombatSystem/Battler/battler_stats_default.tres" type="Resource" id=4]
-
+[ext_resource path="res://CombatSystem/Battler/Actions/StatusEffects/StatusEffectContainer.gd" type="Script" id=5]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 3 )
-label = "Attack"
-is_targetting_self = false
-is_targetting_all = false
 
 [node name="Battler" type="Node2D"]
 script = ExtResource( 1 )
@@ -18,4 +15,8 @@ stats = ExtResource( 4 )
 actions = [ SubResource( 1 ) ]
 
 [node name="BattlerAnim" parent="." instance=ExtResource( 2 )]
+direction = 1
+
+[node name="StatusEffectContainer" type="Node" parent="."]
+script = ExtResource( 5 )
 [connection signal="animation_finished" from="BattlerAnim" to="." method="_on_BattlerAnim_animation_finished"]

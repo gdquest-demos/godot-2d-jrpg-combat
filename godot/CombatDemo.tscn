@@ -45,6 +45,7 @@ SelectArrow = ExtResource( 4 )
 
 [node name="Bear" parent="ActiveTurnQueue" instance=ExtResource( 9 )]
 position = Vector2( 1561.65, 720.435 )
+scale = Vector2( -1, 1 )
 stats = SubResource( 1 )
 
 [node name="BugCat" parent="ActiveTurnQueue" instance=ExtResource( 6 )]

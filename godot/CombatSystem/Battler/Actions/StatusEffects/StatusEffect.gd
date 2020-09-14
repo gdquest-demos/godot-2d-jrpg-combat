@@ -11,9 +11,14 @@ var time_scale := 1.0
 var duration_seconds := 0.0 setget set_duration_seconds
 var is_ticking := false
 var ticking_interval := 1.0
+var max_stacks := 5
+var is_active := true setget set_is_active
+
+var id := "base_effect"
 
 var _time_left: float = -INF
 var _ticking_clock := 0.0
+var _can_stack := false
 
 
 # target: Battler
@@ -43,6 +48,23 @@ func _process(delta: float) -> void:
 	if _time_left < 0.0:
 		set_process(false)
 		_expire()
+
+
+func can_stack() -> bool:
+	return _can_stack
+
+
+func get_time_left() -> float:
+	return _time_left
+
+
+func expire() -> void:
+	_expire()
+
+
+func set_is_active(value) -> void:
+	is_active = value
+	set_process(is_active)
 
 
 # Initializes the status effect on the battler.

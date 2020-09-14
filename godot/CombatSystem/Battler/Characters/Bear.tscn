@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://CombatSystem/Battler/Actions/Attacks/Punch.tres" type="Resource" id=1]
 [ext_resource path="res://CombatSystem/Battler/Actions/Attacks/SuperPunch.tres" type="Resource" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://CombatSystem/Battler/Actions/Attacks/SlowingPunch.tres" type="Resource" id=6]
 [ext_resource path="res://CombatSystem/Battler/BattlerUIData.gd" type="Script" id=7]
 [ext_resource path="res://CombatSystem/Battler/Animation/BattlerAnim.tscn" type="PackedScene" id=8]
+[ext_resource path="res://CombatSystem/Battler/Actions/StatusEffects/StatusEffectContainer.gd" type="Script" id=9]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 7 )
@@ -26,6 +27,7 @@ is_party_member = true
 ui_data = SubResource( 1 )
 
 [node name="BattlerAnim" parent="." instance=ExtResource( 8 )]
+direction = 1
 
 [node name="Pivot" parent="BattlerAnim" index="0"]
 scale = Vector2( -1, 1 )
@@ -39,6 +41,9 @@ position = Vector2( -184.084, -123.471 )
 
 [node name="TopAnchor" parent="BattlerAnim" index="2"]
 position = Vector2( 0, -366.364 )
+
+[node name="StatusEffectContainer" type="Node" parent="."]
+script = ExtResource( 9 )
 [connection signal="animation_finished" from="BattlerAnim" to="." method="_on_BattlerAnim_animation_finished"]
 
 [editable path="BattlerAnim"]

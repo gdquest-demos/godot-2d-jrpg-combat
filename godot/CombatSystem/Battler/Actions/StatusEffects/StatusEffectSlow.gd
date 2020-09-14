@@ -7,6 +7,7 @@ var _stat_modifier_id := -1
 
 
 func _init(target, data: StatusEffectData).(target, data) -> void:
+	id = "slow"
 	speed_reduction = data.effect_rate
 
 

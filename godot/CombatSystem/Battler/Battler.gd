@@ -30,10 +30,10 @@ var is_selected: bool = false setget set_is_selected
 var is_selectable: bool = true setget set_is_selectable
 
 var _readiness := 0.0 setget _set_readiness
-var _status_effects := []
 var _ai_instance = null
 
 onready var battler_anim: BattlerAnim = $BattlerAnim
+onready var _status_effect_container: StatusEffectContainer = $StatusEffectContainer
 
 
 func _ready() -> void:
@@ -85,9 +85,7 @@ func take_damage(amount: float) -> void:
 
 # effect: StatusEffect
 func apply_status_effect(effect) -> void:
-	_status_effects.append(effect)
-	effect.time_scale = time_scale
-	add_child(effect)
+	_status_effect_container.add(effect)
 
 
 func get_front_anchor_global_position() -> Vector2:
@@ -110,18 +108,18 @@ func is_fallen() -> bool:
 	return stats.health == 0
 
 
-func set_is_active(value):
+func set_is_active(value) -> void:
 	is_active = value
+	_status_effect_container.is_active = value
 	set_process(is_active)
 
 
-func set_time_scale(value):
+func set_time_scale(value) -> void:
 	time_scale = value
-	for status_effect in _status_effects:
-		status_effect.time_scale = time_scale
+	_status_effect_container.time_scale = time_scale
 
 
-func set_is_selected(value):
+func set_is_selected(value) -> void:
 	if value:
 		assert(is_selectable)
 	is_selected = value
@@ -130,7 +128,7 @@ func set_is_selected(value):
 	emit_signal("selection_toggled", is_selected)
 
 
-func set_is_selectable(value):
+func set_is_selectable(value) -> void:
 	is_selectable = value
 	if not is_selectable:
 		set_is_selected(false)

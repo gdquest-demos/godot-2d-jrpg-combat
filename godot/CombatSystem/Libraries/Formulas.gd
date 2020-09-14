@@ -1,10 +1,8 @@
 class_name Formulas
 extends Reference
 
-
 static func calculate_potential_damage(action_data, attacker) -> float:
 	return attacker.stats.attack * action_data.damage_multiplier
-
 
 # Damage formula:
 # ((attacker_attack * action_damage_multiplier) - defender_defense) * weakness_multiplier
