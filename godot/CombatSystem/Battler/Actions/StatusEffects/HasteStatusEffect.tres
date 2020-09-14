@@ -1,13 +1,14 @@
 [gd_resource type="Resource" load_steps=2 format=2]
 
-[ext_resource path="res://CombatSystem/Battler/Characters/StatusEffects/StatusEffectData.gd" type="Script" id=1]
+[ext_resource path="res://CombatSystem/Battler/Actions/StatusEffects/StatusEffectData.gd" type="Script" id=1]
+
 
 [resource]
 script = ExtResource( 1 )
-effect = "slow"
+effect = "haste"
 duration_seconds = 20.0
 effect_power = 20
-effect_rate = 0.6
+effect_rate = 0.5
 is_ticking = false
 ticking_interval = 4.0
 ticking_damage = 3

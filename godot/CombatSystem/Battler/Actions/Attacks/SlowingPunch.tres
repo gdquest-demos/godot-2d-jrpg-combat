@@ -1,7 +1,8 @@
 [gd_resource type="Resource" load_steps=3 format=2]
 
 [ext_resource path="res://CombatSystem/Battler/Actions/Attacks/AttackActionData.gd" type="Script" id=1]
-[ext_resource path="res://CombatSystem/Battler/Characters/StatusEffects/SlowStatusEffect.tres" type="Resource" id=2]
+[ext_resource path="res://CombatSystem/Battler/Actions/StatusEffects/SlowStatusEffect.tres" type="Resource" id=2]
+
 
 [resource]
 script = ExtResource( 1 )
