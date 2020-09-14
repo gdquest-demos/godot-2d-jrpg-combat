@@ -46,7 +46,7 @@ func _set_color(value: Color) -> void:
 
 
 func _animate() -> void:
-	var angle := rand_range(-PI / 3.0, PI * 3.0)
+	var angle := rand_range(-PI / 3.0, PI / 3.0)
 	var offset := Vector2.UP.rotated(angle) * 60.0
 	tween.interpolate_property(
 		label,
