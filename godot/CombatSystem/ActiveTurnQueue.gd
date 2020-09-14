@@ -78,7 +78,7 @@ func _play_turn(battler: Battler) -> void:
 		set_time_scale(1.0)
 		battler.is_selected = false
 	else:
-		var result: Dictionary = battler.ai.choose()
+		var result: Dictionary = battler.get_ai().choose()
 		action = result.action
 		targets = result.targets
 

@@ -1,5 +1,5 @@
 class_name BattlerAI
-extends Resource
+extends Node
 
 enum HealthStatus { CRITICAL, LOW, MEDIUM, HIGH, FULL }
 

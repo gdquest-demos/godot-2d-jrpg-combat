@@ -12,7 +12,7 @@ signal health_depleted
 signal selection_toggled(value)
 
 export var stats: Resource
-export var ai: Resource = null
+export var ai_scene: PackedScene
 # Array of ActionData, from which we construct actions for this unit.
 export var actions: Array
 # If true, this battler is part of the player's party and it targets enemy units
@@ -31,6 +31,7 @@ var is_selectable: bool = true setget set_is_selectable
 
 var _readiness := 0.0 setget _set_readiness
 var _status_effects := []
+var _ai_instance = null
 
 onready var battler_anim: BattlerAnim = $BattlerAnim
 
@@ -50,8 +51,10 @@ func _process(delta: float) -> void:
 
 
 func setup(battlers: Array) -> void:
-	if ai:
-		ai.setup(self, battlers)
+	if ai_scene:
+		_ai_instance = ai_scene.instance()
+		_ai_instance.setup(self, battlers)
+		add_child(_ai_instance)
 
 
 # Makes the battler apply an [Action] to the `targets` and resets the battler's readiness.
@@ -92,8 +95,12 @@ func get_top_anchor_global_position() -> Vector2:
 	return battler_anim.get_top_anchor_global_position()
 
 
+func get_ai() -> Node:
+	return _ai_instance
+
+
 func is_player_controlled() -> bool:
-	return ai == null
+	return ai_scene == null
 
 
 func is_fallen() -> bool:

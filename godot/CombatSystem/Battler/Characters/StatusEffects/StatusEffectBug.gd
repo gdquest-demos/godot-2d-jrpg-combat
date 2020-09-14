@@ -6,7 +6,7 @@ var damage := 3
 
 
 func _init(target, data: StatusEffectData).(target, data) -> void:
-	damage = data.periodic_damage
+	damage = data.ticking_damage
 
 
 func _apply() -> void:
