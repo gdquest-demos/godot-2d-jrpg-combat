@@ -132,7 +132,7 @@ func set_is_selectable(value) -> void:
 func _take_damage(amount: int) -> void:
 	stats.health -= amount
 	if stats.health > 0:
-		battler_anim.play("_take_damage")
+		battler_anim.play("take_damage")
 
 
 # effect: StatusEffect
