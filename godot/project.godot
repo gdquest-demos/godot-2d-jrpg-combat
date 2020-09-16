@@ -62,7 +62,7 @@ _global_script_classes=[ {
 "base": "Reference",
 "class": "Formulas",
 "language": "GDScript",
-"path": "res://CombatSystem/Libraries/Formulas.gd"
+"path": "res://CombatSystem/Battler/Formulas.gd"
 }, {
 "base": "Reference",
 "class": "Hit",
