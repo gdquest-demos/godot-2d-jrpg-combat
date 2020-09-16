@@ -11,6 +11,8 @@ onready var ui_damage_label_builder := $UI/UIDamageLabelBuilder
 
 
 func _ready() -> void:
+	randomize()
+
 	var battlers: Array = active_turn_queue.battlers
 	var in_party := []
 	for battler in battlers:

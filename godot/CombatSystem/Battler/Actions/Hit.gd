@@ -6,15 +6,21 @@ extends Reference
 var _damage := 0
 var _target
 var _effect: StatusEffect
+var _hit_chance: float
 
 
 # Arguments:
 # - target: Battler
 # - damage: int
-func _init(target, damage: int, effect: StatusEffect = null) -> void:
+func _init(target, damage: int, effect: StatusEffect = null, hit_chance := 100.0) -> void:
 	_target = target
 	_damage = damage
 	_effect = effect
+	_hit_chance = hit_chance
+
+
+func does_hit() -> bool:
+	return randf() * 100.0 < _hit_chance
 
 
 func apply() -> void:

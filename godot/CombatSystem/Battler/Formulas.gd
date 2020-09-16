@@ -14,16 +14,23 @@ static func calculate_base_damage(action_data, attacker, defender) -> int:
 	return int(clamp(damage, 1.0, 999.0))
 
 # Hit chance formula:
-# (attacker_hit - defender_evasion) * action_hit + element_triad_bonus
+# (attacker_hit - defender_evasion) * action_hit + affinity_bonus + element_triad_bonus -
+# defender_affinity_bonus
 # Return value is in the range [0, 100]
+# Arguments:
+# - action_data: AttackActionData
+# - attacker: Battler
+# - defender: Battler
 static func calculate_hit_chance(action_data, attacker, defender) -> float:
 	var chance: float = attacker.stats.hit_chance - defender.stats.evasion
 	chance *= action_data.hit_chance / 100.0
 	var element: int = action_data.element
+	if element == attacker.stats.affinity:
+		chance += 5.0
 	if element != Types.Elements.NONE:
-		if Types.WEAKNESS_MAPPING[defender.stats.element] == element:
+		if Types.WEAKNESS_MAPPING[element] in defender.stats.weaknesses:
 			chance += 10.0
-		elif Types.WEAKNESS_MAPPING[element] in defender.stats.weaknesses:
+		if Types.WEAKNESS_MAPPING[defender.stats.affinity] == element:
 			chance -= 10.0
 	return clamp(chance, 0.0, 100.0)
 

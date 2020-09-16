@@ -2,6 +2,8 @@
 class_name AttackAction
 extends Action
 
+signal missed
+
 var _hits := []
 
 
@@ -18,8 +20,9 @@ func _apply_async() -> bool:
 		var status: StatusEffect = StatusEffectBuilder.create_status_effect(
 			target, _data.status_effect
 		)
+		var hit_chance := Formulas.calculate_hit_chance(_data, _actor, target)
 		var damage := calculate_hit_damage(target)
-		_hits.append(Hit.new(target, damage, status))
+		_hits.append(Hit.new(target, damage, status, hit_chance))
 		anim.play("attack")
 		yield(_actor, "animation_finished")
 	return true
@@ -27,7 +30,10 @@ func _apply_async() -> bool:
 
 func _on_BattlerAnim_triggered() -> void:
 	var hit: Hit = _hits.pop_front()
-	hit.apply()
+	if hit.does_hit():
+		hit.apply()
+	else:
+		emit_signal("missed")
 
 
 func calculate_hit_damage(target) -> int:
