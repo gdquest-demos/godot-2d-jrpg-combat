@@ -5,7 +5,10 @@ class_name Battler
 
 # Emitted when the battler is ready to take a turn.
 signal ready_to_act
+# Emitted when an animation from `battler_anim` finished playing.
 signal animation_finished(anim_name)
+# Emitted when the battler finished their action and arrived back at their rest
+# position.
 signal action_finished
 signal readiness_changed(new_value)
 signal health_depleted
@@ -52,6 +55,7 @@ func _process(delta: float) -> void:
 		set_process(false)
 
 
+# Allows the AI brain to get a reference to all battlers on the field.
 func setup(battlers: Array) -> void:
 	if ai_scene:
 		_ai_instance = ai_scene.instance()
@@ -73,6 +77,7 @@ func act(action) -> void:
 	emit_signal("action_finished")
 
 
+# Applies a hit object to the battler, dealing damage or status effects.
 func take_hit(hit: Hit) -> void:
 	if hit.does_hit():
 		_take_damage(hit.damage)
