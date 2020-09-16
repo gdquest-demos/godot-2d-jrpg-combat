@@ -44,6 +44,7 @@ func set_time_scale(value: float) -> void:
 	for effect in get_children():
 		effect.time_scale = time_scale
 
+
 func set_is_active(value) -> void:
 	is_active = value
 	for effect in get_children():
