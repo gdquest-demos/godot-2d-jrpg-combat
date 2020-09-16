@@ -13,4 +13,4 @@ func _init(target, data).(target, data) -> void:
 
 
 func _apply() -> void:
-	_target.take_damage(damage)
+	_target.take_hit(Hit.new(damage))

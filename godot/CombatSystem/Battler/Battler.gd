@@ -10,6 +10,8 @@ signal action_finished
 signal readiness_changed(new_value)
 signal health_depleted
 signal selection_toggled(value)
+signal damage_taken(amount)
+signal hit_missed
 
 export var stats: Resource
 export var ai_scene: PackedScene
@@ -71,19 +73,14 @@ func act(action) -> void:
 	emit_signal("action_finished")
 
 
-func get_damage() -> float:
-	return stats.attack
-
-
-func take_damage(amount: float) -> void:
-	stats.health -= amount
-	if stats.health > 0:
-		battler_anim.play("take_damage")
-
-
-# effect: StatusEffect
-func apply_status_effect(effect) -> void:
-	_status_effect_container.add(effect)
+func take_hit(hit: Hit) -> void:
+	if hit.does_hit():
+		_take_damage(hit.damage)
+		emit_signal("damage_taken", hit.damage)
+		if hit.effect:
+			_apply_status_effect(hit.effect)
+	else:
+		emit_signal("hit_missed")
 
 
 func get_front_anchor_global_position() -> Vector2:
@@ -130,6 +127,17 @@ func set_is_selectable(value) -> void:
 	is_selectable = value
 	if not is_selectable:
 		set_is_selected(false)
+
+
+func _take_damage(amount: int) -> void:
+	stats.health -= amount
+	if stats.health > 0:
+		battler_anim.play("_take_damage")
+
+
+# effect: StatusEffect
+func _apply_status_effect(effect) -> void:
+	_status_effect_container.add(effect)
 
 
 func _set_readiness(value: float) -> void:

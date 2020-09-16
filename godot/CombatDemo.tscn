@@ -57,4 +57,3 @@ margin_bottom = -164.0
 
 [node name="UIDamageLabelBuilder" parent="UI" instance=ExtResource( 3 )]
 [connection signal="combat_ended" from="." to="UI" method="_on_CombatDemo_combat_ended"]
-[connection signal="action_selected" from="ActiveTurnQueue" to="." method="_on_ActiveTurnQueue_action_selected"]

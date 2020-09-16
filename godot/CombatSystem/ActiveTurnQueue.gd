@@ -1,7 +1,6 @@
 extends Node
 
 signal player_turn_finished
-signal action_selected(action)
 
 export var UIActionMenuScene: PackedScene
 export var SelectArrow: PackedScene
@@ -84,7 +83,6 @@ func _play_turn(battler: Battler) -> void:
 		targets = result.targets
 
 	var action = AttackAction.new(action_data, battler, targets)
-	emit_signal("action_selected", action)
 	battler.act(action)
 	yield(battler, "action_finished")
 	if battler.is_player_controlled():

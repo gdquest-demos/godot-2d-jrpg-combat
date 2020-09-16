@@ -2,9 +2,6 @@
 class_name AttackAction
 extends Action
 
-signal damage_dealt(amount)
-signal missed
-
 var _hits := []
 
 
@@ -15,27 +12,21 @@ func _init(data: ActionData, actor, targets: Array).(data, actor, targets) -> vo
 # Plays the acting battler's attack animation once for each target. Damages each target when the actor's animation emits the `triggered` signal.
 func _apply_async() -> bool:
 	var anim = _actor.battler_anim
-	if not anim.is_connected("triggered", self, "_on_BattlerAnim_triggered"):
-		anim.connect("triggered", self, "_on_BattlerAnim_triggered")
 	for target in _targets:
 		var status: StatusEffect = StatusEffectBuilder.create_status_effect(
 			target, _data.status_effect
 		)
 		var hit_chance := Formulas.calculate_hit_chance(_data, _actor, target)
 		var damage := calculate_hit_damage(target)
-		_hits.append(Hit.new(target, damage, status, hit_chance))
+		var hit := Hit.new(damage, status, hit_chance)
+		anim.connect("triggered", self, "_on_BattlerAnim_triggered", [target, hit])
 		anim.play("attack")
 		yield(_actor, "animation_finished")
 	return true
 
 
-func _on_BattlerAnim_triggered() -> void:
-	var hit: Hit = _hits.pop_front()
-	if hit.does_hit():
-		hit.apply()
-		emit_signal("damage_dealt", hit.get_damage(), hit.get_target())
-	else:
-		emit_signal("missed", hit.get_target())
+func _on_BattlerAnim_triggered(target, hit: Hit) -> void:
+	target.take_hit(hit)
 
 
 func calculate_hit_damage(target) -> int:

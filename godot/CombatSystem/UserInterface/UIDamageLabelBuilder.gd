@@ -6,19 +6,19 @@ export var damage_label_scene: PackedScene = preload("UIDamageLabel.tscn")
 export var miss_label_scene: PackedScene = preload("UIMissedLabel.tscn")
 
 
-func register_action(action) -> void:
-	if action is AttackAction:
-		action.connect("damage_dealt", self, "_on_AttackAction_damage_dealt")
-		action.connect("missed", self, "_on_AttackAction_missed")
+func setup(battlers: Array) -> void:
+	for battler in battlers:
+		battler.connect("damage_taken", self, "_on_Battler_damage_taken", [battler])
+		battler.connect("hit_missed", self, "_on_Battler_hit_missed", [battler])
+		
 
-
-func _on_AttackAction_damage_dealt(amount: int, target: Battler) -> void:
+func _on_Battler_damage_taken(amount: int, target: Battler) -> void:
 	var label: UIDamageLabel = damage_label_scene.instance()
 	label.setup(UIDamageLabel.Types.DAMAGE, target.get_top_anchor_global_position(), amount)
 	add_child(label)
 
 
-func _on_AttackAction_missed(target: Battler) -> void:
+func _on_Battler_hit_missed(target: Battler) -> void:
 	var label = miss_label_scene.instance()
 	add_child(label)
 	label.global_position = target.get_top_anchor_global_position()
