@@ -2,6 +2,7 @@
 class_name AttackAction
 extends Action
 
+signal damage_dealt(amount)
 signal missed
 
 var _hits := []
@@ -32,8 +33,9 @@ func _on_BattlerAnim_triggered() -> void:
 	var hit: Hit = _hits.pop_front()
 	if hit.does_hit():
 		hit.apply()
+		emit_signal("damage_dealt", hit.get_damage(), hit.get_target())
 	else:
-		emit_signal("missed")
+		emit_signal("missed", hit.get_target())
 
 
 func calculate_hit_damage(target) -> int:

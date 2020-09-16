@@ -37,3 +37,11 @@ func _apply_async() -> bool:
 # Returns `true` if the action should target opponents by default.
 func targets_opponents() -> bool:
 	return true
+
+
+func get_readiness_saved() -> float:
+	return _data.readiness_saved
+
+
+func get_energy_cost() -> int:
+	return _data.energy_cost

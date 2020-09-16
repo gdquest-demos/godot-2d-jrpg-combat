@@ -30,5 +30,9 @@ func apply() -> void:
 		_target.apply_status_effect(_effect)
 
 
-func calculate_damage() -> int:
+func get_damage() -> int:
 	return _damage
+
+
+func get_target() -> Battler:
+	return _target

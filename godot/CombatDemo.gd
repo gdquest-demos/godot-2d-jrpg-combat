@@ -22,7 +22,6 @@ func _ready() -> void:
 
 	ui_turn_bar.setup(active_turn_queue.battlers)
 	ui_battler_hud_list.setup(in_party)
-	ui_damage_label_builder.setup(battlers)
 
 
 # Returns an array of `Battler` who are in the same team as `actor`, including `actor`.
@@ -58,3 +57,7 @@ func _on_Battler_health_depleted(actor) -> void:
 	var team := get_ally_battlers_of(actor)
 	if are_all_fallen(team):
 		end_combat(CombatResult.DEFEAT if actor.is_party_member else CombatResult.VICTORY)
+
+
+func _on_ActiveTurnQueue_action_selected(action) -> void:
+	ui_damage_label_builder.register_action(action)

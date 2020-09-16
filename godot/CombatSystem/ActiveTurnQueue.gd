@@ -1,6 +1,7 @@
 extends Node
 
 signal player_turn_finished
+signal action_selected(action)
 
 export var UIActionMenuScene: PackedScene
 export var SelectArrow: PackedScene
@@ -52,7 +53,7 @@ func _play_turn(battler: Battler) -> void:
 	battler.stats.energy += 1
 
 	battler.is_selected = true
-	var action: ActionData
+	var action_data: ActionData
 	var targets := []
 
 	var potential_targets := []
@@ -67,22 +68,24 @@ func _play_turn(battler: Battler) -> void:
 		var is_selection_complete := false
 		# Wait for the player to select a valid action and target(s).
 		while not is_selection_complete:
-			action = yield(_player_select_action_async(battler), "completed")
-			if action.is_targeting_self:
+			action_data = yield(_player_select_action_async(battler), "completed")
+			if action_data.is_targeting_self:
 				targets = [battler]
 			else:
 				targets = yield(
-					_player_select_targets_async(action, potential_targets), "completed"
+					_player_select_targets_async(action_data, potential_targets), "completed"
 				)
-			is_selection_complete = action != null && targets != []
+			is_selection_complete = action_data != null && targets != []
 		set_time_scale(1.0)
 		battler.is_selected = false
 	else:
 		var result: Dictionary = battler.get_ai().choose()
-		action = result.action
+		action_data = result.action
 		targets = result.targets
 
-	battler.act(action, targets)
+	var action = AttackAction.new(action_data, battler, targets)
+	emit_signal("action_selected", action)
+	battler.act(action)
 	yield(battler, "action_finished")
 	if battler.is_player_controlled():
 		emit_signal("player_turn_finished")
