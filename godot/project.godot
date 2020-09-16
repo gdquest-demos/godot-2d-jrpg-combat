@@ -174,6 +174,10 @@ config/name="2D JRPG Combat"
 run/main_scene="res://CombatDemo.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Events="*res://CombatSystem/Autoloads/Events.gd"
+
 [debug]
 
 gdscript/warnings/return_value_discarded=false

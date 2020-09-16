@@ -74,6 +74,7 @@ func _play_turn(battler: Battler) -> void:
 				targets = yield(
 					_player_select_targets_async(action_data, potential_targets), "completed"
 				)
+				Events.emit_signal("player_target_selection_done")
 			is_selection_complete = action_data != null && targets != []
 		set_time_scale(1.0)
 		battler.is_selected = false

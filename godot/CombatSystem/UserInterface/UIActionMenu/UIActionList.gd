@@ -19,7 +19,7 @@ func setup(battler: Battler) -> void:
 		action_button.setup(action, can_use_action)
 		action_button.connect("pressed", self, "_on_UIActionButton_button_pressed", [action])
 		action_button.connect(
-			"focus_entered", self, "_on_UIActionButton_focus_entered", [action_button]
+			"focus_entered", self, "_on_UIActionButton_focus_entered", [action_button, battler.ui_data.display_name, action.energy_cost]
 		)
 		buttons.append(action_button)
 
@@ -45,5 +45,6 @@ func _on_UIActionButton_button_pressed(action: ActionData) -> void:
 	emit_signal("action_selected", action)
 
 
-func _on_UIActionButton_focus_entered(button: TextureButton) -> void:
+func _on_UIActionButton_focus_entered(button: TextureButton, battler_display_name: String, energy_cost: int) -> void:
 	select_arrow.move_to(button.rect_global_position + Vector2(0.0, button.rect_size.y / 2.0))
+	Events.emit_signal("combat_action_hovered", battler_display_name, energy_cost)

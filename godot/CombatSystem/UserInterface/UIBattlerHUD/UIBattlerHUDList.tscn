@@ -18,7 +18,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "fade_in"
 length = 0.7
 tracks/0/type = "value"
@@ -34,8 +34,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "fade_out"
+[sub_resource type="Animation" id=3]
 length = 0.7
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -67,5 +66,5 @@ __meta__ = {
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "fade_in"
 anims/_setup = SubResource( 1 )
-anims/fade_in = SubResource( 3 )
-anims/fade_out = SubResource( 2 )
+anims/fade_in = SubResource( 2 )
+anims/fade_out = SubResource( 3 )
