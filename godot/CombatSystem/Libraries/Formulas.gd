@@ -11,7 +11,7 @@ static func calculate_base_damage(action_data, attacker, defender) -> int:
 	var damage: float = calculate_potential_damage(action_data, attacker)
 	damage -= defender.stats.defense
 	damage *= _calculate_weakness_multiplier(action_data, defender)
-	return int(clamp(damage, 0.0, 999.0))
+	return int(clamp(damage, 1.0, 999.0))
 
 # Hit chance formula:
 # (attacker_hit - defender_evasion) * action_hit + element_triad_bonus

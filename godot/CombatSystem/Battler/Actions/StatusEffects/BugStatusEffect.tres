@@ -5,9 +5,9 @@
 [resource]
 script = ExtResource( 1 )
 effect = "bug"
-duration_seconds = 20.0
+duration_seconds = 18.0
 effect_power = 0
 effect_rate = 0.0
 is_ticking = true
-ticking_interval = 5.0
+ticking_interval = 6.0
 ticking_damage = 2
