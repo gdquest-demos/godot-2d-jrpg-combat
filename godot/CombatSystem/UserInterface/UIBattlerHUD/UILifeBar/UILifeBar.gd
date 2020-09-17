@@ -9,9 +9,13 @@ export var fill_rate := 1.0
 var target_value := 0.0 setget set_target_value
 
 onready var tween: Tween = $Tween
+onready var anim_player: AnimationPlayer = $AnimationPlayer
 
 
 func set_target_value(amount: float) -> void:
+	if target_value > amount:
+		anim_player.play("damage")
+
 	target_value = amount
 	if tween.is_active():
 		tween.stop_all()

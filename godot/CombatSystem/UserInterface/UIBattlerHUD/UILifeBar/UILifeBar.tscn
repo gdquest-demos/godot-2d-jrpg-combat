@@ -1,8 +1,59 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://CombatSystem/UserInterface/UIBattlerHUD/UILifeBar/UILifeBar.gd" type="Script" id=1]
 [ext_resource path="res://CombatSystem/UserInterface/UIBattlerHUD/UILifeBar/life_bar_fill.png" type="Texture" id=2]
 [ext_resource path="res://CombatSystem/UserInterface/UIBattlerHUD/UILifeBar/life_bar_bg.png" type="Texture" id=3]
+
+[sub_resource type="Animation" id=3]
+resource_name = "_init"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:tint_progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "damage"
+length = 0.2
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.16, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 1 ), Color( 4, 4, 4, 1 ), Color( 1, 1, 1, 1 ), Color( 4, 4, 4, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "danger"
+length = 1.6
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:tint_progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.35, 0.9, 1.4 ),
+"transitions": PoolRealArray( 1.7411, 1.7411, 1, 1.7411 ),
+"update": 0,
+"values": [ Color( 0.996078, 1, 0.992157, 1 ), Color( 0.996078, 1, 0.992157, 1 ), Color( 1, 0.0627451, 0.0627451, 1 ), Color( 0.996078, 1, 0.992157, 1 ) ]
+}
 
 [node name="UILifeBar" type="TextureProgress"]
 anchor_left = 1.0
@@ -22,3 +73,9 @@ __meta__ = {
 }
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "_init"
+anims/_init = SubResource( 3 )
+anims/damage = SubResource( 1 )
+anims/danger = SubResource( 2 )
