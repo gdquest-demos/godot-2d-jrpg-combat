@@ -2,13 +2,14 @@
 
 [ext_resource path="res://CombatSystem/Battler/Actions/Attacks/Punch.tres" type="Resource" id=1]
 [ext_resource path="res://CombatSystem/Battler/Actions/Attacks/SuperPunch.tres" type="Resource" id=2]
-[ext_resource path="res://CombatSystem/Battler/bear_stats.tres" type="Resource" id=3]
+[ext_resource path="res://CombatSystem/Battler/Stats/bear_stats.tres" type="Resource" id=3]
 [ext_resource path="res://CombatSystem/Battler/Battler.gd" type="Script" id=4]
 [ext_resource path="res://CombatSystem/Battler/Animation/bear.png" type="Texture" id=5]
 [ext_resource path="res://CombatSystem/Battler/Actions/Attacks/SlowingPunch.tres" type="Resource" id=6]
 [ext_resource path="res://CombatSystem/Battler/BattlerUIData.gd" type="Script" id=7]
 [ext_resource path="res://CombatSystem/Battler/Animation/BattlerAnim.tscn" type="PackedScene" id=8]
 [ext_resource path="res://CombatSystem/Battler/Actions/StatusEffects/StatusEffectContainer.gd" type="Script" id=9]
+
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 7 )

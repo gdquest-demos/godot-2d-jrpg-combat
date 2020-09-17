@@ -52,7 +52,7 @@ _global_script_classes=[ {
 "base": "Resource",
 "class": "BattlerStats",
 "language": "GDScript",
-"path": "res://CombatSystem/Battler/BattlerStats.gd"
+"path": "res://CombatSystem/Battler/Stats/BattlerStats.gd"
 }, {
 "base": "Resource",
 "class": "BattlerUIData",
@@ -127,17 +127,17 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "UIDamageLabel",
 "language": "GDScript",
-"path": "res://CombatSystem/UserInterface/UIDamageLabel.gd"
+"path": "res://CombatSystem/UserInterface/UIDamageLabel/UIDamageLabel.gd"
 }, {
 "base": "Node2D",
 "class": "UIDamageLabelBuilder",
 "language": "GDScript",
-"path": "res://CombatSystem/UserInterface/UIDamageLabelBuilder.gd"
+"path": "res://CombatSystem/UserInterface/UIDamageLabel/UIDamageLabelBuilder.gd"
 }, {
-"base": "Node2D",
+"base": "Reference",
 "class": "UISelectBattlerArrow",
 "language": "GDScript",
-"path": "res://CombatSystem/UserInterface/UISelectBattlerArrow.gd"
+"path": "res://CombatSystem/UserInterface/UIActionMenu/UISelectBattlerArrow.gd"
 } ]
 _global_script_class_icons={
 "Action": "",

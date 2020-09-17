@@ -2,16 +2,18 @@
 
 [ext_resource path="res://CombatSystem/Background/grasslands.png" type="Texture" id=1]
 [ext_resource path="res://CombatSystem/UserInterface/UILayer.gd" type="Script" id=2]
-[ext_resource path="res://CombatSystem/UserInterface/UIDamageLabelBuilder.tscn" type="PackedScene" id=3]
-[ext_resource path="res://CombatSystem/UserInterface/UISelectBattlerArrow.tscn" type="PackedScene" id=4]
+[ext_resource path="res://CombatSystem/UserInterface/UIDamageLabel/UIDamageLabelBuilder.tscn" type="PackedScene" id=3]
+[ext_resource path="res://CombatSystem/UserInterface/UIActionMenu/UISelectBattlerArrow.tscn" type="PackedScene" id=4]
 [ext_resource path="res://CombatSystem/ActiveTurnQueue.gd" type="Script" id=5]
 [ext_resource path="res://CombatSystem/Battler/Characters/BugCat.tscn" type="PackedScene" id=6]
-[ext_resource path="res://CombatSystem/Battler/bug_cat_level_2.tres" type="Resource" id=7]
+[ext_resource path="res://CombatSystem/Battler/Stats/bug_cat_level_2.tres" type="Resource" id=7]
 [ext_resource path="res://CombatSystem/Battler/Characters/Bear.tscn" type="PackedScene" id=9]
 [ext_resource path="res://CombatDemo.gd" type="Script" id=11]
 [ext_resource path="res://CombatSystem/UserInterface/UITurnBar/UITurnBar.tscn" type="PackedScene" id=12]
 [ext_resource path="res://CombatSystem/UserInterface/UIBattlerHUD/UIBattlerHUDList.tscn" type="PackedScene" id=14]
 [ext_resource path="res://CombatSystem/UserInterface/UIActionMenu/UIActionMenu.tscn" type="PackedScene" id=16]
+
+
 
 [node name="CombatDemo" type="Node2D"]
 script = ExtResource( 11 )

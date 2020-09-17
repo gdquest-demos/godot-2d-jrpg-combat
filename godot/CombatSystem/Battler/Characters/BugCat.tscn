@@ -3,12 +3,13 @@
 [ext_resource path="res://CombatSystem/Battler/Actions/Attacks/Claw.tres" type="Resource" id=1]
 [ext_resource path="res://CombatSystem/Battler/Actions/Attacks/BugClaw.tres" type="Resource" id=2]
 [ext_resource path="res://CombatSystem/Battler/Battler.gd" type="Script" id=3]
-[ext_resource path="res://CombatSystem/Battler/bug_cat_level_1.tres" type="Resource" id=4]
+[ext_resource path="res://CombatSystem/Battler/Stats/bug_cat_level_1.tres" type="Resource" id=4]
 [ext_resource path="res://CombatSystem/Battler/Animation/bugcat.png" type="Texture" id=5]
 [ext_resource path="res://CombatSystem/Battler/AI/AggressiveBattlerAI.tscn" type="PackedScene" id=6]
 [ext_resource path="res://CombatSystem/Battler/BattlerUIData.gd" type="Script" id=7]
 [ext_resource path="res://CombatSystem/Battler/Animation/BattlerAnim.tscn" type="PackedScene" id=8]
 [ext_resource path="res://CombatSystem/Battler/Actions/StatusEffects/StatusEffectContainer.gd" type="Script" id=9]
+
 
 
 [sub_resource type="Resource" id=1]

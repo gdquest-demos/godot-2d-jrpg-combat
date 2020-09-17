@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://CombatSystem/UserInterface/theme/fonts/text_extralarge.tres" type="DynamicFont" id=1]
-[ext_resource path="res://CombatSystem/UserInterface/UIDamageLabel.gd" type="Script" id=2]
+[ext_resource path="res://CombatSystem/UserInterface/UIDamageLabel/UIDamageLabel.gd" type="Script" id=1]
+[ext_resource path="res://CombatSystem/UserInterface/theme/fonts/text_extralarge.tres" type="DynamicFont" id=2]
 
 [node name="UIDamageLabel" type="Position2D"]
-script = ExtResource( 2 )
+script = ExtResource( 1 )
 color_damage = Color( 0.890196, 0.227451, 0.443137, 1 )
 color_heal = Color( 0.219608, 0.807843, 0.517647, 1 )
 color_armor = Color( 0.964706, 0.843137, 0.282353, 1 )
@@ -20,7 +20,7 @@ margin_top = -27.0
 margin_right = 65.0
 margin_bottom = 53.0
 rect_pivot_offset = Vector2( 52.5, 28 )
-custom_fonts/font = ExtResource( 1 )
+custom_fonts/font = ExtResource( 2 )
 text = "999"
 align = 1
 valign = 1
