@@ -129,12 +129,12 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://CombatSystem/UserInterface/UIDamageLabel/UIDamageLabel.gd"
 }, {
-"base": "Node2D",
+"base": "Reference",
 "class": "UIDamageLabelBuilder",
 "language": "GDScript",
 "path": "res://CombatSystem/UserInterface/UIDamageLabel/UIDamageLabelBuilder.gd"
 }, {
-"base": "Reference",
+"base": "Node2D",
 "class": "UISelectBattlerArrow",
 "language": "GDScript",
 "path": "res://CombatSystem/UserInterface/UIActionMenu/UISelectBattlerArrow.gd"
