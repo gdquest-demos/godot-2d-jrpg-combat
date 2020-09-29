@@ -50,9 +50,6 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	_set_readiness(_readiness + stats.speed * delta * time_scale)
-	if _readiness >= 100.0:
-		emit_signal("ready_to_act")
-		set_process(false)
 
 
 # Allows the AI brain to get a reference to all battlers on the field.
@@ -148,6 +145,9 @@ func _apply_status_effect(effect) -> void:
 func _set_readiness(value: float) -> void:
 	_readiness = value
 	emit_signal("readiness_changed", _readiness)
+	if _readiness >= 100.0:
+		emit_signal("ready_to_act")
+		set_process(false)
 
 
 func _on_BattlerAnim_animation_finished(anim_name) -> void:
