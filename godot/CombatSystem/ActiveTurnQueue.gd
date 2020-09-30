@@ -1,3 +1,5 @@
+# Queues and delegates turns for all battlers.
+class_name ActiveTurnQueue
 extends Node
 
 signal player_turn_finished
@@ -27,7 +29,7 @@ func _ready() -> void:
 	for battler in battlers:
 		battler.setup(battlers)
 		battler.connect("ready_to_act", self, "_on_Battler_ready_to_act", [battler])
-		if battler.is_player_controlled():
+		if battler.is_party_member:
 			_party_members.append(battler)
 		else:
 			_opponents.append(battler)

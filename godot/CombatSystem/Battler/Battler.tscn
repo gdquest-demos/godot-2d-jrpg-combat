@@ -6,8 +6,6 @@
 [ext_resource path="res://CombatSystem/Battler/Stats/bug_cat_level_1.tres" type="Resource" id=4]
 [ext_resource path="res://CombatSystem/Battler/Actions/StatusEffects/StatusEffectContainer.gd" type="Script" id=5]
 
-
-
 [sub_resource type="Resource" id=1]
 script = ExtResource( 3 )
 
@@ -17,7 +15,6 @@ stats = ExtResource( 4 )
 actions = [ SubResource( 1 ) ]
 
 [node name="BattlerAnim" parent="." instance=ExtResource( 2 )]
-direction = 1
 
 [node name="StatusEffectContainer" type="Node" parent="."]
 script = ExtResource( 5 )
