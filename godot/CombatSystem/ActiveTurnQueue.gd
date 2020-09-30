@@ -50,12 +50,12 @@ func set_time_scale(value: float) -> void:
 func _play_turn(battler: Battler) -> void:
 	battler.stats.energy += 1
 
-	battler.is_selected = true
 	var action_data: ActionData
 	var targets := []
 
 	var potential_targets := []
-	for opponent in _opponents:
+	var opponents := _opponents if battler.is_party_member else _party_members
+	for opponent in opponents:
 		if opponent.is_selectable:
 			potential_targets.append(opponent)
 
@@ -85,6 +85,8 @@ func _play_turn(battler: Battler) -> void:
 	var action = AttackAction.new(action_data, battler, targets)
 	battler.act(action)
 	yield(battler, "action_finished")
+
+
 	if battler.is_player_controlled():
 		emit_signal("player_turn_finished")
 
