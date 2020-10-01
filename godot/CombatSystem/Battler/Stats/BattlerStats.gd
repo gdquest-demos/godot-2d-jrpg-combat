@@ -31,8 +31,8 @@ var speed := base_speed
 var hit_chance := base_hit_chance
 var evasion := base_evasion
 
-# Modifiers has a list of modifiers for each property in `UPGRADABLE_STATS`. Each modifier is a dict that
-# requires a key named `value`. The value of a modifier can be any float.
+# Modifiers has a list of modifiers for each property in `UPGRADABLE_STATS`.
+# The value of a modifier can be any float.
 var _modifiers := {}
 
 
@@ -50,7 +50,7 @@ func reinitialize() -> void:
 func add_modifier(stat_name: String, value: float) -> int:
 	assert(stat_name in UPGRADABLE_STATS, "Trying to add a modifier to a nonexistent stat.")
 	var id := _generate_unique_id(stat_name)
-	_modifiers[stat_name][id] = {value = value}
+	_modifiers[stat_name][id] = value
 	_recalculate_and_update(stat_name)
 	return id
 
@@ -105,7 +105,7 @@ func _recalculate_and_update(stat: String) -> void:
 	var value: float = get("base_" + stat)
 	var modifiers: Array = _modifiers[stat].values()
 	for modifier in modifiers:
-		value += modifier["value"]
+		value += modifier
 	value = max(value, 0.0)
 	set(stat, value)
 

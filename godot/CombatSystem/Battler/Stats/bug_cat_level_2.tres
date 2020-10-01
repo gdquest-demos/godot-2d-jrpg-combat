@@ -2,7 +2,6 @@
 
 [ext_resource path="res://CombatSystem/Battler/Stats/BattlerStats.gd" type="Script" id=1]
 
-
 [resource]
 script = ExtResource( 1 )
 max_health = 22.0
