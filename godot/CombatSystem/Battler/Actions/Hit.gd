@@ -8,7 +8,7 @@ var effect: StatusEffect
 var hit_chance: float
 
 
-func _init(_damage: int, _effect: StatusEffect = null, _hit_chance := 100.0) -> void:
+func _init(_damage: int, _hit_chance := 100.0, _effect: StatusEffect = null) -> void:
 	damage = _damage
 	effect = _effect
 	hit_chance = _hit_chance

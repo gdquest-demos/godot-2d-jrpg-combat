@@ -5,7 +5,7 @@ extends Action
 var _hits := []
 
 
-func _init(data: ActionData, actor, targets: Array).(data, actor, targets) -> void:
+func _init(data: AttackActionData, actor, targets: Array).(data, actor, targets) -> void:
 	pass
 
 
@@ -18,7 +18,7 @@ func _apply_async() -> bool:
 		)
 		var hit_chance := Formulas.calculate_hit_chance(_data, _actor, target)
 		var damage := calculate_hit_damage(target)
-		var hit := Hit.new(damage, status, hit_chance)
+		var hit := Hit.new(damage, hit_chance, status)
 		anim.connect("triggered", self, "_on_BattlerAnim_triggered", [target, hit])
 		anim.play("attack")
 		yield(_actor, "animation_finished")
