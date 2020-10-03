@@ -12,4 +12,3 @@ is_targeting_all = false
 readiness_saved = 30.0
 damage_multiplier = 0.7
 hit_chance = 100.0
-hits = [  ]

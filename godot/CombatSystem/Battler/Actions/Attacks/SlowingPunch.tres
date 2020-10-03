@@ -13,5 +13,4 @@ is_targeting_all = false
 readiness_saved = 0.0
 damage_multiplier = 0.7
 hit_chance = 100.0
-hits = [  ]
 status_effect = ExtResource( 2 )
