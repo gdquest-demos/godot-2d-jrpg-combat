@@ -159,7 +159,7 @@ func _get_available_actions() -> Array:
 func _get_attack_actions_from(available_actions: Array) -> Array:
 	var attack_actions := []
 	for action in available_actions:
-		if not action is AttackAction:
+		if action is AttackAction:
 			attack_actions.append(action)
 	return attack_actions
 
