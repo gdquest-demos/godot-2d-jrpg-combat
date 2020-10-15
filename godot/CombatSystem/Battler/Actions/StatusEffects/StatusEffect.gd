@@ -11,7 +11,6 @@ var time_scale := 1.0
 var duration_seconds := 0.0 setget set_duration_seconds
 var is_ticking := false
 var ticking_interval := 1.0
-var max_stacks := 5
 var is_active := true setget set_is_active
 
 var id := "base_effect"
