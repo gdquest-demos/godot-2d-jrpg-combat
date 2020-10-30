@@ -130,12 +130,12 @@ func _get_health_status(battler: Battler) -> int:
 
 func _is_health_below(battler: Battler, rate: float) -> bool:
 	rate = clamp(rate, 0.0, 1.0)
-	return battler.stats.health < battler.stats.health * rate
+	return battler.stats.health < battler.stats.max_health * rate
 
 
 func _is_health_above(battler: Battler, rate: float) -> bool:
 	rate = clamp(rate, 0.0, 1.0)
-	return battler.stats.health > battler.stats.health * rate
+	return battler.stats.health > battler.stats.max_health * rate
 
 
 # Initializes the `_weaknesses_dict`
