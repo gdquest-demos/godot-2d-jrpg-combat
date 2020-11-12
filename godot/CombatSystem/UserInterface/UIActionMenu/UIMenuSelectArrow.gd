@@ -3,7 +3,6 @@
 extends Position2D
 
 onready var tween: Tween = $Tween
-onready var anim_player: AnimationPlayer = $Sprite/AnimationPlayer
 
 
 func _init() -> void:
