@@ -24,7 +24,7 @@ resource_name = "wiggle"
 length = 0.6
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath("Sprite:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -43,8 +43,9 @@ script = ExtResource( 2 )
 texture = ExtResource( 1 )
 offset = Vector2( -67, 0 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
+[node name="Tween" type="Tween" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "wiggle"
 anims/SETUP = SubResource( 1 )
 anims/wiggle = SubResource( 2 )
-
-[node name="Tween" type="Tween" parent="."]
