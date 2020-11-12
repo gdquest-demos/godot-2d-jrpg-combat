@@ -5,7 +5,7 @@ extends Control
 
 signal action_selected
 
-onready var list := $UIActionsList
+const UIActionList := preload("UIActionList.tscn")
 
 
 func _ready() -> void:
@@ -13,6 +13,9 @@ func _ready() -> void:
 
 
 func open(battler: Battler) -> void:
+	var list = UIActionList.instance()
+	add_child(list)
+	list.connect("action_selected", self, "_on_UIActionsList_action_selected")
 	list.setup(battler)
 	show()
 	list.focus()

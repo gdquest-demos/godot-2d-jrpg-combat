@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://CombatSystem/UserInterface/UIActionMenu/UIActionMenu.gd" type="Script" id=1]
-[ext_resource path="res://CombatSystem/UserInterface/UIActionMenu/UIActionList.tscn" type="PackedScene" id=3]
 
 [node name="UIActionMenu" type="Control"]
 margin_left = 968.0
@@ -12,6 +11,3 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="UIActionsList" parent="." instance=ExtResource( 3 )]
-[connection signal="action_selected" from="UIActionsList" to="." method="_on_UIActionsList_action_selected"]
