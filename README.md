@@ -1,5 +1,7 @@
 # Godot 2D JRPG Combat System
 
+![JRGP banner image](./images/2d-jrpg-banner.png)
+
 This demo is an Active Time Battle system for Godot designed for the course [Godot 2D Secrets](https://gdquest.mavenseed.com/courses/godot-2d-secrets).
 
 ➡ Follow us on [Twitter](https://twitter.com/NathanGDQuest) and [YouTube](https://www.youtube.com/c/gdquest/) for free game creation tutorials, tips, and news!
