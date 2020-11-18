@@ -8,7 +8,7 @@ const UIActionButton: PackedScene = preload("UIActionButton.tscn")
 var is_disabled = false setget set_is_disabled
 var buttons := []
 
-onready var select_arrow := $UIMenuSelectArrow
+onready var _select_arrow := $UIMenuSelectArrow
 
 
 func setup(battler: Battler) -> void:
@@ -23,7 +23,7 @@ func setup(battler: Battler) -> void:
 		)
 		buttons.append(action_button)
 
-	select_arrow.position = (
+	_select_arrow.position = (
 		buttons[0].rect_global_position
 		+ Vector2(0.0, buttons[0].rect_size.y / 2.0)
 	)
@@ -46,5 +46,5 @@ func _on_UIActionButton_button_pressed(action: ActionData) -> void:
 
 
 func _on_UIActionButton_focus_entered(button: TextureButton, battler_display_name: String, energy_cost: int) -> void:
-	select_arrow.move_to(button.rect_global_position + Vector2(0.0, button.rect_size.y / 2.0))
+	_select_arrow.move_to(button.rect_global_position + Vector2(0.0, button.rect_size.y / 2.0))
 	Events.emit_signal("combat_action_hovered", battler_display_name, energy_cost)

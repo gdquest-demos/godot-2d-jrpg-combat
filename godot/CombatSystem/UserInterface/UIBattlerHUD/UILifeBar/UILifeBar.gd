@@ -8,17 +8,17 @@ export var fill_rate := 1.0
 # When this value changes, the bar smoothly animates towards that value using a tween.
 var target_value := 0.0 setget set_target_value
 
-onready var tween: Tween = $Tween
-onready var anim_player: AnimationPlayer = $AnimationPlayer
+onready var _tween: Tween = $Tween
+onready var _anim_player: AnimationPlayer = $AnimationPlayer
 
 
 func set_target_value(amount: float) -> void:
 	if target_value > amount:
-		anim_player.play("damage")
+		_anim_player.play("damage")
 
 	target_value = amount
-	if tween.is_active():
-		tween.stop_all()
+	if _tween.is_active():
+		_tween.stop_all()
 	var duration := abs(target_value - value) / max_value * fill_rate
-	tween.interpolate_property(self, "value", value, target_value, duration, Tween.TRANS_QUAD)
-	tween.start()
+	_tween.interpolate_property(self, "value", value, target_value, duration, Tween.TRANS_QUAD)
+	_tween.start()

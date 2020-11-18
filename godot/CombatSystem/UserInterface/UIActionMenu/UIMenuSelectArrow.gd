@@ -2,7 +2,7 @@
 # While it uses the same sprite as [SelectBattlerArrow], it only works with lists of actions.
 extends Position2D
 
-onready var tween: Tween = $Tween
+onready var _tween: Tween = $Tween
 
 
 func _init() -> void:
@@ -10,9 +10,9 @@ func _init() -> void:
 
 
 func move_to(target: Vector2) -> void:
-	if tween.is_active():
-		tween.stop(self, "position")
-	tween.interpolate_property(
+	if _tween.is_active():
+		_tween.stop(self, "position")
+	_tween.interpolate_property(
 		self, "position", position, target, 0.1, Tween.TRANS_CUBIC, Tween.EASE_OUT
 	)
-	tween.start()
+	_tween.start()

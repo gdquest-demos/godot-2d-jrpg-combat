@@ -2,10 +2,10 @@
 class_name UIBattlerHUD
 extends TextureRect
 
-onready var life_bar: TextureProgress = $UILifeBar
-onready var energy_bar := $UIEnergyBar
-onready var label := $Label
-onready var anim_player: AnimationPlayer = $AnimationPlayer
+onready var _life_bar: TextureProgress = $UILifeBar
+onready var _energy_bar := $UIEnergyBar
+onready var _label := $Label
+onready var _anim_player: AnimationPlayer = $AnimationPlayer
 
 
 func _ready() -> void:
@@ -17,36 +17,36 @@ func _ready() -> void:
 func setup(battler: Battler) -> void:
 	battler.connect("selection_toggled", self, "_on_Battler_selection_toggled")
 
-	label.text = battler.ui_data.display_name
+	_label.text = battler.ui_data.display_name
 
 	var stats: BattlerStats = battler.stats
-	life_bar.max_value = stats.max_health
-	life_bar.value = stats.health
-	energy_bar.setup(stats.max_energy, stats.energy)
+	_life_bar.max_value = stats.max_health
+	_life_bar.value = stats.health
+	_energy_bar.setup(stats.max_energy, stats.energy)
 
 	stats.connect("health_changed", self, "_on_BattlerStats_health_changed")
 	stats.connect("energy_changed", self, "_on_BattlerStats_energy_changed")
 
 
 func _on_BattlerStats_health_changed(_old_value: float, new_value: float) -> void:
-	life_bar.target_value = new_value
+	_life_bar.target_value = new_value
 
 
 func _on_BattlerStats_energy_changed(_old_value: float, new_value: float) -> void:
-	energy_bar.value = new_value
+	_energy_bar.value = new_value
 
 
 func _on_Battler_selection_toggled(value: bool) -> void:
 	if value:
-		anim_player.play("select")
+		_anim_player.play("select")
 	else:
-		anim_player.play("deselect")
+		_anim_player.play("deselect")
 
 
 func _on_Events_combat_action_hovered(battler_name: String, energy_cost: int) -> void:
-	if label.text == battler_name:
-		energy_bar.selected_count = energy_cost
+	if _label.text == battler_name:
+		_energy_bar.selected_count = energy_cost
 
 
 func _on_Events_player_target_selection_done() -> void:
-	energy_bar.selected_count = 0
+	_energy_bar.selected_count = 0

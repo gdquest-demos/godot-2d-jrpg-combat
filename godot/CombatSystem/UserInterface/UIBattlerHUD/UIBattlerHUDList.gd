@@ -2,7 +2,7 @@ extends VBoxContainer
 
 const UIBattlerHUD: PackedScene = preload("UIBattlerHUD.tscn")
 
-onready var anim_player: AnimationPlayer = $AnimationPlayer
+onready var _anim_player: AnimationPlayer = $AnimationPlayer
 
 
 # Arguments:
@@ -15,8 +15,8 @@ func setup(battlers: Array) -> void:
 
 
 func fade_in() -> void:
-	anim_player.play("fade_in")
+	_anim_player.play("fade_in")
 
 
 func fade_out() -> void:
-	anim_player.play("fade_out")
+	_anim_player.play("fade_out")
