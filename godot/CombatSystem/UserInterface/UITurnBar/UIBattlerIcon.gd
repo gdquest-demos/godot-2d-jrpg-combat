@@ -13,7 +13,6 @@ const TYPES := {
 }
 
 export var icon: Texture setget set_icon
-
 export (Types) var type: int = Types.ENEMY setget set_type
 
 var position_range := Vector2.ZERO

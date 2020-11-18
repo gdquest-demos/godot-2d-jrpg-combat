@@ -1,16 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://CombatSystem/UserInterface/UITurnBar/portrait_bg_player.png" type="Texture" id=1]
 [ext_resource path="res://CombatSystem/UserInterface/UITurnBar/UIBattlerIcon.gd" type="Script" id=2]
 [ext_resource path="res://CombatSystem/Battler/Animation/bugcat.png" type="Texture" id=4]
-
-
-
-[sub_resource type="GDScript" id=1]
-script/source = "tool
-extends TextureRect
-
-"
 
 [node name="UIBattlerIcon" type="TextureRect"]
 anchor_top = 0.5
@@ -38,7 +30,6 @@ texture = ExtResource( 4 )
 expand = true
 stretch_mode = 6
 flip_h = true
-script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

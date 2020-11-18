@@ -4,8 +4,6 @@ extends Control
 
 const BattlerIcon := preload("UIBattlerIcon.tscn")
 
-var icons := []
-
 onready var background: TextureRect = $Background
 onready var anim_player: AnimationPlayer = $AnimationPlayer
 
