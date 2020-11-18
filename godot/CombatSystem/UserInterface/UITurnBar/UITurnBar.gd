@@ -16,13 +16,13 @@ func setup(battlers: Array) -> void:
 			else UIBattlerIcon.Types.ENEMY
 		)
 		var icon: UIBattlerIcon = create_icon(type, battler.ui_data.texture)
+		_background.add_child(icon)
 		battler.connect("readiness_changed", self, "_on_Battler_readiness_changed", [icon])
 
 
 # Creates a new instance of [UIBattlerIcon], initializes it, and adds it as a child of `_background`.
 func create_icon(type: int, texture: Texture) -> UIBattlerIcon:
 	var icon: UIBattlerIcon = BattlerIcon.instance()
-	_background.add_child(icon)
 	icon.icon = texture
 	icon.type = type
 	icon.position_range = Vector2(

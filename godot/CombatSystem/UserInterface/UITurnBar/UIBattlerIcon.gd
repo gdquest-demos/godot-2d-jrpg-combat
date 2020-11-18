@@ -20,8 +20,8 @@ var position_range := Vector2.ZERO
 onready var _icon_node := $Icon
 
 
-func snap(amount: float) -> void:
-	rect_position.x = lerp(position_range.x, position_range.y, amount)
+func snap(ratio: float) -> void:
+	rect_position.x = lerp(position_range.x, position_range.y, ratio)
 
 
 func set_icon(value: Texture) -> void:
