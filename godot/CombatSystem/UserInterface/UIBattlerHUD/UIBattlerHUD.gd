@@ -20,8 +20,7 @@ func setup(battler: Battler) -> void:
 	_label.text = battler.ui_data.display_name
 
 	var stats: BattlerStats = battler.stats
-	_life_bar.max_value = stats.max_health
-	_life_bar.value = stats.health
+	_life_bar.initialize(stats.health, stats.max_health)
 	_energy_bar.setup(stats.max_energy, stats.energy)
 
 	stats.connect("health_changed", self, "_on_BattlerStats_health_changed")

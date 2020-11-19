@@ -12,6 +12,13 @@ onready var _tween: Tween = $Tween
 onready var _anim_player: AnimationPlayer = $AnimationPlayer
 
 
+func initialize(health: float, max_health: float) -> void:
+	max_value = max_health
+	value = health
+	target_value = health
+	_tween.connect("tween_completed", self, "_on_Tween_tween_completed")
+
+
 func set_target_value(amount: float) -> void:
 	if target_value > amount:
 		_anim_player.play("damage")
@@ -22,3 +29,8 @@ func set_target_value(amount: float) -> void:
 	var duration := abs(target_value - value) / max_value * fill_rate
 	_tween.interpolate_property(self, "value", value, target_value, duration, Tween.TRANS_QUAD)
 	_tween.start()
+
+
+func _on_Tween_tween_completed(object: Object, key: NodePath) -> void:
+	if value < 0.2 * max_value:
+		_anim_player.play("danger")
