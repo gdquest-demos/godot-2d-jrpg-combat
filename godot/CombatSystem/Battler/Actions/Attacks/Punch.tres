@@ -1,9 +1,11 @@
-[gd_resource type="Resource" load_steps=2 format=2]
+[gd_resource type="Resource" load_steps=3 format=2]
 
 [ext_resource path="res://CombatSystem/Battler/Actions/Attacks/AttackActionData.gd" type="Script" id=1]
+[ext_resource path="res://CombatSystem/Battler/Actions/Attacks/icons/icon_punch.svg" type="Texture" id=2]
 
 [resource]
 script = ExtResource( 1 )
+icon = ExtResource( 2 )
 label = "Punch"
 energy_cost = 0
 element = 1
