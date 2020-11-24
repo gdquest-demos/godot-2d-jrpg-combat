@@ -12,7 +12,7 @@ onready var _tween: Tween = $Tween
 onready var _anim_player: AnimationPlayer = $AnimationPlayer
 
 
-func initialize(health: float, max_health: float) -> void:
+func setup(health: float, max_health: float) -> void:
 	max_value = max_health
 	value = health
 	target_value = health
