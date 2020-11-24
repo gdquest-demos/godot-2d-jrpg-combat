@@ -4,5 +4,8 @@
 extends Node
 
 
-signal combat_action_hovered(energy_cost)
+# Emitted when hovering a UIActionButton. The UIBattlerHUD uses this to display a preview of an
+# action's energy cost.
+signal combat_action_hovered(display_name, energy_cost)
+# Emitted during a player's turn, when they chose an action and validated their target.
 signal player_target_selection_done
