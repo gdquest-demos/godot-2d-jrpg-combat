@@ -81,9 +81,16 @@ anims/take_damage = ExtResource( 4 )
 anims/take_damage = SubResource( 2 )
 
 [node name="FrontAnchor" type="Position2D" parent="."]
+position = Vector2( -207.956, -132.72 )
+__meta__ = {
+"_gizmo_extents_": 40.0
+}
 
 [node name="TopAnchor" type="Position2D" parent="."]
 position = Vector2( 0, -287.788 )
+__meta__ = {
+"_gizmo_extents_": 40.0
+}
 
 [node name="Tween" type="Tween" parent="."]
 [connection signal="animation_finished" from="Pivot/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

@@ -49,7 +49,7 @@ func setup(battlers: Array) -> void:
 
 	_target_current = _targets[0]
 	scale.x = 1.0 if _target_current.is_party_member else -1.0
-	global_position = _target_current.get_front_anchor_global_position()
+	global_position = _target_current.battler_anim.get_front_anchor_global_position()
 
 
 func _move_to(target_position: Vector2):
@@ -92,4 +92,4 @@ func _find_closest_target(direction: Vector2) -> Battler:
 
 func _set_target_current(value: Battler) -> void:
 	_target_current = value
-	_move_to(_target_current.get_front_anchor_global_position())
+	_move_to(_target_current.battler_anim.get_front_anchor_global_position())

@@ -14,11 +14,11 @@ func setup(battlers: Array) -> void:
 
 func _on_Battler_damage_taken(amount: int, target: Battler) -> void:
 	var label: UIDamageLabel = damage_label_scene.instance()
-	label.setup(UIDamageLabel.Types.DAMAGE, target.get_top_anchor_global_position(), amount)
+	label.setup(UIDamageLabel.Types.DAMAGE, target.battler_anim.get_top_anchor_global_position(), amount)
 	add_child(label)
 
 
 func _on_Battler_hit_missed(target: Battler) -> void:
 	var label = miss_label_scene.instance()
 	add_child(label)
-	label.global_position = target.get_top_anchor_global_position()
+	label.global_position = target.battler_anim.get_top_anchor_global_position()

@@ -85,14 +85,6 @@ func take_hit(hit: Hit) -> void:
 		emit_signal("hit_missed")
 
 
-func get_front_anchor_global_position() -> Vector2:
-	return battler_anim.get_front_anchor_global_position()
-
-
-func get_top_anchor_global_position() -> Vector2:
-	return battler_anim.get_top_anchor_global_position()
-
-
 func get_ai() -> Node:
 	return _ai_instance
 
