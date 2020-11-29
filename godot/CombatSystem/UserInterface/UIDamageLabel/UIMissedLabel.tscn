@@ -13,12 +13,12 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 0.378929, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -104, -43.727 ), Vector2( -104, -72.081 ) ]
+"values": [ Vector2( -104, -39 ), Vector2( -104, -68 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath(".:modulate")
+tracks/1/path = NodePath("Label:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -45,17 +45,17 @@ tracks/2/keys = {
 }
 
 [node name="UIMissedLabel" type="Position2D"]
-modulate = Color( 1, 1, 1, 0 )
 
 [node name="Label" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -104.0
-margin_top = -72.081
-margin_right = 103.0
-margin_bottom = 7.919
+margin_left = -103.945
+margin_top = -127.28
+margin_right = 103.055
+margin_bottom = -47.2796
 rect_pivot_offset = Vector2( 103.5, 40 )
 custom_fonts/font = ExtResource( 1 )
 text = "miss"
