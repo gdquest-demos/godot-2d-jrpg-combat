@@ -16,7 +16,7 @@ func _ready() -> void:
 	var battlers: Array = active_turn_queue.battlers
 	var in_party := []
 	for battler in battlers:
-		battler.connect("health_depleted", self, "_on_Battler_health_depleted", [battler])
+		battler.stats.connect("health_depleted", self, "_on_BattlerStats_health_depleted", [battler])
 		if battler.is_party_member:
 			in_party.append(battler)
 
@@ -54,7 +54,7 @@ func are_all_fallen(battlers: Array) -> bool:
 	return fallen_count == battlers.size()
 
 
-func _on_Battler_health_depleted(actor) -> void:
+func _on_BattlerStats_health_depleted(actor) -> void:
 	var team := get_ally_battlers_of(actor)
 	if are_all_fallen(team):
 		end_combat(CombatResult.DEFEAT if actor.is_party_member else CombatResult.VICTORY)

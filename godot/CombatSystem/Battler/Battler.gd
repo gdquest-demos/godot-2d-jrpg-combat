@@ -11,7 +11,6 @@ signal animation_finished(anim_name)
 # position.
 signal action_finished
 signal readiness_changed(new_value)
-signal health_depleted
 signal selection_toggled(value)
 signal damage_taken(amount)
 signal hit_missed
@@ -45,7 +44,7 @@ func _ready() -> void:
 	assert(stats is BattlerStats)
 	stats = stats.duplicate()
 	stats.reinitialize()
-	stats.connect("health_depleted", self, "_on_Stats_health_depleted")
+	stats.connect("health_depleted", self, "_on_BattlerStats_health_depleted")
 
 
 func _process(delta: float) -> void:
@@ -146,9 +145,8 @@ func _on_BattlerAnim_animation_finished(anim_name) -> void:
 	emit_signal("animation_finished", anim_name)
 
 
-func _on_Stats_health_depleted() -> void:
-	emit_signal("health_depleted")
+func _on_BattlerStats_health_depleted() -> void:
+	set_is_active(false)
 	if not is_party_member:
 		set_is_selectable(false)
-		set_is_active(false)
 		battler_anim.queue_animation("die")
