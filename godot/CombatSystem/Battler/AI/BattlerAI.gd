@@ -95,7 +95,7 @@ func _get_battler_with_lowest_health(battlers: Array) -> Battler:
 
 
 func _is_weak_to(battler: Battler, action: ActionData) -> bool:
-	return true if action.element in battler.stats.weaknesses else false
+	return action.element in battler.stats.weaknesses
 
 
 func _count_fallen_party() -> int:

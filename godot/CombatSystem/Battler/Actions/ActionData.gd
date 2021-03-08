@@ -18,4 +18,4 @@ export var readiness_saved := 0.0
 
 # Returns `true` if the `battler` has enough energy to use the action.
 func can_be_used_by(battler) -> bool:
-	return true if energy_cost <= battler.stats.energy else false
+	return energy_cost <= battler.stats.energy
