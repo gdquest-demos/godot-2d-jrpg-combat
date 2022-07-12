@@ -10,7 +10,7 @@ func _init(data: AttackActionData, actor, targets: Array).(data, actor, targets)
 
 
 # Plays the acting battler's attack animation once for each target. Damages each target when the actor's animation emits the `triggered` signal.
-func _apply_async() -> bool:
+func apply_async() -> bool:
 	var anim = _actor.battler_anim
 	for target in _targets:
 		var status: StatusEffect = StatusEffectBuilder.create_status_effect(

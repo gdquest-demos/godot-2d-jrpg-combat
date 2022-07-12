@@ -21,15 +21,11 @@ func _init(data: ActionData, actor, targets: Array) -> void:
 	_targets = targets
 
 
-# Applies the action on `_targets` using `_actor`'s stats.
-func apply_async() -> bool:
-	return _apply_async()
-
-
 # Executes the action initiated by the `actor` battler on the `targets`.
 # The function must be a coroutine or the game will freeze.
 # Returns `true` if the action succeeded.
-func _apply_async() -> bool:
+func apply_async() -> bool:
+	yield(Engine.get_main_loop(), "idle_frame")
 	emit_signal("finished")
 	return true
 
